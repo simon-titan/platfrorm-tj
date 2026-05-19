@@ -2,7 +2,6 @@
 
 import dynamic from "next/dynamic";
 import type {
-  AnalysisPostRow,
   ArsenalAttachmentListItem,
   ArsenalCardRow,
   LiveSessionCategoryRow,
@@ -11,11 +10,6 @@ import type {
 } from "@/lib/server-data";
 import type { ArsenalBrowserAccent } from "@/components/platform/ArsenalAttachmentsBrowser";
 import type { ArsenalCardsAccent } from "@/components/platform/ArsenalCardsSection";
-
-const AnalysisFeed = dynamic(
-  () => import("@/components/platform/AnalysisFeed").then((m) => m.AnalysisFeed),
-  { ssr: false },
-);
 
 const LiveSessionGrid = dynamic(
   () => import("@/components/platform/LiveSessionGrid").then((m) => m.LiveSessionGrid),
@@ -41,10 +35,6 @@ const CodexReferenceView = dynamic(
   () => import("@/components/platform/CodexReferenceView").then((m) => m.CodexReferenceView),
   { ssr: false },
 );
-
-export function PageAnalysisFeed({ posts }: { posts: AnalysisPostRow[] }) {
-  return <AnalysisFeed posts={posts} />;
-}
 
 export function PageLiveSessionGrid({
   categories,

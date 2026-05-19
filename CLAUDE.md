@@ -110,18 +110,13 @@ Details: `docs/DATABASE.md`
 
 ---
 
-## ⚠️ Trading-spezifische Features
+## Trading-Features
 
-Diese Features existieren noch im Code, aber sind bei Rebranding zu entfernen:
+Alle trading-spezifischen Features wurden entfernt (Branch `remove-trading-features`):
+- Trading Journal, Positionsrechner, Analyse-Posts, TradingView-Widget
+- DB-Migration: `supabase/migrations/055_remove_trading_features.sql`
 
-| Feature | Route | DB-Tabelle |
-|---|---|---|
-| Trading Journal | `(platform)/trading-journal/` | `trading_journals`, `trading_journal_trades` |
-| Positionsrechner | `(platform)/position-calculator/` | — |
-| Analyse-Posts | `(platform)/analysis/` + `/admin/analysis/` | `analysis_posts` |
-| TradingView Widget | `components/platform/TradingViewMarketSummary.tsx` | — |
-
-**Entfernungs-Anleitung:** `docs/REBRANDING-GUIDE.md` → Phase 3
+Die Plattform ist bereinigt und einsatzbereit als nischen-agnostischer Blueprint.
 
 ---
 

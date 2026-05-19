@@ -55,13 +55,7 @@ const navItems: Array<{
   { href: "/stream", label: "Live", icon: Radio },
 ];
 
-const tradingJournalSubLinks = [
-  { href: "/trading-journal", label: "Journal" },
-  { href: "/trading-journal/position-calculator", label: "Positionsrechner" },
-] as const;
-
 const arsenalSubLinks = [
-  { href: "/analysis", label: "Analyse" },
   { href: "/live-session", label: "Live Session" },
   { href: "/hausaufgabe", label: "Hausaufgabe & Checkliste" },
   { href: "/arsenal/tools", label: "Tools & Software" },
@@ -78,7 +72,6 @@ const freeMobileNavItems: Array<{
   { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { href: "/news", label: "Capital Circle News", icon: MessageCircle },
   { href: "/ausbildung", label: "Institut", icon: GraduationCap },
-  { href: "/trading-journal", label: "Journal", icon: BookMarked },
   { href: "/events", label: "Live Events", icon: Calendar },
   { href: "/live-session", label: "Live Session", icon: Radio },
 ];
@@ -200,11 +193,8 @@ export function TopBar() {
     ? navItems.filter((item) => item.href !== "/stream")
     : navItems;
 
-  const tradingJournalActive = !!pathname && pathname.startsWith("/trading-journal");
-
   const arsenalActive = !!pathname &&
     (pathname.startsWith("/arsenal") ||
-      pathname.startsWith("/analysis") ||
       pathname.startsWith("/live-session") ||
       pathname.startsWith("/hausaufgabe"));
 
@@ -392,39 +382,6 @@ export function TopBar() {
                 </Button>
               );
             })}
-        <Text fontSize="xs" color="var(--color-text-tertiary)" className="inter-semibold" pt={1}>
-          Trading Journal
-        </Text>
-        {tradingJournalSubLinks.map((sub) => {
-          const posActive = Boolean(pathname?.startsWith("/trading-journal/position-calculator"));
-          const journalOnlyActive = pathname === "/trading-journal";
-          const subActive =
-            sub.href === "/trading-journal/position-calculator" ? posActive : journalOnlyActive;
-          return (
-            <Button
-              key={sub.href}
-              as={Link}
-              href={sub.href}
-              onClick={onNavigate}
-              size="sm"
-              variant={subActive ? "solid" : "ghost"}
-              justifyContent="flex-start"
-              pl={6}
-              rightIcon={lockIcon}
-              bg={subActive ? "rgba(212, 175, 55, 0.28)" : "transparent"}
-              color="var(--color-text-primary)"
-              borderWidth="1px"
-              borderColor={subActive ? "rgba(212, 175, 55, 0.45)" : "transparent"}
-              _hover={{
-                bg: subActive ? "rgba(212, 175, 55, 0.38)" : "rgba(255, 255, 255, 0.06)",
-              }}
-              borderRadius="md"
-              className="inter-medium"
-            >
-              {sub.label}
-            </Button>
-          );
-        })}
         {visibleNavItems.slice(3).map((item) => {
           const active = isNavActive(pathname, item.href);
           const Icon = item.icon;
@@ -741,44 +698,6 @@ export function TopBar() {
                 </Button>
               );
             })}
-            <Menu placement="bottom" isLazy>
-              <MenuButton
-                as={Button}
-                size="sm"
-                variant={tradingJournalActive ? "solid" : "ghost"}
-                leftIcon={<BookMarked size={18} strokeWidth={2} />}
-                rightIcon={isPending ? <HStack spacing={1}><Lock size={14} strokeWidth={2} color="rgba(255,255,255,0.35)" /><ChevronDown size={14} /></HStack> : <ChevronDown size={14} />}
-                {...(tradingJournalActive ? navButtonSx : navGhostSx)}
-                color="var(--color-text-primary)"
-                borderWidth="1px"
-                borderRadius="md"
-                className="inter-medium"
-                px={3}
-              >
-                Trading Journal
-              </MenuButton>
-              <MenuList
-                bg="rgba(12, 13, 16, 0.98)"
-                borderColor="rgba(212, 175, 55, 0.35)"
-                boxShadow="0 8px 32px rgba(0,0,0,0.5)"
-                py={1}
-                minW="220px"
-              >
-                {tradingJournalSubLinks.map((sub) => (
-                  <MenuItem
-                    key={sub.href}
-                    as={Link}
-                    href={sub.href}
-                    bg="transparent"
-                    color="var(--color-text-primary)"
-                    _hover={{ bg: "rgba(212, 175, 55, 0.12)" }}
-                    className="inter-medium"
-                  >
-                    {sub.label}
-                  </MenuItem>
-                ))}
-              </MenuList>
-            </Menu>
             {visibleNavItems.slice(3).map((item) => {
               const active = isNavActive(pathname, item.href);
               const Icon = item.icon;
