@@ -99,11 +99,6 @@ export function userCanAccessAcademyModule(memberIsPaid: boolean, courseIsFree: 
   return courseIsFree === true || memberIsPaid;
 }
 
-/** Trading Journal & Positionsrechner: für alle eingeloggten Mitglieder verfügbar. */
-export function userCanAccessTradingJournal(_isPaid: boolean): boolean {
-  return true;
-}
-
 export function parseVideoProgressByVideo(raw: unknown): Record<string, number> {
   if (!raw || typeof raw !== "object") return {};
   const out: Record<string, number> = {};
@@ -1161,42 +1156,6 @@ export async function getLiveSessionDetail(sessionId: string): Promise<LiveSessi
     event: ev ? { id: ev.id, title: ev.title, start_time: ev.start_time } : null,
     playlist,
   };
-}
-
-export type AnalysisPostRow = {
-  id: string;
-  title: string;
-  /** TipTap JSON (String) oder Legacy-Klartext */
-  content: string;
-  excerpt: string | null;
-  /** Legacy: großes Bild am Beitrag; bei neuen Artikeln oft Cover nutzen */
-  image_storage_key: string | null;
-  cover_image_storage_key: string | null;
-  post_type: string;
-  /** Inhaltliches Datum der Analyse (z. B. "Weekly vom 31. März") */
-  analysis_date: string | null;
-  published_at: string;
-  created_at: string;
-};
-
-export async function getAnalysisPosts(filter: "weekly" | "daily" | "all"): Promise<AnalysisPostRow[]> {
-  const supabase = await createClient();
-  let q = supabase
-    .from("analysis_posts")
-    .select("*")
-    .order("analysis_date", { ascending: false, nullsFirst: false })
-    .order("published_at", { ascending: false });
-  if (filter !== "all") {
-    q = q.eq("post_type", filter);
-  }
-  const { data } = await q;
-  return (data as AnalysisPostRow[] | null) ?? [];
-}
-
-export async function getAnalysisPostById(id: string): Promise<AnalysisPostRow | null> {
-  const supabase = await createClient();
-  const { data } = await supabase.from("analysis_posts").select("*").eq("id", id).maybeSingle();
-  return (data as AnalysisPostRow | null) ?? null;
 }
 
 // ============================================================

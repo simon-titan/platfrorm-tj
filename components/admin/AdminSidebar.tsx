@@ -21,8 +21,7 @@ const links = [
   { href: "/admin/arsenal", label: "Arsenal" },
   { href: "/admin/live-sessions", label: "Live Sessions" },
   { href: "/admin/stream", label: "Live Stream" },
-  { href: "/admin/analysis", label: "Analyse" },
-  { href: "/admin/news", label: "News" },
+{ href: "/admin/news", label: "News" },
   { href: "/admin/reviews", label: "Bewertungen" },
   { href: "/admin/tracking", label: "Tracking Links" },
 ];

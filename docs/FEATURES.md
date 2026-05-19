@@ -66,37 +66,13 @@ Nutzungsregeln/Verhaltenskodex (einmaliges Akzeptieren beim Onboarding).
 
 ---
 
-## ⚠️ Trading-spezifische Features (entfernen beim Rebranding)
+## ~~Trading-spezifische Features~~ (entfernt)
 
-### ⚠️ Trading Journal (`/trading-journal`)
-Persönliches Handels-Tagebuch mit Strategie-Tags, Emotions-Tracking, Screenshot-Upload.  
-**Route:** `app/(platform)/trading-journal/`  
-**DB-Tabellen:** `trading_journals`, `trading_journal_trades`
-
-### ⚠️ Positionsrechner (`/position-calculator`)
-Tool zur Berechnung von Positionsgrößen.  
-**Route:** `app/(platform)/position-calculator/`  
-**Keine eigene DB-Tabelle** (rein clientseitige Berechnung)
-
-### ⚠️ Analyse-Posts (`/analysis`)
-Admin-erstellte Marktanalysen (täglich/wöchentlich) mit Rich-Text und Bild.  
-**Route:** `app/(platform)/analysis/`  
-**Admin-Route:** `/admin/analysis`  
-**DB-Tabelle:** `analysis_posts`
-
-### ⚠️ TradingView Widget
-Marktübersichts-Widget auf dem Dashboard.  
-**Komponente:** `components/platform/TradingViewMarketSummary.tsx`  
-**Eingebunden in:** Dashboard-Seite
-
-**Entfernungs-Checkliste:**
-1. Routes löschen: `trading-journal/`, `position-calculator/`, `analysis/`
-2. Admin-Route löschen: `admin/analysis/`
-3. Sidebar-Navigation bereinigen (`Sidebar.tsx`, `AdminSidebar.tsx`)
-4. `TradingViewMarketSummary.tsx` aus Dashboard entfernen
-5. DB-Migration: `DROP TABLE trading_journals, trading_journal_trades, analysis_posts`
-6. DB-Tabelle `analysis_posts` aus Admin-Tabelle entfernen
-7. Sidebar-Links auf diese Routes prüfen
+Alle vier Features wurden vollständig entfernt (Branch `remove-trading-features`, Migration `055_remove_trading_features.sql`):
+- Trading Journal (`trading-journal/`) + DB-Tabellen `trading_journals`, `trading_journal_trades`
+- Positionsrechner (`position-calculator/`)
+- Analyse-Posts (`analysis/`) + DB-Tabelle `analysis_posts`
+- TradingView Widget (`TradingViewMarketSummary.tsx`)
 
 ---
 
