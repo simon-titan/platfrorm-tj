@@ -45,14 +45,14 @@ export default async function AdminStreamPage() {
         <Stack spacing={1}>
           <Heading
             as="h1"
-            className="radley-regular"
+            fontFamily="var(--font-display)"
             fontWeight={400}
             fontSize={{ base: "2xl", md: "3xl" }}
-            color="whiteAlpha.950"
+            color="var(--paper)"
           >
             Live Stream
           </Heading>
-          <Text fontSize="sm" color="var(--color-text-secondary)" className="inter">
+          <Text fontSize="sm" color="var(--mute)" fontFamily="var(--font-sans)">
             Steuerung des Free-User-Streams. Schalte hier an/aus und hinterlege die Cloudflare Video-UID.
           </Text>
         </Stack>

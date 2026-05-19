@@ -65,16 +65,16 @@ export function LoginStep({ onAuthenticated, footer }: LoginStepProps) {
         maxW="360px"
         borderWidth="1px"
         borderStyle="solid"
-        borderColor="rgba(212, 175, 55, 0.55)"
+        borderColor="rgba(74, 124, 92, 0.45)"
         boxShadow="
-          0 8px 40px rgba(0, 0, 0, 0.55),
-          0 0 0 1px rgba(212, 175, 55, 0.2),
-          0 0 28px rgba(212, 175, 55, 0.12),
+          0 8px 40px rgba(14, 14, 12, 0.55),
+          0 0 0 1px rgba(74, 124, 92, 0.18),
+          0 0 28px rgba(45, 84, 67, 0.12),
           inset 0 1px 0 rgba(255, 255, 255, 0.06)
         "
       >
         <Box display="flex" justifyContent="center" mb={5}>
-          <Logo variant="onDark" priority width={268} height={76} />
+          <Logo variant="onDark" priority width={140} height={40} />
         </Box>
         <Text textAlign="center" fontSize="sm" className="inter" color="rgba(240, 240, 242, 0.55)">
           Melde dich an, um zur Plattform zu gelangen.
@@ -92,8 +92,8 @@ export function LoginStep({ onAuthenticated, footer }: LoginStepProps) {
             _placeholder={{ color: "rgba(240, 240, 242, 0.35)" }}
             _hover={{ borderColor: "rgba(255, 255, 255, 0.14)" }}
             _focusVisible={{
-              borderColor: "#D4AF37",
-              boxShadow: "0 0 0 1px rgba(212, 175, 55, 0.5)",
+              borderColor: "var(--leaf, #4A7C5C)",
+              boxShadow: "0 0 0 1px rgba(74, 124, 92, 0.40)",
             }}
           />
           <Input
@@ -108,8 +108,8 @@ export function LoginStep({ onAuthenticated, footer }: LoginStepProps) {
             _placeholder={{ color: "rgba(240, 240, 242, 0.35)" }}
             _hover={{ borderColor: "rgba(255, 255, 255, 0.14)" }}
             _focusVisible={{
-              borderColor: "#D4AF37",
-              boxShadow: "0 0 0 1px rgba(212, 175, 55, 0.5)",
+              borderColor: "var(--leaf, #4A7C5C)",
+              boxShadow: "0 0 0 1px rgba(74, 124, 92, 0.40)",
             }}
           />
           {error ? (
@@ -133,12 +133,12 @@ export function LoginStep({ onAuthenticated, footer }: LoginStepProps) {
         <Link
           href={SOCIAL.tiktok}
           isExternal
-          aria-label="Capital Circle auf TikTok"
+          aria-label="T&J Consulting auf TikTok"
           display="flex"
           alignItems="center"
           justifyContent="center"
-          color="var(--color-accent-gold)"
-          _hover={{ color: "var(--color-accent-gold-light)", transform: "translateY(-2px)" }}
+          color="rgba(255,255,255,0.45)"
+          _hover={{ color: "var(--paper, #FCFCFD)", transform: "translateY(-2px)" }}
           transition="color 0.2s ease, transform 0.2s ease"
         >
           <Icon as={SiTiktok} boxSize={8} />
@@ -146,12 +146,12 @@ export function LoginStep({ onAuthenticated, footer }: LoginStepProps) {
         <Link
           href={SOCIAL.instagram}
           isExternal
-          aria-label="Capital Circle auf Instagram"
+          aria-label="T&J Consulting auf Instagram"
           display="flex"
           alignItems="center"
           justifyContent="center"
-          color="var(--color-accent-gold)"
-          _hover={{ color: "var(--color-accent-gold-light)", transform: "translateY(-2px)" }}
+          color="rgba(255,255,255,0.45)"
+          _hover={{ color: "var(--paper, #FCFCFD)", transform: "translateY(-2px)" }}
           transition="color 0.2s ease, transform 0.2s ease"
         >
           <Icon as={SiInstagram} boxSize={8} />

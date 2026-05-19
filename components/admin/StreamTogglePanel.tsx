@@ -128,7 +128,7 @@ export function StreamTogglePanel({ initial }: Props) {
       px={3}
       py={1}
       borderRadius="full"
-      className="inter-semibold"
+      fontFamily="var(--font-sans)" fontWeight={600}
       fontSize="xs"
       textTransform="uppercase"
       letterSpacing="0.08em"
@@ -142,7 +142,7 @@ export function StreamTogglePanel({ initial }: Props) {
       px={3}
       py={1}
       borderRadius="full"
-      className="inter-semibold"
+      fontFamily="var(--font-sans)" fontWeight={600}
       fontSize="xs"
       textTransform="uppercase"
       letterSpacing="0.08em"
@@ -157,7 +157,7 @@ export function StreamTogglePanel({ initial }: Props) {
       <Box
         borderRadius="16px"
         borderWidth="1px"
-        borderColor="var(--color-border-default)"
+        borderColor="rgba(255,255,255,0.08)"
         bg="rgba(15, 18, 24, 0.7)"
         backdropFilter="blur(16px)"
         p={{ base: 5, md: 6 }}
@@ -165,7 +165,7 @@ export function StreamTogglePanel({ initial }: Props) {
         <Stack gap={5}>
           <Flex justify="space-between" align="center" flexWrap="wrap" gap={3}>
             <HStack gap={3}>
-              <Text className="radley-regular" fontSize="lg" color="whiteAlpha.950">
+              <Text fontFamily="var(--font-display)" fontSize="lg" color="whiteAlpha.950">
                 Aktueller Status
               </Text>
               {statusBadge}
@@ -187,7 +187,7 @@ export function StreamTogglePanel({ initial }: Props) {
           </Flex>
 
           {updatedAt ? (
-            <Text fontSize="xs" color="var(--color-text-tertiary)" className="inter">
+            <Text fontSize="xs" color="rgba(139,134,126,0.6)" fontFamily="var(--font-sans)">
               Zuletzt geaendert: {new Date(updatedAt).toLocaleString("de-DE")}
             </Text>
           ) : null}
@@ -199,7 +199,7 @@ export function StreamTogglePanel({ initial }: Props) {
               variant="left-accent"
             >
               <AlertIcon />
-              <Text fontSize="sm" className="inter">
+              <Text fontSize="sm" fontFamily="var(--font-sans)">
                 {feedback.msg}
               </Text>
             </Alert>
@@ -208,10 +208,10 @@ export function StreamTogglePanel({ initial }: Props) {
           {/* Toggle */}
           <FormControl display="flex" alignItems="center" justifyContent="space-between" gap={4}>
             <Box>
-              <FormLabel htmlFor="stream-live-switch" mb={1} className="inter-semibold" color="whiteAlpha.900">
+              <FormLabel htmlFor="stream-live-switch" mb={1} fontFamily="var(--font-sans)" fontWeight={600} color="whiteAlpha.900">
                 Free-Streaming aktiv
               </FormLabel>
-              <Text fontSize="xs" color="var(--color-text-muted)" className="inter">
+              <Text fontSize="xs" color="var(--mute)" fontFamily="var(--font-sans)">
                 Wenn aktiv: Free-Mitglieder sehen den Stream auf /stream (Polling-Delay bis 15 s).
               </Text>
             </Box>
@@ -226,27 +226,27 @@ export function StreamTogglePanel({ initial }: Props) {
 
           {/* Titel */}
           <FormControl>
-            <FormLabel className="inter-semibold" color="whiteAlpha.900">
+            <FormLabel fontFamily="var(--font-sans)" fontWeight={600} color="whiteAlpha.900">
               Titel
             </FormLabel>
             <Input
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               placeholder="z. B. Live: NFP-Reaktion"
-              className="inter"
+              fontFamily="var(--font-sans)"
               bg="rgba(0,0,0,0.3)"
-              borderColor="var(--color-border-default)"
+              borderColor="rgba(255,255,255,0.08)"
               color="whiteAlpha.950"
               _placeholder={{ color: "whiteAlpha.400" }}
             />
-            <FormHelperText color="var(--color-text-muted)" className="inter" fontSize="xs">
+            <FormHelperText color="var(--mute)" fontFamily="var(--font-sans)" fontSize="xs">
               Wird den Free-Usern als Chip ueber dem Player angezeigt.
             </FormHelperText>
           </FormControl>
 
           {/* Video-UID */}
           <FormControl isInvalid={isLive && streamId.trim().length === 0}>
-            <FormLabel className="inter-semibold" color="whiteAlpha.900">
+            <FormLabel fontFamily="var(--font-sans)" fontWeight={600} color="whiteAlpha.900">
               Cloudflare Video-UID
             </FormLabel>
             <HStack gap={2}>
@@ -254,9 +254,9 @@ export function StreamTogglePanel({ initial }: Props) {
                 value={streamId}
                 onChange={(e) => setStreamId(e.target.value)}
                 placeholder="z. B. 31c9291ab41fac05471db4e73aa11717"
-                className="jetbrains-mono"
+                fontFamily="var(--font-mono)"
                 bg="rgba(0,0,0,0.3)"
-                borderColor="var(--color-border-default)"
+                borderColor="rgba(255,255,255,0.08)"
                 color="whiteAlpha.950"
                 _placeholder={{ color: "whiteAlpha.400" }}
                 spellCheck={false}
@@ -274,7 +274,7 @@ export function StreamTogglePanel({ initial }: Props) {
                 />
               </Tooltip>
             </HStack>
-            <FormHelperText color="var(--color-text-muted)" className="inter" fontSize="xs">
+            <FormHelperText color="var(--mute)" fontFamily="var(--font-sans)" fontSize="xs">
               Das ist die <b>Output-Video-UID</b> des Cloudflare Live-Inputs (nicht der Stream-Key).
               Im Cloudflare-Dashboard zu finden unter <i>Stream → Live Inputs → [dein Input] → Video UID</i>.
             </FormHelperText>
@@ -283,7 +283,7 @@ export function StreamTogglePanel({ initial }: Props) {
           {/* Save */}
           <Flex justify="flex-end" gap={3}>
             {dirty ? (
-              <Text fontSize="xs" alignSelf="center" color="rgba(234, 179, 8, 0.9)" className="inter">
+              <Text fontSize="xs" alignSelf="center" color="rgba(234, 179, 8, 0.9)" fontFamily="var(--font-sans)">
                 Ungespeicherte Aenderungen
               </Text>
             ) : null}
@@ -306,7 +306,7 @@ export function StreamTogglePanel({ initial }: Props) {
       <Box
         borderRadius="16px"
         borderWidth="1px"
-        borderColor="var(--color-border-default)"
+        borderColor="rgba(255,255,255,0.08)"
         bg="rgba(15, 18, 24, 0.6)"
         backdropFilter="blur(16px)"
         overflow="hidden"
@@ -316,10 +316,10 @@ export function StreamTogglePanel({ initial }: Props) {
             <h2>
               <AccordionButton px={{ base: 5, md: 6 }} py={4} _hover={{ bg: "rgba(255,255,255,0.04)" }}>
                 <Box flex="1" textAlign="left">
-                  <Text className="radley-regular" fontSize="md" color="whiteAlpha.950">
+                  <Text fontFamily="var(--font-display)" fontSize="md" color="whiteAlpha.950">
                     OBS / RTMPS einrichten
                   </Text>
-                  <Text fontSize="xs" color="var(--color-text-muted)" className="inter" mt={1}>
+                  <Text fontSize="xs" color="var(--mute)" fontFamily="var(--font-sans)" mt={1}>
                     Kurzanleitung fuer OBS Studio mit Cloudflare Stream.
                   </Text>
                 </Box>
@@ -327,7 +327,7 @@ export function StreamTogglePanel({ initial }: Props) {
               </AccordionButton>
             </h2>
             <AccordionPanel px={{ base: 5, md: 6 }} pb={6}>
-              <Stack gap={5} className="inter" fontSize="sm" color="whiteAlpha.850">
+              <Stack gap={5} fontFamily="var(--font-sans)" fontSize="sm" color="whiteAlpha.850">
                 <OrderedList spacing={3} pl={5}>
                   <ListItem>
                     <Text>
@@ -336,10 +336,10 @@ export function StreamTogglePanel({ initial }: Props) {
                     </Text>
                     <Stack gap={2} mt={3} pl={1}>
                       <LabelCopyRow label="RTMPS-URL" value={RTMPS_URL} onCopy={copyToClipboard} />
-                      <Text fontSize="xs" color="var(--color-text-muted)">
+                      <Text fontSize="xs" color="var(--mute)">
                         <b>Stream-Key</b> — geheimer Token (wird in OBS eingetragen). Niemals an Nutzer weitergeben.
                       </Text>
-                      <Text fontSize="xs" color="var(--color-text-muted)">
+                      <Text fontSize="xs" color="var(--mute)">
                         <b>Video-UID</b> — oeffentliche ID des Live-Outputs (wird oben im Panel eingetragen).
                       </Text>
                     </Stack>
@@ -360,7 +360,7 @@ export function StreamTogglePanel({ initial }: Props) {
                         Stream-Schluessel: der geheime Key aus Cloudflare (nicht die Video-UID).
                       </Text>
                     </Stack>
-                    <Text mt={2} fontSize="xs" color="var(--color-text-muted)">
+                    <Text mt={2} fontSize="xs" color="var(--mute)">
                       Empfohlene Ausgabe: 1080p / 30 fps / 4500–6000 kbps (x264, keyframe interval 2 s).
                     </Text>
                   </ListItem>
@@ -376,7 +376,7 @@ export function StreamTogglePanel({ initial }: Props) {
                       <Text>• <b>Uebernehmen</b> klicken.</Text>
                       <Text>• In OBS <b>„Streaming starten“</b>.</Text>
                     </Stack>
-                    <Text mt={2} fontSize="xs" color="var(--color-text-muted)">
+                    <Text mt={2} fontSize="xs" color="var(--mute)">
                       Free-User sehen den Stream innerhalb von 15 s automatisch (Polling-Intervall).
                     </Text>
                   </ListItem>
@@ -393,10 +393,10 @@ export function StreamTogglePanel({ initial }: Props) {
                 <Alert status="info" borderRadius="md" variant="left-accent" bg="rgba(59,130,246,0.12)">
                   <AlertIcon />
                   <Box>
-                    <Text fontSize="sm" className="inter-semibold" mb={1}>
+                    <Text fontSize="sm" fontFamily="var(--font-sans)" fontWeight={600} mb={1}>
                       Env-Variable gesetzt?
                     </Text>
-                    <Text fontSize="xs" className="inter">
+                    <Text fontSize="xs" fontFamily="var(--font-sans)">
                       Der Free-Player braucht <Code fontSize="xs">NEXT_PUBLIC_CLOUDFLARE_STREAM_CUSTOMER_SUBDOMAIN</Code>
                       {" "}
                       (Format <Code fontSize="xs">customer-&lt;hash&gt;</Code>). Ohne diesen Wert erscheint statt
@@ -424,7 +424,7 @@ function LabelCopyRow({
 }) {
   return (
     <Flex align="center" gap={2} flexWrap="wrap">
-      <Text fontSize="xs" color="var(--color-text-muted)">
+      <Text fontSize="xs" color="var(--mute)">
         {label}:
       </Text>
       <Code fontSize="xs" px={2} py={1} borderRadius="md">

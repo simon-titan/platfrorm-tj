@@ -15,14 +15,14 @@ export default async function AdminReviewsPage() {
         <Stack spacing={1}>
           <Heading
             as="h1"
-            className="radley-regular"
+            fontFamily="var(--font-display)"
             fontWeight={400}
             fontSize={{ base: "2xl", md: "3xl" }}
-            color="whiteAlpha.950"
+            color="var(--paper)"
           >
             Bewertungen verwalten
           </Heading>
-          <Text fontSize="sm" color="var(--color-text-secondary)" className="inter">
+          <Text fontSize="sm" color="var(--mute)" fontFamily="var(--font-sans)">
             Erstelle, bearbeite und verwalte Bewertungen für Landing Pages.
           </Text>
         </Stack>

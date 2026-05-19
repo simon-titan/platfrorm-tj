@@ -849,7 +849,7 @@ export function LiveSessionManager({ initialEvents }: { initialEvents: EventOpt[
                         Videodatei wählen
                       </Button>
                       {recapFileName ? (
-                        <Text fontSize="xs" color="gray.300" className="inter" noOfLines={1} maxW="280px">
+                        <Text fontSize="xs" color="gray.300" fontFamily="var(--font-sans)" noOfLines={1} maxW="280px">
                           {recapFileName}
                           {recapFileSize ? ` (${(recapFileSize / 1024 / 1024).toFixed(1)} MB)` : ""}
                         </Text>
@@ -895,15 +895,15 @@ export function LiveSessionManager({ initialEvents }: { initialEvents: EventOpt[
                 bg="rgba(30, 58, 138, 0.15)"
               >
                 <HStack justify="space-between" mb={2} flexWrap="wrap" gap={1}>
-                  <Text fontSize="sm" className="inter-semibold" color="blue.200" noOfLines={1} maxW="70%">
+                  <Text fontSize="sm" fontFamily="var(--font-sans)" fontWeight={600} color="blue.200" noOfLines={1} maxW="70%">
                     {recapFileName ?? "Video wird hochgeladen…"}
                   </Text>
-                  <Text fontSize="sm" className="jetbrains-mono" color="blue.300" flexShrink={0}>
+                  <Text fontSize="sm" fontFamily="var(--font-mono)" color="blue.300" flexShrink={0}>
                     {recapProgress}%
                   </Text>
                 </HStack>
                 {recapFileSize ? (
-                  <Text fontSize="xs" color="gray.400" className="inter" mb={2}>
+                  <Text fontSize="xs" color="gray.400" fontFamily="var(--font-sans)" mb={2}>
                     {(recapFileSize / 1024 / 1024).toFixed(1)} MB
                     {recapProgress > 0 && recapProgress < 100
                       ? ` — ${((recapFileSize / 1024 / 1024) * (recapProgress / 100)).toFixed(1)} MB übertragen`
@@ -919,7 +919,7 @@ export function LiveSessionManager({ initialEvents }: { initialEvents: EventOpt[
                   isAnimated={recapProgress < 100}
                 />
                 {recapStatus ? (
-                  <Text fontSize="xs" color="blue.300" className="inter" mt={2}>
+                  <Text fontSize="xs" color="blue.300" fontFamily="var(--font-sans)" mt={2}>
                     {recapStatus}
                   </Text>
                 ) : null}
@@ -952,7 +952,7 @@ export function LiveSessionManager({ initialEvents }: { initialEvents: EventOpt[
             ) : null}
 
             <Stack gap={2} pt={4} borderTopWidth="1px" borderColor="whiteAlpha.200">
-              <Text fontSize="md" className="inter-semibold">
+              <Text fontSize="md" fontFamily="var(--font-sans)" fontWeight={600}>
                 Vorhandene Recaps / Sessions
               </Text>
               <Text fontSize="xs" color="gray.500">
@@ -973,7 +973,7 @@ export function LiveSessionManager({ initialEvents }: { initialEvents: EventOpt[
                       p={3}
                       borderRadius="md"
                       borderWidth="1px"
-                      borderColor={recapEditingId === s.id ? "rgba(212,175,55,0.45)" : "whiteAlpha.200"}
+                      borderColor={recapEditingId === s.id ? "rgba(74,124,92,0.35)" : "whiteAlpha.200"}
                       align="flex-start"
                       flexWrap="wrap"
                       gap={2}
@@ -1103,7 +1103,7 @@ export function LiveSessionManager({ initialEvents }: { initialEvents: EventOpt[
             </Stack>
 
             <Stack gap={2}>
-              <Text fontSize="lg" className="inter-semibold">
+              <Text fontSize="lg" fontFamily="var(--font-sans)" fontWeight={600}>
                 Vorhandene Sessions
               </Text>
               {sessions.map((s) => (
@@ -1168,7 +1168,7 @@ export function LiveSessionManager({ initialEvents }: { initialEvents: EventOpt[
             ) : (
               <>
                 <Stack gap={3}>
-                  <Text fontSize="md" className="inter-semibold">
+                  <Text fontSize="md" fontFamily="var(--font-sans)" fontWeight={600}>
                     Abschnitte (Sub-Kategorien)
                   </Text>
                   <Text fontSize="xs" color="gray.500">
@@ -1216,7 +1216,7 @@ export function LiveSessionManager({ initialEvents }: { initialEvents: EventOpt[
                 </Stack>
 
                 <Stack gap={3}>
-                  <Text fontSize="md" className="inter-semibold">
+                  <Text fontSize="md" fontFamily="var(--font-sans)" fontWeight={600}>
                     Video (Hetzner / S3)
                   </Text>
                   <Text fontSize="xs" color="gray.500">
@@ -1280,7 +1280,7 @@ export function LiveSessionManager({ initialEvents }: { initialEvents: EventOpt[
                   ) : null}
 
                   <Stack gap={2} mt={4}>
-                    <Text fontSize="sm" className="inter-semibold">
+                    <Text fontSize="sm" fontFamily="var(--font-sans)" fontWeight={600}>
                       Hochgeladene Videos
                     </Text>
                     {videos.map((v) => (

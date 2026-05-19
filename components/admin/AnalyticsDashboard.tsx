@@ -131,6 +131,33 @@ const PAYMENT_STATUS_FILTERS = [
 
 type PaymentFilter = (typeof PAYMENT_STATUS_FILTERS)[number]["id"];
 
+// ── Tab Button ─────────────────────────────────────────────────────────────
+
+function TabButton({
+  active,
+  onClick,
+  children,
+}: {
+  active: boolean;
+  onClick: () => void;
+  children: React.ReactNode;
+}) {
+  return (
+    <Button
+      size="xs"
+      onClick={onClick}
+      bg={active ? "rgba(74,124,92,0.18)" : "transparent"}
+      color={active ? "var(--leaf)" : "var(--mute)"}
+      border="1px solid"
+      borderColor={active ? "rgba(74,124,92,0.35)" : "rgba(255,255,255,0.10)"}
+      _hover={{ bg: active ? "rgba(74,124,92,0.22)" : "rgba(255,255,255,0.06)" }}
+      fontFamily="var(--font-sans)"
+    >
+      {children}
+    </Button>
+  );
+}
+
 // ── Main Component ─────────────────────────────────────────────────────────
 
 export function AnalyticsDashboard() {
@@ -168,18 +195,18 @@ export function AnalyticsDashboard() {
   if (loading && !data) {
     return (
       <HStack py={20} justify="center">
-        <Spinner color="var(--color-accent-gold)" />
+        <Spinner color="var(--leaf)" />
       </HStack>
     );
   }
 
   if (error) {
     return (
-      <Alert status="error" variant="subtle" bg="rgba(229,72,77,0.10)" borderRadius="12px">
+      <Alert status="error" variant="subtle" bg="rgba(229,72,77,0.10)" borderRadius="var(--radius-3)">
         <AlertIcon />
         <Stack spacing={1}>
-          <Text fontSize="sm" className="inter">{error}</Text>
-          <Button size="xs" variant="ghost" onClick={() => void load()}>
+          <Text fontSize="sm" fontFamily="var(--font-sans)">{error}</Text>
+          <Button size="xs" variant="ghost" onClick={() => void load()} fontFamily="var(--font-sans)">
             Erneut versuchen
           </Button>
         </Stack>
@@ -192,7 +219,7 @@ export function AnalyticsDashboard() {
   return (
     <Stack spacing={8}>
       <HStack justify="space-between" flexWrap="wrap" gap={3}>
-        <Text fontSize="xs" color="var(--color-text-secondary)" className="inter">
+        <Text fontSize="xs" color="var(--mute)" fontFamily="var(--font-mono)">
           Letzte Aktualisierung: {dateFmt.format(new Date(data.generatedAt))}
         </Text>
         <Button
@@ -201,10 +228,10 @@ export function AnalyticsDashboard() {
           leftIcon={<RefreshCw size={14} />}
           onClick={() => void load()}
           isLoading={loading}
-          borderColor="rgba(212,175,55,0.45)"
-          color="var(--color-accent-gold-light, #E8C547)"
-          _hover={{ bg: "rgba(212,175,55,0.10)" }}
-          className="inter"
+          borderColor="rgba(74,124,92,0.35)"
+          color="var(--leaf)"
+          _hover={{ bg: "rgba(74,124,92,0.10)" }}
+          fontFamily="var(--font-sans)"
         >
           Aktualisieren
         </Button>
@@ -222,7 +249,7 @@ export function AnalyticsDashboard() {
 // ── KPI Row ────────────────────────────────────────────────────────────────
 
 function KpiRow({ data }: { data: AnalyticsResponse }) {
-  const churnIsPositive = data.churn.churnRate30dPct < 5; // unter 5 % = "ok"
+  const churnIsPositive = data.churn.churnRate30dPct < 5;
   return (
     <SimpleGrid columns={{ base: 1, sm: 2, lg: 4 }} spacing={4}>
       <StatWidget
@@ -261,7 +288,6 @@ function StatWidget(props: {
   value: string;
   sublabel?: string;
   trend?: "up" | "down";
-  /** Wenn true, wird `up` rot und `down` grün dargestellt (z. B. für Churn). */
   trendInverted?: boolean;
 }) {
   const { icon, label, value, sublabel, trend, trendInverted } = props;
@@ -274,27 +300,26 @@ function StatWidget(props: {
 
   return (
     <Box
-      // statWidget.base aus DESIGN.json
-      bg="rgba(20, 21, 25, 0.82)"
+      bg="rgba(18,38,32,0.50)"
       backdropFilter="blur(20px) saturate(1.6)"
-      border="1px solid rgba(255,255,255,0.09)"
-      borderRadius="20px"
+      border="1px solid rgba(74,124,92,0.20)"
+      borderRadius="var(--radius-4)"
       p="18px 20px"
-      boxShadow="0 8px 32px rgba(0,0,0,0.60), inset 0 1px 0 rgba(255,255,255,0.06)"
+      boxShadow="var(--shadow-cool-2)"
       position="relative"
       overflow="hidden"
     >
       <Stack spacing={3}>
         <HStack justify="space-between">
-          <HStack spacing={2} color="var(--color-accent-gold-light, #E8C547)">
+          <HStack spacing={2} color="var(--leaf)">
             {icon}
             <Text
               fontSize="11px"
               fontWeight={500}
               letterSpacing="0.08em"
               textTransform="uppercase"
-              color="#606068"
-              className="inter"
+              color="var(--mute)"
+              fontFamily="var(--font-mono)"
             >
               {label}
             </Text>
@@ -306,16 +331,16 @@ function StatWidget(props: {
           ) : null}
         </HStack>
         <Text
-          className="jetbrains-mono"
+          fontFamily="var(--font-mono)"
           fontSize="28px"
           fontWeight={700}
           lineHeight="1"
-          color="#F0F0F2"
+          color="var(--paper)"
         >
           {value}
         </Text>
         {sublabel ? (
-          <Text fontSize="xs" color="var(--color-text-secondary)" className="inter">
+          <Text fontSize="xs" color="var(--mute)" fontFamily="var(--font-sans)">
             {sublabel}
           </Text>
         ) : null}
@@ -344,24 +369,11 @@ function FunnelSection({ funnel }: { funnel: AnalyticsResponse["funnel"] }) {
       icon={<Activity size={16} />}
       right={
         <HStack spacing={1}>
-          {(["7d", "30d"] as const).map((id) => {
-            const active = tab === id;
-            return (
-              <Button
-                key={id}
-                size="xs"
-                onClick={() => setTab(id)}
-                bg={active ? "rgba(212,175,55,0.16)" : "transparent"}
-                color={active ? "var(--color-accent-gold-light, #E8C547)" : "var(--color-text-secondary)"}
-                border="1px solid"
-                borderColor={active ? "rgba(212,175,55,0.45)" : "rgba(255,255,255,0.10)"}
-                _hover={{ bg: "rgba(255,255,255,0.06)" }}
-                className="inter"
-              >
-                {id === "7d" ? "7 Tage" : "30 Tage"}
-              </Button>
-            );
-          })}
+          {(["7d", "30d"] as const).map((id) => (
+            <TabButton key={id} active={tab === id} onClick={() => setTab(id)}>
+              {id === "7d" ? "7 Tage" : "30 Tage"}
+            </TabButton>
+          ))}
         </HStack>
       }
     >
@@ -402,25 +414,25 @@ function FunnelBar(props: {
   return (
     <Stack spacing={2}>
       <HStack justify="space-between">
-        <Text fontSize="sm" color="var(--color-text-primary)" className="inter">
+        <Text fontSize="sm" color="var(--paper)" fontFamily="var(--font-sans)">
           {label}
         </Text>
-        <Text className="jetbrains-mono" fontSize="sm" color="var(--color-text-primary)">
+        <Text fontFamily="var(--font-mono)" fontSize="sm" color="var(--paper)">
           {value}
         </Text>
       </HStack>
-      <Box bg="#1A1B1F" borderRadius="9999px" overflow="hidden" h="8px">
+      <Box bg="rgba(255,255,255,0.06)" borderRadius="var(--radius-full)" overflow="hidden" h="8px">
         <Box
           h="full"
           w={`${(pct * 100).toFixed(2)}%`}
-          background="linear-gradient(90deg, #A67C00 0%, #D4AF37 100%)"
-          borderRadius="9999px"
-          boxShadow="0 0 8px rgba(212,175,55,0.30)"
+          background="var(--gradient-leaf-glow)"
+          borderRadius="var(--radius-full)"
+          boxShadow="0 0 8px rgba(74,124,92,0.30)"
           transition="width 600ms cubic-bezier(0.16, 1, 0.3, 1)"
         />
       </Box>
       {subtext ? (
-        <Text fontSize="xs" color="var(--color-text-secondary)" className="inter">
+        <Text fontSize="xs" color="var(--mute)" fontFamily="var(--font-sans)">
           {subtext}
         </Text>
       ) : null}
@@ -448,32 +460,18 @@ function PaymentsSection({ payments }: { payments: PaymentLogRow[] }) {
       icon={<Wallet size={16} />}
       right={
         <HStack spacing={1}>
-          {PAYMENT_STATUS_FILTERS.map((f) => {
-            const active = filter === f.id;
-            return (
-              <Button
-                key={f.id}
-                size="xs"
-                onClick={() => setFilter(f.id)}
-                bg={active ? "rgba(212,175,55,0.16)" : "transparent"}
-                color={active ? "var(--color-accent-gold-light, #E8C547)" : "var(--color-text-secondary)"}
-                border="1px solid"
-                borderColor={active ? "rgba(212,175,55,0.45)" : "rgba(255,255,255,0.10)"}
-                _hover={{ bg: "rgba(255,255,255,0.06)" }}
-                className="inter"
-              >
-                {f.label}
-              </Button>
-            );
-          })}
+          {PAYMENT_STATUS_FILTERS.map((f) => (
+            <TabButton key={f.id} active={filter === f.id} onClick={() => setFilter(f.id)}>
+              {f.label}
+            </TabButton>
+          ))}
         </HStack>
       }
     >
       <Box
-        // adminPanel.table aus DESIGN.json
-        bg="#0C0D10"
+        bg="rgba(14,14,12,0.60)"
         border="1px solid rgba(255,255,255,0.07)"
-        borderRadius="12px"
+        borderRadius="var(--radius-3)"
         overflow="hidden"
       >
         <Grid
@@ -483,12 +481,12 @@ function PaymentsSection({ payments }: { payments: PaymentLogRow[] }) {
           fontWeight={500}
           letterSpacing="0.08em"
           textTransform="uppercase"
-          color="#3A3A40"
+          color="var(--mute)"
           bg="rgba(255,255,255,0.02)"
           borderBottom="1px solid rgba(255,255,255,0.07)"
           px={4}
           py={3}
-          className="inter"
+          fontFamily="var(--font-mono)"
           display={{ base: "none", md: "grid" }}
         >
           <GridItem>Datum</GridItem>
@@ -500,7 +498,7 @@ function PaymentsSection({ payments }: { payments: PaymentLogRow[] }) {
         </Grid>
 
         {filtered.length === 0 ? (
-          <Text px={4} py={6} fontSize="sm" color="var(--color-text-secondary)" className="inter">
+          <Text px={4} py={6} fontSize="sm" color="var(--mute)" fontFamily="var(--font-sans)">
             Keine Zahlungen in dieser Ansicht.
           </Text>
         ) : (
@@ -513,57 +511,34 @@ function PaymentsSection({ payments }: { payments: PaymentLogRow[] }) {
               py={3}
               borderBottom="1px solid rgba(255,255,255,0.05)"
               fontSize="14px"
-              color="#9A9AA4"
+              color="var(--mute)"
               alignItems="center"
-              transition="background 150ms ease"
+              transition="background var(--duration-fast)"
               _hover={{ bg: "rgba(255,255,255,0.03)" }}
-              className="inter"
+              fontFamily="var(--font-sans)"
             >
-              <GridItem className="jetbrains-mono" fontSize="xs">
+              <GridItem fontFamily="var(--font-mono)" fontSize="xs">
                 {dateFmt.format(new Date(p.createdAt))}
               </GridItem>
               <GridItem minW={0}>
                 <Stack spacing={0}>
-                  <Text noOfLines={1} color="var(--color-text-primary)" fontSize="sm">
+                  <Text noOfLines={1} color="var(--paper)" fontSize="sm">
                     {p.userName ?? p.userEmail ?? "—"}
                   </Text>
                   {p.userEmail && p.userName ? (
-                    <Text noOfLines={1} fontSize="xs" color="var(--color-text-secondary)">
+                    <Text noOfLines={1} fontSize="xs" color="var(--mute)">
                       {p.userEmail}
                     </Text>
                   ) : null}
                 </Stack>
               </GridItem>
               <GridItem>
-                <Badge
-                  bg={
-                    p.type === "lifetime"
-                      ? "rgba(212,175,55,0.12)"
-                      : p.type === "monthly"
-                        ? "rgba(255,255,255,0.07)"
-                        : "rgba(255,255,255,0.04)"
-                  }
-                  color={
-                    p.type === "lifetime"
-                      ? "#E8C547"
-                      : p.type === "monthly"
-                        ? "#9A9AA4"
-                        : "#606068"
-                  }
-                  border="1px solid rgba(255,255,255,0.08)"
-                  borderRadius="6px"
-                  fontSize="11px"
-                  px={2}
-                  className="inter"
-                  textTransform="capitalize"
-                >
-                  {p.type === "unknown" ? "—" : p.type}
-                </Badge>
+                <PaymentTypeBadge type={p.type} />
               </GridItem>
               <GridItem
                 textAlign={{ base: "left", md: "right" }}
-                className="jetbrains-mono"
-                color="var(--color-text-primary)"
+                fontFamily="var(--font-mono)"
+                color="var(--paper)"
                 fontWeight={600}
               >
                 {eurFmtCents.format(p.amountEur)}
@@ -578,15 +553,15 @@ function PaymentsSection({ payments }: { payments: PaymentLogRow[] }) {
                     href={`https://dashboard.stripe.com/invoices/${p.stripeInvoiceId}`}
                     target="_blank"
                     rel="noreferrer"
-                    color="var(--color-accent-gold-light, #E8C547)"
+                    color="var(--leaf)"
                     display="inline-flex"
                     alignItems="center"
-                    _hover={{ color: "#FFD66B" }}
+                    _hover={{ color: "var(--glow)" }}
                   >
                     <ExternalLink size={14} />
                   </Box>
                 ) : (
-                  <Text fontSize="xs" color="#3A3A40">—</Text>
+                  <Text fontSize="xs" color="var(--mute)">—</Text>
                 )}
               </GridItem>
             </Grid>
@@ -597,6 +572,41 @@ function PaymentsSection({ payments }: { payments: PaymentLogRow[] }) {
   );
 }
 
+function PaymentTypeBadge({ type }: { type: PaymentLogRow["type"] }) {
+  const variants: Record<PaymentLogRow["type"], { bg: string; color: string; border: string }> = {
+    lifetime: {
+      bg: "rgba(45,84,67,0.25)",
+      color: "var(--leaf)",
+      border: "rgba(74,124,92,0.30)",
+    },
+    monthly: {
+      bg: "rgba(255,255,255,0.06)",
+      color: "var(--mute)",
+      border: "rgba(255,255,255,0.10)",
+    },
+    unknown: {
+      bg: "rgba(255,255,255,0.04)",
+      color: "var(--mute)",
+      border: "rgba(255,255,255,0.07)",
+    },
+  };
+  const v = variants[type];
+  return (
+    <Badge
+      bg={v.bg}
+      color={v.color}
+      border={`1px solid ${v.border}`}
+      borderRadius="var(--radius-2)"
+      fontSize="11px"
+      px={2}
+      fontFamily="var(--font-sans)"
+      textTransform="capitalize"
+    >
+      {type === "unknown" ? "—" : type}
+    </Badge>
+  );
+}
+
 function PaymentStatusBadge({ status }: { status: string }) {
   const lower = status.toLowerCase();
   const variant =
@@ -604,16 +614,16 @@ function PaymentStatusBadge({ status }: { status: string }) {
       ? { bg: "rgba(34,197,94,0.10)", color: "#4ADE80", border: "rgba(34,197,94,0.18)" }
       : lower === "failed" || lower.startsWith("payment_failed")
         ? { bg: "rgba(239,68,68,0.10)", color: "#F87171", border: "rgba(239,68,68,0.18)" }
-        : { bg: "rgba(255,255,255,0.07)", color: "#9A9AA4", border: "rgba(255,255,255,0.08)" };
+        : { bg: "rgba(255,255,255,0.06)", color: "var(--mute)", border: "rgba(255,255,255,0.08)" };
   return (
     <Badge
       bg={variant.bg}
       color={variant.color}
       border={`1px solid ${variant.border}`}
-      borderRadius="6px"
+      borderRadius="var(--radius-2)"
       fontSize="11px"
       px={2}
-      className="inter"
+      fontFamily="var(--font-sans)"
       textTransform="capitalize"
     >
       {status}
@@ -625,12 +635,9 @@ function PaymentStatusBadge({ status }: { status: string }) {
 
 function CancellationsSection({ cancellations }: { cancellations: CancellationRow[] }) {
   return (
-    <SectionCard
-      title="Cancellations-Inbox"
-      icon={<XCircle size={16} />}
-    >
+    <SectionCard title="Cancellations-Inbox" icon={<XCircle size={16} />}>
       {cancellations.length === 0 ? (
-        <Text fontSize="sm" color="var(--color-text-secondary)" className="inter">
+        <Text fontSize="sm" color="var(--mute)" fontFamily="var(--font-sans)">
           Noch keine Kündigungs-Antworten.
         </Text>
       ) : (
@@ -638,18 +645,18 @@ function CancellationsSection({ cancellations }: { cancellations: CancellationRo
           {cancellations.map((c) => (
             <Box
               key={c.id}
-              borderRadius="12px"
+              borderRadius="var(--radius-3)"
               border="1px solid rgba(255,255,255,0.07)"
               bg="rgba(255,255,255,0.03)"
               p={4}
             >
               <HStack justify="space-between" mb={2} flexWrap="wrap" gap={2}>
                 <Stack spacing={0}>
-                  <Text className="inter-semibold" color="var(--color-text-primary)" fontSize="sm">
+                  <Text fontFamily="var(--font-sans)" fontWeight={500} color="var(--paper)" fontSize="sm">
                     {c.userName ?? c.userEmail ?? "Unbekannt"}
                   </Text>
                   {c.userEmail && c.userName ? (
-                    <Text fontSize="xs" color="var(--color-text-secondary)" className="inter">
+                    <Text fontSize="xs" color="var(--mute)" fontFamily="var(--font-sans)">
                       {c.userEmail}
                     </Text>
                   ) : null}
@@ -657,18 +664,18 @@ function CancellationsSection({ cancellations }: { cancellations: CancellationRo
                 <HStack spacing={2}>
                   {c.structuredReason ? (
                     <Badge
-                      bg="rgba(212,175,55,0.12)"
-                      color="#E8C547"
-                      border="1px solid rgba(212,175,55,0.22)"
-                      borderRadius="6px"
+                      bg="rgba(74,124,92,0.16)"
+                      color="var(--leaf)"
+                      border="1px solid rgba(74,124,92,0.28)"
+                      borderRadius="var(--radius-2)"
                       fontSize="11px"
                       px={2}
-                      className="inter"
+                      fontFamily="var(--font-sans)"
                     >
                       {STRUCTURED_REASON_LABELS[c.structuredReason] ?? c.structuredReason}
                     </Badge>
                   ) : null}
-                  <Text fontSize="xs" color="var(--color-text-secondary)" className="jetbrains-mono">
+                  <Text fontSize="xs" color="var(--mute)" fontFamily="var(--font-mono)">
                     {dateOnlyFmt.format(new Date(c.canceledAt))}
                   </Text>
                 </HStack>
@@ -676,15 +683,15 @@ function CancellationsSection({ cancellations }: { cancellations: CancellationRo
               {(c.feedback ?? c.reason) ? (
                 <Text
                   fontSize="sm"
-                  color="var(--color-text-secondary)"
-                  className="inter"
+                  color="var(--mute)"
+                  fontFamily="var(--font-sans)"
                   whiteSpace="pre-wrap"
                   lineHeight="1.6"
                 >
                   {c.feedback ?? c.reason}
                 </Text>
               ) : (
-                <Text fontSize="xs" color="#3A3A40" className="inter" fontStyle="italic">
+                <Text fontSize="xs" color="rgba(139,134,126,0.5)" fontFamily="var(--font-sans)" fontStyle="italic">
                   Kein Freitext angegeben.
                 </Text>
               )}
@@ -701,7 +708,6 @@ function CancellationsSection({ cancellations }: { cancellations: CancellationRo
 function EmailPerformanceSection({ rows }: { rows: EmailPerfRow[] }) {
   const [groupBy, setGroupBy] = useState<"sequence" | "step">("sequence");
 
-  // Aggregation auf Sequence-Ebene (alle Steps zusammen)
   const aggregated = useMemo(() => {
     if (groupBy === "step") return rows;
     const map = new Map<string, EmailPerfRow>();
@@ -739,8 +745,8 @@ function EmailPerformanceSection({ rows }: { rows: EmailPerfRow[] }) {
           onChange={(e) => setGroupBy(e.target.value as "sequence" | "step")}
           bg="rgba(255,255,255,0.04)"
           borderColor="rgba(255,255,255,0.10)"
-          color="var(--color-text-primary)"
-          className="inter"
+          color="var(--paper)"
+          fontFamily="var(--font-sans)"
         >
           <option value="sequence">Pro Sequence</option>
           <option value="step">Pro Step</option>
@@ -748,15 +754,15 @@ function EmailPerformanceSection({ rows }: { rows: EmailPerfRow[] }) {
       }
     >
       {aggregated.length === 0 ? (
-        <Text fontSize="sm" color="var(--color-text-secondary)" className="inter">
-          Noch keine Email-Logs. Daten werden befüllt, sobald Sequencen versenden
+        <Text fontSize="sm" color="var(--mute)" fontFamily="var(--font-sans)">
+          Noch keine Email-Logs. Daten werden befüllt, sobald Sequenzen versenden
           und der Resend-Webhook Events liefert.
         </Text>
       ) : (
         <Box
-          bg="#0C0D10"
+          bg="rgba(14,14,12,0.60)"
           border="1px solid rgba(255,255,255,0.07)"
-          borderRadius="12px"
+          borderRadius="var(--radius-3)"
           overflow="hidden"
         >
           <Grid
@@ -769,8 +775,8 @@ function EmailPerformanceSection({ rows }: { rows: EmailPerfRow[] }) {
             fontWeight={500}
             letterSpacing="0.08em"
             textTransform="uppercase"
-            color="#3A3A40"
-            className="inter"
+            color="var(--mute)"
+            fontFamily="var(--font-mono)"
             display={{ base: "none", md: "grid" }}
           >
             <GridItem>Sequence</GridItem>
@@ -791,41 +797,41 @@ function EmailPerformanceSection({ rows }: { rows: EmailPerfRow[] }) {
               alignItems="center"
               _hover={{ bg: "rgba(255,255,255,0.03)" }}
             >
-              <GridItem color="var(--color-text-primary)" className="inter">
+              <GridItem color="var(--paper)" fontFamily="var(--font-sans)">
                 {row.sequence}
               </GridItem>
               <GridItem
                 textAlign={{ base: "left", md: "right" }}
-                className="jetbrains-mono"
-                color="var(--color-text-secondary)"
+                fontFamily="var(--font-mono)"
+                color="var(--mute)"
               >
                 {row.step === -1 ? "·" : row.step}
               </GridItem>
               <GridItem
                 textAlign={{ base: "left", md: "right" }}
-                className="jetbrains-mono"
-                color="var(--color-text-primary)"
+                fontFamily="var(--font-mono)"
+                color="var(--paper)"
               >
                 {row.sent}
               </GridItem>
               <GridItem
                 textAlign={{ base: "left", md: "right" }}
-                className="jetbrains-mono"
-                color="var(--color-text-secondary)"
+                fontFamily="var(--font-mono)"
+                color="var(--mute)"
               >
                 {row.opened}
               </GridItem>
               <GridItem
                 textAlign={{ base: "left", md: "right" }}
-                className="jetbrains-mono"
-                color="#E8C547"
+                fontFamily="var(--font-mono)"
+                color="var(--leaf)"
               >
                 {row.openRatePct.toFixed(1)} %
               </GridItem>
               <GridItem
                 textAlign={{ base: "left", md: "right" }}
-                className="jetbrains-mono"
-                color="#E8C547"
+                fontFamily="var(--font-mono)"
+                color="var(--leaf)"
               >
                 {row.clickRatePct.toFixed(1)} %
               </GridItem>
@@ -850,9 +856,9 @@ function SectionCard(props: {
       <HStack justify="space-between" flexWrap="wrap" gap={2}>
         <HStack spacing={2}>
           {props.icon ? (
-            <Box color="var(--color-accent-gold-light, #E8C547)">{props.icon}</Box>
+            <Box color="var(--leaf)">{props.icon}</Box>
           ) : null}
-          <Text className="radley-regular" fontSize="lg" color="whiteAlpha.950">
+          <Text fontFamily="var(--font-display)" fontSize="lg" color="var(--paper)">
             {props.title}
           </Text>
         </HStack>

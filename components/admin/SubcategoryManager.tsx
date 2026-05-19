@@ -141,15 +141,15 @@ export function SubcategoryManager({
   };
 
   if (loading) {
-    return <Text fontSize="sm" color="gray.500" className="inter">Subkategorien werden geladen…</Text>;
+    return <Text fontSize="sm" color="gray.500" fontFamily="var(--font-sans)">Subkategorien werden geladen…</Text>;
   }
 
   return (
     <Stack spacing={4}>
       <HStack justify="space-between" align="flex-start" flexWrap="wrap" gap={3}>
         <Box>
-          <Text className="radley-regular" fontSize="lg" color="whiteAlpha.950">Subkategorien</Text>
-          <Text mt={1} fontSize="sm" color="gray.400" className="inter" maxW="lg">
+          <Text fontFamily="var(--font-display)" fontSize="lg" color="whiteAlpha.950">Subkategorien</Text>
+          <Text mt={1} fontSize="sm" color="gray.400" fontFamily="var(--font-sans)" maxW="lg">
             Unterthemen innerhalb des Moduls. Videos oben per Zuordnungs-Dropdown einer Subkategorie zuweisen.
           </Text>
         </Box>
@@ -159,7 +159,7 @@ export function SubcategoryManager({
       </HStack>
 
       {items.length === 0 ? (
-        <Text fontSize="sm" color="gray.400" className="inter">
+        <Text fontSize="sm" color="gray.400" fontFamily="var(--font-sans)">
           Keine Subkategorien — Videos liegen direkt im Modul, oder lege oben eine Subkategorie an.
         </Text>
       ) : (
@@ -180,7 +180,7 @@ export function SubcategoryManager({
               flexWrap="wrap"
             >
               {handle}
-              <Text flex={1} className="inter" fontSize="sm" fontWeight="500" color="gray.100" minW={0}>
+              <Text flex={1} fontFamily="var(--font-sans)" fontSize="sm" fontWeight="500" color="gray.100" minW={0}>
                 {item.title}
               </Text>
               <Button size="sm" variant="outline" borderColor="whiteAlpha.400" color="gray.100" leftIcon={<Pencil size={14} />} onClick={() => openEdit(item)}>
@@ -197,7 +197,7 @@ export function SubcategoryManager({
       <Modal isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay bg="blackAlpha.800" backdropFilter="blur(4px)" />
         <ModalContent bg="rgba(10, 11, 14, 0.96)" border="1px solid rgba(255,255,255,0.09)" borderRadius="24px" mx={4}>
-          <ModalHeader className="radley-regular" fontWeight={400}>Neue Subkategorie</ModalHeader>
+          <ModalHeader fontFamily="var(--font-display)" fontWeight={400}>Neue Subkategorie</ModalHeader>
           <ModalBody>
             <Input placeholder="Titel" value={title} onChange={(e) => setTitle(e.target.value)} borderColor="whiteAlpha.200" _focus={{ borderColor: "blue.500", boxShadow: "0 0 0 3px rgba(59,130,246,0.12)" }} />
           </ModalBody>
@@ -211,7 +211,7 @@ export function SubcategoryManager({
       <Modal isOpen={isEditOpen} onClose={() => { onEditClose(); setEditId(null); }} isCentered>
         <ModalOverlay bg="blackAlpha.800" backdropFilter="blur(4px)" />
         <ModalContent bg="rgba(10, 11, 14, 0.96)" border="1px solid rgba(255,255,255,0.09)" borderRadius="24px" mx={4}>
-          <ModalHeader className="radley-regular" fontWeight={400}>Subkategorie bearbeiten</ModalHeader>
+          <ModalHeader fontFamily="var(--font-display)" fontWeight={400}>Subkategorie bearbeiten</ModalHeader>
           <ModalBody>
             <Stack spacing={3}>
               <Input placeholder="Titel" value={editTitle} onChange={(e) => setEditTitle(e.target.value)} borderColor="whiteAlpha.200" _focus={{ borderColor: "blue.500", boxShadow: "0 0 0 3px rgba(59,130,246,0.12)" }} />

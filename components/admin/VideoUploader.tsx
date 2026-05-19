@@ -118,7 +118,7 @@ export function VideoUploader({ courseId, moduleId, subcategoryId, onUploaded, d
         hidden
         onChange={(ev) => void onChange(ev)}
       />
-      <Text fontSize="xs" className="inter" textTransform="uppercase" letterSpacing="0.06em" color="gray.400" mb={2}>
+      <Text fontSize="xs" fontFamily="var(--font-sans)" textTransform="uppercase" letterSpacing="0.06em" color="gray.400" mb={2}>
         Neues Video hochladen
       </Text>
       <Button
@@ -131,7 +131,7 @@ export function VideoUploader({ courseId, moduleId, subcategoryId, onUploaded, d
       >
         Videodatei auswählen (z. B. MP4)
       </Button>
-      <Text mt={2} fontSize="sm" className="inter" color="gray.400">
+      <Text mt={2} fontSize="sm" fontFamily="var(--font-sans)" color="gray.400">
         Upload läuft über diese App zum Object Storage (kein direkter Browser-Zugriff auf den Bucket nötig). Danach
         erscheint das Video in der Liste oben.
       </Text>
@@ -146,15 +146,15 @@ export function VideoUploader({ courseId, moduleId, subcategoryId, onUploaded, d
           bg="rgba(30, 58, 138, 0.15)"
         >
           <HStack justify="space-between" mb={1} flexWrap="wrap" gap={1}>
-            <Text fontSize="sm" className="inter-semibold" color="blue.200" noOfLines={1} maxW="75%">
+            <Text fontSize="sm" fontFamily="var(--font-sans)" fontWeight={600} color="blue.200" noOfLines={1} maxW="75%">
               {fileName ?? "Video…"}
             </Text>
-            <Text fontSize="sm" className="jetbrains-mono" color="blue.300" flexShrink={0}>
+            <Text fontSize="sm" fontFamily="var(--font-mono)" color="blue.300" flexShrink={0}>
               {progress}%
             </Text>
           </HStack>
           {fileSize ? (
-            <Text fontSize="xs" color="gray.400" className="inter" mb={2}>
+            <Text fontSize="xs" color="gray.400" fontFamily="var(--font-sans)" mb={2}>
               {(fileSize / 1024 / 1024).toFixed(1)} MB
               {progress > 0 && progress < 100
                 ? ` — ${((fileSize / 1024 / 1024) * (progress / 100)).toFixed(1)} MB übertragen`
@@ -171,11 +171,11 @@ export function VideoUploader({ courseId, moduleId, subcategoryId, onUploaded, d
             isAnimated={progress < 100}
           />
           {status ? (
-            <Text fontSize="xs" color="blue.300" className="inter" mt={2}>{status}</Text>
+            <Text fontSize="xs" color="blue.300" fontFamily="var(--font-sans)" mt={2}>{status}</Text>
           ) : null}
         </Box>
       ) : status ? (
-        <Text mt={2} fontSize="sm" className="inter" color={isError ? "red.300" : "green.300"}>
+        <Text mt={2} fontSize="sm" fontFamily="var(--font-sans)" color={isError ? "red.300" : "green.300"}>
           {status}
         </Text>
       ) : null}

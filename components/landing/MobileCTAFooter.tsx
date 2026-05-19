@@ -33,8 +33,8 @@ export function MobileCTAFooter({ onApply, ctaPrimary: ctaPrimaryOverride, trust
         background: "rgba(7, 8, 10, 0.97)",
         backdropFilter: "blur(24px)",
         WebkitBackdropFilter: "blur(24px)",
-        borderTop: "1px solid rgba(212,175,55,0.20)",
-        boxShadow: "0 -4px 32px rgba(0,0,0,0.50), 0 -1px 0 rgba(212,175,55,0.12)",
+        borderTop: "1px solid rgba(74,124,92,0.20)",
+        boxShadow: "0 -4px 32px rgba(14,14,12,0.50), 0 -1px 0 rgba(74,124,92,0.12)",
       }}
       px={4}
       pt={3}
@@ -55,21 +55,21 @@ export function MobileCTAFooter({ onApply, ctaPrimary: ctaPrimaryOverride, trust
           fontWeight="600"
           fontSize="md"
           letterSpacing="0.03em"
-          color="#07080A"
+          color="var(--paper, #FCFCFD)"
           onClick={onApply}
           sx={{
-            background: "linear-gradient(135deg, #E8C547 0%, #D4AF37 50%, #A67C00 100%)",
+            background: "var(--ink, #0E0E0C)",
             boxShadow:
-              "0 0 28px rgba(212,175,55,0.30), 0 4px 16px rgba(0,0,0,0.40), inset 0 1px 0 rgba(255,255,255,0.22)",
+              "0 4px 16px rgba(14,14,12,0.40), inset 0 1px 0 rgba(255,255,255,0.06)",
             transition: "all 220ms cubic-bezier(0.16, 1, 0.3, 1)",
             _hover: {
-              background: "linear-gradient(135deg, #F0DC82 0%, #E8C547 50%, #D4AF37 100%)",
-              boxShadow: "0 0 40px rgba(212,175,55,0.45), 0 4px 20px rgba(0,0,0,0.40)",
+              background: "var(--forest-deep, #122620)",
+              boxShadow: "0 6px 22px rgba(18,38,32,0.35)",
               transform: "translateY(-1px)",
             },
             _active: {
               transform: "translateY(0)",
-              boxShadow: "0 0 16px rgba(212,175,55,0.20)",
+              boxShadow: "0 2px 8px rgba(14,14,12,0.30)",
             },
           }}
           className="inter-semibold"

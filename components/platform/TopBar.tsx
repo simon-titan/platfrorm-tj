@@ -70,7 +70,7 @@ const freeMobileNavItems: Array<{
   icon: typeof LayoutDashboard;
 }> = [
   { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
-  { href: "/news", label: "Capital Circle News", icon: MessageCircle },
+  { href: "/news", label: "T&J News", icon: MessageCircle },
   { href: "/ausbildung", label: "Institut", icon: GraduationCap },
   { href: "/events", label: "Live Events", icon: Calendar },
   { href: "/live-session", label: "Live Session", icon: Radio },
@@ -224,8 +224,8 @@ export function TopBar() {
                   h="20px"
                   px={1.5}
                   borderRadius="full"
-                  bg="#D4AF37"
-                  color="#0C0D10"
+                  bg="var(--leaf, #4A7C5C)"
+                  color="var(--paper, #FCFCFD)"
                   fontSize="10px"
                   className="inter-semibold"
                   display="flex"
@@ -247,12 +247,12 @@ export function TopBar() {
                   justifyContent="flex-start"
                   leftIcon={<Icon size={18} strokeWidth={2} />}
                   rightIcon={isPending ? lockIcon : newsBadge}
-                  bg={active ? "rgba(212, 175, 55, 0.35)" : "transparent"}
+                  bg={active ? "rgba(74, 124, 92, 0.22)" : "transparent"}
                   color="var(--color-text-primary)"
                   borderWidth="1px"
-                  borderColor={active ? "rgba(212, 175, 55, 0.55)" : "transparent"}
+                  borderColor={active ? "rgba(74, 124, 92, 0.40)" : "transparent"}
                   _hover={{
-                    bg: active ? "rgba(212, 175, 55, 0.45)" : "rgba(255, 255, 255, 0.06)",
+                    bg: active ? "rgba(74, 124, 92, 0.30)" : "rgba(255, 255, 255, 0.06)",
                   }}
                   borderRadius="md"
                   className="inter-medium"
@@ -280,7 +280,7 @@ export function TopBar() {
                 textTransform="uppercase"
                 className="inter-semibold"
               >
-                Capital Circle Member
+                T&J Member
               </Text>
             </HStack>
 
@@ -368,12 +368,12 @@ export function TopBar() {
                   justifyContent="flex-start"
                   leftIcon={<Icon size={18} strokeWidth={2} />}
                   rightIcon={lockIcon}
-                  bg={active ? "rgba(212, 175, 55, 0.35)" : "transparent"}
+                  bg={active ? "rgba(74, 124, 92, 0.22)" : "transparent"}
                   color="var(--color-text-primary)"
                   borderWidth="1px"
-                  borderColor={active ? "rgba(212, 175, 55, 0.55)" : "transparent"}
+                  borderColor={active ? "rgba(74, 124, 92, 0.40)" : "transparent"}
                   _hover={{
-                    bg: active ? "rgba(212, 175, 55, 0.45)" : "rgba(255, 255, 255, 0.06)",
+                    bg: active ? "rgba(74, 124, 92, 0.30)" : "rgba(255, 255, 255, 0.06)",
                   }}
                   borderRadius="md"
                   className="inter-medium"
@@ -396,12 +396,12 @@ export function TopBar() {
               justifyContent="flex-start"
               leftIcon={<Icon size={18} strokeWidth={2} />}
               rightIcon={lockIcon}
-              bg={active ? "rgba(212, 175, 55, 0.35)" : "transparent"}
+              bg={active ? "rgba(74, 124, 92, 0.22)" : "transparent"}
               color="var(--color-text-primary)"
               borderWidth="1px"
-              borderColor={active ? "rgba(212, 175, 55, 0.55)" : "transparent"}
+              borderColor={active ? "rgba(74, 124, 92, 0.40)" : "transparent"}
               _hover={{
-                bg: active ? "rgba(212, 175, 55, 0.45)" : "rgba(255, 255, 255, 0.06)",
+                bg: active ? "rgba(74, 124, 92, 0.30)" : "rgba(255, 255, 255, 0.06)",
               }}
               borderRadius="md"
               className="inter-medium"
@@ -426,12 +426,12 @@ export function TopBar() {
               justifyContent="flex-start"
               pl={6}
               rightIcon={lockIcon}
-              bg={active ? "rgba(212, 175, 55, 0.28)" : "transparent"}
+              bg={active ? "rgba(74, 124, 92, 0.18)" : "transparent"}
               color="var(--color-text-primary)"
               borderWidth="1px"
-              borderColor={active ? "rgba(212, 175, 55, 0.45)" : "transparent"}
+              borderColor={active ? "rgba(74, 124, 92, 0.35)" : "transparent"}
               _hover={{
-                bg: active ? "rgba(212, 175, 55, 0.38)" : "rgba(255, 255, 255, 0.06)",
+                bg: active ? "rgba(74, 124, 92, 0.26)" : "rgba(255, 255, 255, 0.06)",
               }}
               borderRadius="md"
               className="inter-medium"
@@ -459,8 +459,8 @@ export function TopBar() {
                     h="20px"
                     px={1.5}
                     borderRadius="full"
-                    bg="#D4AF37"
-                    color="#0C0D10"
+                    bg="var(--leaf, #4A7C5C)"
+                    color="var(--paper, #FCFCFD)"
                     fontSize="10px"
                     className="inter-semibold"
                     display="flex"
@@ -472,13 +472,13 @@ export function TopBar() {
                 ) : undefined
               )
             }
-            bg={newsActive ? "rgba(212, 175, 55, 0.22)" : "transparent"}
+            bg={newsActive ? "rgba(74, 124, 92, 0.18)" : "transparent"}
             borderWidth="1px"
-            borderColor={newsActive ? "rgba(212, 175, 55, 0.5)" : "transparent"}
-            _hover={{ bg: newsActive ? "rgba(212, 175, 55, 0.3)" : "rgba(255, 255, 255, 0.06)" }}
+            borderColor={newsActive ? "rgba(74, 124, 92, 0.38)" : "transparent"}
+            _hover={{ bg: newsActive ? "rgba(74, 124, 92, 0.26)" : "rgba(255, 255, 255, 0.06)" }}
             className="inter-medium"
           >
-            Capital Circle News
+            T&J News
           </Button>
           <Button
             as={Link}
@@ -514,9 +514,9 @@ export function TopBar() {
   };
 
   const navButtonSx = {
-    bg: "rgba(212, 175, 55, 0.4)",
-    borderColor: "rgba(212, 175, 55, 0.5)",
-    _hover: { bg: "rgba(212, 175, 55, 0.5)" },
+    bg: "rgba(74, 124, 92, 0.28)",
+    borderColor: "rgba(74, 124, 92, 0.45)",
+    _hover: { bg: "rgba(74, 124, 92, 0.38)" },
   };
 
   const navGhostSx = {
@@ -532,16 +532,16 @@ export function TopBar() {
       py="1px"
       borderRadius="full"
       borderWidth="1px"
-      borderColor="rgba(212, 175, 55, 0.24)"
-      bg="rgba(212, 175, 55, 0.08)"
-      color="rgba(245, 236, 210, 0.64)"
+      borderColor="rgba(74, 124, 92, 0.24)"
+      bg="rgba(74, 124, 92, 0.08)"
+      color="rgba(252, 252, 253, 0.55)"
       fontSize="8px"
       lineHeight="1.2"
       letterSpacing="0.04em"
       textTransform="uppercase"
       className="inter-semibold"
     >
-      Capital Circle Member
+      T&J Member
     </Text>
   );
 
@@ -551,8 +551,8 @@ export function TopBar() {
       {showFreeBanner && (
         <Box
           w="100%"
-          bg="linear-gradient(90deg, rgba(12,9,4,0.97) 0%, rgba(20,14,6,0.97) 50%, rgba(12,9,4,0.97) 100%)"
-          borderBottom="1px solid rgba(212,175,55,0.28)"
+          bg="linear-gradient(90deg, rgba(14,14,12,0.97) 0%, rgba(18,38,32,0.97) 50%, rgba(14,14,12,0.97) 100%)"
+          borderBottom="1px solid rgba(74,124,92,0.22)"
           backdropFilter="blur(16px)"
           sx={{ WebkitBackdropFilter: "blur(16px)" }}
         >
@@ -576,8 +576,8 @@ export function TopBar() {
                 w="6px"
                 h="6px"
                 borderRadius="full"
-                bg="var(--color-accent-gold)"
-                boxShadow="0 0 8px rgba(212,175,55,0.7)"
+                bg="var(--leaf, #4A7C5C)"
+                boxShadow="0 0 8px rgba(74,124,92,0.60)"
               />
             </Box>
 
@@ -587,7 +587,7 @@ export function TopBar() {
               fontSize="sm"
               color="rgba(245,236,210,0.82)"
             >
-              Sichere dir deinen Platz im Capital Circle —
+              Sichere dir deinen Platz bei T&J Consulting —
             </Text>
 
             <Box
@@ -599,12 +599,12 @@ export function TopBar() {
               px={{ base: 3, md: 4 }}
               py={{ base: "5px", md: "6px" }}
               borderRadius="8px"
-              bg="linear-gradient(135deg, var(--color-accent-gold-dark) 0%, var(--color-accent-gold-light) 100%)"
-              color="#0a0a0a"
+              bg="var(--ink, #0E0E0C)"
+              color="var(--paper, #FCFCFD)"
               fontSize={{ base: "xs", md: "sm" }}
               className="inter-semibold"
               transition="all 180ms ease"
-              _hover={{ filter: "brightness(1.08)", boxShadow: "0 0 18px rgba(212,175,55,0.40)" }}
+              _hover={{ bg: "var(--forest-deep, #122620)", boxShadow: "0 0 18px rgba(18,38,32,0.40)" }}
               textDecoration="none"
               flexShrink={0}
             >
@@ -638,8 +638,8 @@ export function TopBar() {
       <Box
         as="header"
         w="100%"
-        borderBottom="1px solid rgba(212, 175, 55, 0.32)"
-        bg="rgba(5, 6, 9, 0.88)"
+        borderBottom="1px solid rgba(74, 124, 92, 0.20)"
+        bg="rgba(14, 14, 12, 0.92)"
         backdropFilter="blur(20px)"
         sx={{ WebkitBackdropFilter: "blur(20px)" }}
         boxShadow="0 4px 28px rgba(0, 0, 0, 0.55)"
@@ -655,8 +655,8 @@ export function TopBar() {
           justify="space-between"
         >
           <Link href="/dashboard" aria-label="Zum Dashboard" style={{ display: "block", lineHeight: 0 }}>
-            <Box maxW={{ base: "130px", sm: "150px", md: "170px" }}>
-              <Logo variant="onDark" priority width={170} height={48} knockoutEmbeddedDark />
+            <Box maxW={{ base: "100px", sm: "110px", md: "120px" }}>
+              <Logo variant="onDark" priority width={120} height={34} />
             </Box>
           </Link>
 
@@ -745,7 +745,7 @@ export function TopBar() {
               </MenuButton>
               <MenuList
                 bg="rgba(12, 13, 16, 0.98)"
-                borderColor="rgba(212, 175, 55, 0.35)"
+                borderColor="rgba(74, 124, 92, 0.28)"
                 boxShadow="0 8px 32px rgba(0,0,0,0.5)"
                 py={1}
                 minW="220px"
@@ -757,7 +757,7 @@ export function TopBar() {
                     href={sub.href}
                     bg="transparent"
                     color="var(--color-text-primary)"
-                    _hover={{ bg: "rgba(212, 175, 55, 0.12)" }}
+                    _hover={{ bg: "rgba(74, 124, 92, 0.12)" }}
                     className="inter-medium"
                   >
                     {sub.label}
@@ -772,13 +772,13 @@ export function TopBar() {
               <IconButton
                 as={Link}
                 href="/news"
-                aria-label={unreadNews > 0 ? `Capital Circle News (${unreadNews} neu)` : "Capital Circle News"}
+                aria-label={unreadNews > 0 ? `T&J News (${unreadNews} neu)` : "T&J News"}
                 icon={<MessageCircle size={22} strokeWidth={2} />}
                 variant="ghost"
                 borderRadius="md"
-                color={newsActive ? "#FEF3C7" : undefined}
-                bg={newsActive ? "rgba(212, 175, 55, 0.18)" : undefined}
-                _hover={{ bg: "rgba(212, 175, 55, 0.15)" }}
+                color={newsActive ? "var(--leaf, #4A7C5C)" : undefined}
+                bg={newsActive ? "rgba(74, 124, 92, 0.15)" : undefined}
+                _hover={{ bg: "rgba(74, 124, 92, 0.12)" }}
               />
               {unreadNews > 0 ? (
                 <Box
@@ -789,17 +789,17 @@ export function TopBar() {
                   h={unreadNews > 9 ? "18px" : "10px"}
                   px={unreadNews > 9 ? 1 : 0}
                   borderRadius="full"
-                  bg="#D4AF37"
+                  bg="var(--leaf, #4A7C5C)"
                   borderWidth="2px"
-                  borderColor="rgba(5, 6, 9, 0.95)"
+                  borderColor="rgba(14, 14, 12, 0.95)"
                   display="flex"
                   alignItems="center"
                   justifyContent="center"
-                  boxShadow="0 0 12px rgba(212, 175, 55, 0.55)"
+                  boxShadow="0 0 12px rgba(74, 124, 92, 0.45)"
                   pointerEvents="none"
                 >
                   {unreadNews > 9 ? (
-                    <Box as="span" fontSize="10px" className="inter-semibold" color="#0C0D10" lineHeight="1">
+                    <Box as="span" fontSize="10px" className="inter-semibold" color="var(--paper, #FCFCFD)" lineHeight="1">
                       {unreadNews > 99 ? "99+" : unreadNews}
                     </Box>
                   ) : null}
@@ -813,7 +813,7 @@ export function TopBar() {
               icon={<UserRound size={22} strokeWidth={2} />}
               variant="ghost"
               borderRadius="md"
-              _hover={{ bg: "rgba(212, 175, 55, 0.15)" }}
+              _hover={{ bg: "rgba(74, 124, 92, 0.12)" }}
             />
             <IconButton
               aria-label="Abmelden"
@@ -839,7 +839,7 @@ export function TopBar() {
 
       <Drawer isOpen={drawerOpen} placement="right" onClose={onDrawerClose} size="xs">
         <DrawerOverlay bg="rgba(7, 8, 10, 0.7)" backdropFilter="blur(6px)" />
-        <DrawerContent bg="rgba(12, 13, 16, 0.96)" borderLeftWidth="1px" borderColor="rgba(212, 175, 55, 0.25)">
+        <DrawerContent bg="rgba(12, 13, 16, 0.96)" borderLeftWidth="1px" borderColor="rgba(74, 124, 92, 0.22)">
           <DrawerCloseButton />
           <DrawerHeader className="inter-semibold" fontSize="md">
             Navigation
@@ -847,7 +847,7 @@ export function TopBar() {
           <DrawerBody>
             {renderNavRows({ onNavigate: onDrawerClose, showActions: true })}
             <Text fontSize="xs" opacity={0.5} className="inter" mt={6}>
-              Capital Circle Institut
+              T&J Consulting
             </Text>
           </DrawerBody>
         </DrawerContent>

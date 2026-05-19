@@ -526,7 +526,7 @@ function CardsPanel({
 
   return (
     <Stack gap={6}>
-      <Text fontSize="lg" className="inter-semibold">
+      <Text fontSize="lg" fontFamily="var(--font-sans)" fontWeight={600}>
         {label} — Karten
       </Text>
       <Stack gap={3} maxW="640px">
@@ -919,7 +919,7 @@ function AttachmentsPanel({ kind, label }: { kind: "template" | "pdf"; label: st
 
   return (
     <Stack gap={6}>
-      <Text fontSize="lg" className="inter-semibold">
+      <Text fontSize="lg" fontFamily="var(--font-sans)" fontWeight={600}>
         {label} — Dateien (erscheinen unter Arsenal für Mitglieder)
       </Text>
       <HStack flexWrap="wrap" gap={3} align="flex-end" maxW="900px">
@@ -934,7 +934,7 @@ function AttachmentsPanel({ kind, label }: { kind: "template" | "pdf"; label: st
               setModuleId(e.target.value);
               setVideoId("");
             }}
-            className="inter"
+            fontFamily="var(--font-sans)"
             {...adminSelectStyles}
           >
             <option value="">—</option>
@@ -954,7 +954,7 @@ function AttachmentsPanel({ kind, label }: { kind: "template" | "pdf"; label: st
             value={videoId}
             onChange={(e) => setVideoId(e.target.value)}
             isDisabled={!moduleId}
-            className="inter"
+            fontFamily="var(--font-sans)"
             {...adminSelectStyles}
           >
             <option value="">—</option>
@@ -972,7 +972,7 @@ function AttachmentsPanel({ kind, label }: { kind: "template" | "pdf"; label: st
           <Select
             value={uploadCategoryId}
             onChange={(e) => setUploadCategoryId(e.target.value)}
-            className="inter"
+            fontFamily="var(--font-sans)"
             {...adminSelectStyles}
           >
             <option value="">Keine Kategorie</option>
@@ -1017,7 +1017,7 @@ function AttachmentsPanel({ kind, label }: { kind: "template" | "pdf"; label: st
               maxW="220px"
               value={a.arsenal_category_id ?? ""}
               onChange={(e) => void setCategory(a.id, e.target.value)}
-              className="inter"
+              fontFamily="var(--font-sans)"
               {...adminSelectStyles}
               h="32px"
             >

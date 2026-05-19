@@ -85,11 +85,11 @@ export function DiscordBanner({ discordUsername }: DiscordBannerProps) {
                 fontSize="xs"
                 letterSpacing="0.1em"
                 textTransform="uppercase"
-                color="rgba(255,255,255,0.5)"
+                color="var(--mute, #8B867E)"
               >
                 Community
               </Text>
-              <Text className="inter-semibold" fontSize={{ base: "lg", md: "xl" }} color="var(--color-text-primary)">
+              <Text className="inter-semibold" fontSize={{ base: "lg", md: "xl" }} color="var(--ink, #0E0E0C)">
                 Discord verbunden
               </Text>
               <Text className="jetbrains-mono" fontSize="sm" color="rgba(34, 197, 94, 0.95)">
@@ -104,7 +104,7 @@ export function DiscordBanner({ discordUsername }: DiscordBannerProps) {
             borderRadius="10px"
             borderColor="rgba(255,255,255,0.2)"
             color="var(--color-text-secondary)"
-            _hover={{ bg: "rgba(255,255,255,0.06)", borderColor: "rgba(212,175,55,0.4)" }}
+            _hover={{ bg: "rgba(255,255,255,0.06)", borderColor: "rgba(74,124,92,0.35)" }}
             onClick={() => void disconnect()}
             isLoading={disconnecting}
             isDisabled={disconnecting}
@@ -131,9 +131,9 @@ export function DiscordBanner({ discordUsername }: DiscordBannerProps) {
             w="48px"
             h="48px"
             borderRadius="14px"
-            bg="rgba(212, 175, 55, 0.12)"
-            border="1px solid rgba(212, 175, 55, 0.38)"
-            color="var(--color-accent-gold-light)"
+            bg="rgba(74, 124, 92, 0.10)"
+            border="1px solid rgba(74, 124, 92, 0.30)"
+            color="var(--forest, #1F3A2E)"
             flexShrink={0}
           >
             <DiscordGlyph size={26} />
@@ -144,15 +144,15 @@ export function DiscordBanner({ discordUsername }: DiscordBannerProps) {
               fontSize="xs"
               letterSpacing="0.1em"
               textTransform="uppercase"
-              color="rgba(255,255,255,0.5)"
+              color="var(--mute, #8B867E)"
             >
               Community
             </Text>
-            <Text className="inter-semibold" fontSize={{ base: "lg", md: "xl" }} color="var(--color-text-primary)">
+            <Text className="inter-semibold" fontSize={{ base: "lg", md: "xl" }} color="var(--ink, #0E0E0C)">
               Verbinde deinen Discord Account
             </Text>
-            <Text className="inter" fontSize="sm" color="rgba(245, 236, 210, 0.78)" lineHeight="tall">
-              Erhalte Zugang zum exklusiven Capital-Circle-Server und tausche dich mit der Community aus.
+            <Text className="inter" fontSize="sm" color="rgba(14, 14, 12, 0.60)" lineHeight="tall">
+              Erhalte Zugang zum exklusiven T&J-Consulting-Server und tausche dich mit der Community aus.
             </Text>
           </VStack>
         </HStack>
@@ -161,11 +161,11 @@ export function DiscordBanner({ discordUsername }: DiscordBannerProps) {
           href="/api/discord/connect"
           size="md"
           borderRadius="10px"
-          bg="linear-gradient(135deg, var(--color-accent-gold-dark) 0%, var(--color-accent-gold-light) 100%)"
-          color="#0a0a0a"
+          bg="var(--forest, #1F3A2E)"
+          color="var(--paper, #FCFCFD)"
           _hover={{
-            filter: "brightness(1.06)",
-            boxShadow: "0 0 24px rgba(212, 175, 55, 0.35)",
+            bg: "var(--glow, #2D5443)",
+            boxShadow: "0 4px 16px rgba(31, 58, 46, 0.30)",
           }}
           flexShrink={0}
           alignSelf={{ base: "stretch", md: "center" }}

@@ -57,36 +57,36 @@ function PreviewPanel({
       spacing={4}
       p={5}
       borderRadius="16px"
-      border="1px solid var(--color-border)"
-      bg="var(--color-surface)"
+      border="1px solid rgba(255,255,255,0.08)"
+      bg="rgba(255,255,255,0.04)"
       position={{ md: "sticky" }}
       top={{ md: "20px" }}
     >
       <HStack justify="space-between">
-        <Text className="radley-regular" fontSize="xl" color="var(--color-text-primary)">
+        <Text fontFamily="var(--font-display)" fontSize="xl" color="var(--paper)">
           Vorschau
         </Text>
-        <Badge borderRadius="full" px={2} py={0.5} bg="rgba(212,175,55,0.14)" color="var(--color-accent-gold-light)">
+        <Badge borderRadius="full" px={2} py={0.5} bg="rgba(74,124,92,0.14)" color="var(--leaf)">
           {quizMode === "multi_page" ? "Multi Page" : "Single Page"}
         </Badge>
       </HStack>
-      <Text className="inter" fontSize="sm" color="var(--color-text-secondary)">
+      <Text fontFamily="var(--font-sans)" fontSize="sm" color="var(--mute)">
         So wirkt der Test für Nutzer. Bestehen ab <b>{passThreshold}%</b>.
       </Text>
-      <Box borderRadius="12px" border="1px solid var(--color-border)" p={4} bg="var(--color-bg-secondary)">
+      <Box borderRadius="12px" border="1px solid rgba(255,255,255,0.08)" p={4} bg="var(--ink)">
         <HStack justify="space-between" mb={3}>
-          <Text className="inter-semibold">Modul-Test</Text>
-          <Text className="inter" fontSize="sm" color="var(--color-text-secondary)">
+          <Text fontFamily="var(--font-sans)" fontWeight={600}>Modul-Test</Text>
+          <Text fontFamily="var(--font-sans)" fontSize="sm" color="var(--mute)">
             {Math.max(questions.length, 1)} Fragen
           </Text>
         </HStack>
         <Box h="8px" borderRadius="full" bg="rgba(255,255,255,0.12)" mb={4}>
-          <Box w="35%" h="100%" borderRadius="full" bg="linear-gradient(90deg, #A67C00 0%, #D4AF37 100%)" />
+          <Box w="35%" h="100%" borderRadius="full" bg="linear-gradient(90deg, #2D5443 0%, #4A7C5C 100%)" />
         </Box>
-        <Text className="inter" color="var(--color-text-secondary)" fontSize="sm" mb={2}>
+        <Text fontFamily="var(--font-sans)" color="var(--mute)" fontSize="sm" mb={2}>
           Frage 1 von {Math.max(questions.length, 1)}
         </Text>
-        <Text className="inter-semibold" mb={3}>
+        <Text fontFamily="var(--font-sans)" fontWeight={600} mb={3}>
           {previewQuestion.question || "Hier erscheint die erste Frage aus deinem Test."}
         </Text>
         <Stack spacing={2}>
@@ -98,7 +98,7 @@ function PreviewPanel({
                   borderRadius="10px"
                   border="1px solid rgba(255,255,255,0.15)"
                   bg="rgba(255,255,255,0.03)"
-                  className="inter"
+                  fontFamily="var(--font-sans)"
                   fontSize="sm"
                 >
                   {option || `Option ${idx + 1}`}
@@ -107,10 +107,10 @@ function PreviewPanel({
             : null}
           {previewQuestion.type === "true_false" ? (
             <HStack>
-              <Box flex={1} p={2.5} borderRadius="10px" border="1px solid rgba(255,255,255,0.15)" className="inter" textAlign="center">
+              <Box flex={1} p={2.5} borderRadius="10px" border="1px solid rgba(255,255,255,0.15)" fontFamily="var(--font-sans)" textAlign="center">
                 Wahr
               </Box>
-              <Box flex={1} p={2.5} borderRadius="10px" border="1px solid rgba(255,255,255,0.15)" className="inter" textAlign="center">
+              <Box flex={1} p={2.5} borderRadius="10px" border="1px solid rgba(255,255,255,0.15)" fontFamily="var(--font-sans)" textAlign="center">
                 Falsch
               </Box>
             </HStack>
@@ -119,7 +119,7 @@ function PreviewPanel({
             ? previewQuestion.items.map((item, idx) => (
                 <HStack key={`o-${idx}`} p={2.5} borderRadius="10px" border="1px solid rgba(255,255,255,0.15)">
                   <Badge borderRadius="full">{idx + 1}</Badge>
-                  <Text className="inter" fontSize="sm">
+                  <Text fontFamily="var(--font-sans)" fontSize="sm">
                     {item || `Reihenfolge-Item ${idx + 1}`}
                   </Text>
                 </HStack>
@@ -127,7 +127,7 @@ function PreviewPanel({
             : null}
         </Stack>
       </Box>
-      <Button leftIcon={<Eye size={16} />} variant="outline" borderColor="rgba(212,175,55,0.45)" color="var(--color-accent-gold-light)">
+      <Button leftIcon={<Eye size={16} />} variant="outline" borderColor="rgba(74,124,92,0.35)" color="var(--leaf)">
         Vorschau aktualisiert sich live
       </Button>
     </Stack>
@@ -197,22 +197,22 @@ export function QuizEditor({
       <GridItem>
         <Stack spacing={6}>
           <Stack spacing={2}>
-            <Text className="radley-regular" fontSize="2xl">
+            <Text fontFamily="var(--font-display)" fontSize="2xl">
               Quiz-Setup
             </Text>
-            <Text className="inter" color="var(--color-text-secondary)">
+            <Text fontFamily="var(--font-sans)" color="var(--mute)">
               {moduleTitle ? `Modul: ${moduleTitle}` : `Modul-ID: ${moduleId}`}
             </Text>
           </Stack>
 
-          <Stack spacing={4} p={5} borderRadius="16px" border="1px solid var(--color-border)" bg="var(--color-surface)">
+          <Stack spacing={4} p={5} borderRadius="16px" border="1px solid rgba(255,255,255,0.08)" bg="rgba(255,255,255,0.04)">
             <FormControl>
-              <FormLabel className="inter-semibold">Quiz-Titel</FormLabel>
+              <FormLabel fontFamily="var(--font-sans)" fontWeight={600}>Quiz-Titel</FormLabel>
               <Input value={title} onChange={(e) => setTitle(e.target.value)} />
             </FormControl>
 
             <FormControl>
-              <FormLabel className="inter-semibold">Anzeigemodus</FormLabel>
+              <FormLabel fontFamily="var(--font-sans)" fontWeight={600}>Anzeigemodus</FormLabel>
               <Select value={quizMode} onChange={(e) => setQuizMode(e.target.value as QuizMode)}>
                 <option value="multi_page">Multi Page - eine Frage pro Seite</option>
                 <option value="single_page">Single Page - alle Fragen auf einer Seite</option>
@@ -220,10 +220,10 @@ export function QuizEditor({
             </FormControl>
 
             <FormControl>
-              <FormLabel className="inter-semibold">Pass-Schwelle</FormLabel>
+              <FormLabel fontFamily="var(--font-sans)" fontWeight={600}>Pass-Schwelle</FormLabel>
               <Stack spacing={2}>
                 <HStack justify="space-between">
-                  <Badge borderRadius="full" px={3} py={1} bg="rgba(212,175,55,0.14)" color="var(--color-accent-gold-light)">
+                  <Badge borderRadius="full" px={3} py={1} bg="rgba(74,124,92,0.14)" color="var(--leaf)">
                     Mindestens {passThreshold}% richtig zum Bestehen
                   </Badge>
                   <Input
@@ -237,7 +237,7 @@ export function QuizEditor({
                 </HStack>
                 <Slider min={1} max={100} value={passThreshold} onChange={(v) => setPassThreshold(v)}>
                   <SliderTrack bg="rgba(255,255,255,0.15)">
-                    <SliderFilledTrack bg="linear-gradient(90deg, #A67C00 0%, #D4AF37 100%)" />
+                    <SliderFilledTrack bg="linear-gradient(90deg, #2D5443 0%, #4A7C5C 100%)" />
                   </SliderTrack>
                   <SliderThumb />
                 </Slider>
@@ -246,14 +246,14 @@ export function QuizEditor({
           </Stack>
 
           {questions.map((question, idx) => (
-            <Stack key={question.id} p={5} borderWidth="1px" borderColor="var(--color-border)" borderRadius="lg" gap={4} bg="var(--color-surface)">
+            <Stack key={question.id} p={5} borderWidth="1px" borderColor="rgba(255,255,255,0.08)" borderRadius="lg" gap={4} bg="rgba(255,255,255,0.04)">
               <Flex justify="space-between" align="center" wrap="wrap" gap={2}>
                 <HStack>
-                  <Text className="inter-semibold">Frage {idx + 1}</Text>
+                  <Text fontFamily="var(--font-sans)" fontWeight={600}>Frage {idx + 1}</Text>
                   <Badge
                     borderRadius="full"
-                    bg={question.type === "multiple_choice" ? "rgba(212,175,55,0.15)" : "rgba(255,255,255,0.10)"}
-                          color={question.type === "multiple_choice" ? "var(--color-accent-gold-light)" : "var(--color-text-secondary)"}
+                    bg={question.type === "multiple_choice" ? "rgba(74,124,92,0.18)" : "rgba(255,255,255,0.10)"}
+                          color={question.type === "multiple_choice" ? "var(--leaf)" : "var(--mute)"}
                   >
                     {question.type === "multiple_choice" ? "MC" : question.type === "true_false" ? "W/F" : "Reihenfolge"}
                   </Badge>
@@ -294,7 +294,7 @@ export function QuizEditor({
                   <Button
                     size="sm"
                     variant="ghost"
-                    color="var(--color-text-muted)"
+                    color="var(--mute)"
                     _hover={{ color: "#F87171", bg: "rgba(239,68,68,0.08)" }}
                     onClick={() => setQuestions((prev) => prev.filter((_, i) => i !== idx))}
                     isDisabled={questions.length <= 1}
@@ -305,7 +305,7 @@ export function QuizEditor({
               </Flex>
 
               <FormControl>
-                <FormLabel className="inter-semibold" fontSize="sm">
+                <FormLabel fontFamily="var(--font-sans)" fontWeight={600} fontSize="sm">
                   Fragetyp
                 </FormLabel>
                 <Select
@@ -350,7 +350,7 @@ export function QuizEditor({
               </FormControl>
 
               <FormControl>
-                <FormLabel className="inter-semibold" fontSize="sm">
+                <FormLabel fontFamily="var(--font-sans)" fontWeight={600} fontSize="sm">
                   Fragetext
                 </FormLabel>
                 <Textarea value={question.question} onChange={(e) => updateQuestion(idx, { ...question, question: e.target.value })} />
@@ -358,7 +358,7 @@ export function QuizEditor({
 
               {question.type === "multiple_choice" ? (
                 <Stack spacing={2}>
-                  <Text className="inter-semibold" fontSize="sm">
+                  <Text fontFamily="var(--font-sans)" fontWeight={600} fontSize="sm">
                     Antwortoptionen und richtige Lösung
                   </Text>
                   {question.options.map((option, optionIdx) => (
@@ -367,13 +367,13 @@ export function QuizEditor({
                         size="sm"
                         minW="44px"
                         variant={question.correct_index === optionIdx ? "solid" : "outline"}
-                        color={question.correct_index === optionIdx ? "var(--color-white)" : "var(--color-accent-gold-light)"}
+                        color={question.correct_index === optionIdx ? "var(--paper)" : "var(--leaf)"}
                         bg={
                           question.correct_index === optionIdx
-                            ? "linear-gradient(135deg, var(--color-accent-gold) 0%, var(--color-accent-gold-dark) 100%)"
+                            ? "linear-gradient(135deg, var(--leaf) 0%, var(--glow) 100%)"
                             : "transparent"
                         }
-                        borderColor="rgba(212,175,55,0.45)"
+                        borderColor="rgba(74,124,92,0.35)"
                         onClick={() => updateQuestion(idx, { ...question, correct_index: optionIdx })}
                       >
                         {String.fromCharCode(65 + optionIdx)}
@@ -390,7 +390,7 @@ export function QuizEditor({
                       />
                     </HStack>
                   ))}
-                  <Text className="inter" fontSize="xs" color="var(--color-text-tertiary)">
+                  <Text fontFamily="var(--font-sans)" fontSize="xs" color="rgba(139,134,126,0.6)">
                     Klicke auf A/B/C/D, um die richtige Antwort zu markieren.
                   </Text>
                 </Stack>
@@ -398,16 +398,16 @@ export function QuizEditor({
 
               {question.type === "true_false" ? (
                 <FormControl>
-                  <FormLabel className="inter-semibold" fontSize="sm">
+                  <FormLabel fontFamily="var(--font-sans)" fontWeight={600} fontSize="sm">
                     Richtige Antwort
                   </FormLabel>
                   <HStack>
                     <Button
                       flex={1}
                       variant={question.correct ? "solid" : "outline"}
-                      color={question.correct ? "var(--color-white)" : "var(--color-accent-gold-light)"}
-                      bg={question.correct ? "linear-gradient(135deg, var(--color-accent-gold) 0%, var(--color-accent-gold-dark) 100%)" : "transparent"}
-                      borderColor="rgba(212,175,55,0.45)"
+                      color={question.correct ? "var(--paper)" : "var(--leaf)"}
+                      bg={question.correct ? "linear-gradient(135deg, var(--leaf) 0%, var(--glow) 100%)" : "transparent"}
+                      borderColor="rgba(74,124,92,0.35)"
                       onClick={() => updateQuestion(idx, { ...question, correct: true })}
                     >
                       Wahr
@@ -415,9 +415,9 @@ export function QuizEditor({
                     <Button
                       flex={1}
                       variant={!question.correct ? "solid" : "outline"}
-                      color={!question.correct ? "var(--color-white)" : "var(--color-accent-gold-light)"}
-                      bg={!question.correct ? "linear-gradient(135deg, var(--color-accent-gold) 0%, var(--color-accent-gold-dark) 100%)" : "transparent"}
-                      borderColor="rgba(212,175,55,0.45)"
+                      color={!question.correct ? "var(--paper)" : "var(--leaf)"}
+                      bg={!question.correct ? "linear-gradient(135deg, var(--leaf) 0%, var(--glow) 100%)" : "transparent"}
+                      borderColor="rgba(74,124,92,0.35)"
                       onClick={() => updateQuestion(idx, { ...question, correct: false })}
                     >
                       Falsch
@@ -429,7 +429,7 @@ export function QuizEditor({
               {question.type === "ordering" ? (
                 <Stack spacing={2}>
                   <FormControl>
-                    <FormLabel className="inter-semibold" fontSize="sm">
+                    <FormLabel fontFamily="var(--font-sans)" fontWeight={600} fontSize="sm">
                       Items (eine Zeile pro Item)
                     </FormLabel>
                     <Textarea
@@ -443,7 +443,7 @@ export function QuizEditor({
                     />
                   </FormControl>
                   <FormControl>
-                    <FormLabel className="inter-semibold" fontSize="sm">
+                    <FormLabel fontFamily="var(--font-sans)" fontWeight={600} fontSize="sm">
                       Korrekte Reihenfolge (Indices)
                     </FormLabel>
                     <Input
@@ -464,7 +464,7 @@ export function QuizEditor({
               ) : null}
 
               <FormControl>
-                <FormLabel className="inter-semibold" fontSize="sm">
+                <FormLabel fontFamily="var(--font-sans)" fontWeight={600} fontSize="sm">
                   Erklärung bei falscher Antwort
                 </FormLabel>
                 <Textarea
@@ -491,20 +491,20 @@ export function QuizEditor({
             wrap="wrap"
           >
             <HStack>
-              <Button leftIcon={<Plus size={14} />} variant="outline" borderColor="rgba(212,175,55,0.45)" color="var(--color-accent-gold-light)" onClick={addQuestion}>
+              <Button leftIcon={<Plus size={14} />} variant="outline" borderColor="rgba(74,124,92,0.35)" color="var(--leaf)" onClick={addQuestion}>
                 Frage hinzufügen
               </Button>
               <Button
                 isLoading={saving}
                 onClick={save}
-                color="var(--color-white)"
-                bg="linear-gradient(135deg, var(--color-accent-gold) 0%, var(--color-accent-gold-dark) 100%)"
-                _hover={{ bg: "linear-gradient(135deg, var(--color-accent-gold-light) 0%, var(--color-accent-gold) 100%)" }}
+                color="var(--paper)"
+                bg="linear-gradient(135deg, var(--leaf) 0%, var(--glow) 100%)"
+                _hover={{ bg: "linear-gradient(135deg, var(--leaf) 0%, var(--leaf) 100%)" }}
               >
                 Quiz speichern
               </Button>
             </HStack>
-            {status ? <Text className="inter" fontSize="sm">{status}</Text> : null}
+            {status ? <Text fontFamily="var(--font-sans)" fontSize="sm">{status}</Text> : null}
           </Flex>
         </Stack>
       </GridItem>

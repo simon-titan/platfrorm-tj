@@ -189,7 +189,7 @@ export function NewsManager() {
       <SimpleGrid columns={{ base: 1, xl: 2 }} spacing={{ base: 8, xl: 10 }} alignItems="start">
         <Stack gap={4}>
           <HStack justify="space-between" flexWrap="wrap" gap={2}>
-            <Text fontSize="xl" className="inter-semibold">
+            <Text fontSize="xl" fontFamily="var(--font-sans)" fontWeight={600}>
               {editingId ? "Beitrag bearbeiten" : "Neuer News-Beitrag"}
             </Text>
             {editingId ? (
@@ -248,7 +248,7 @@ export function NewsManager() {
           </Box>
 
           <Box>
-            <Text fontSize="sm" className="inter-semibold" mb={2}>
+            <Text fontSize="sm" fontFamily="var(--font-sans)" fontWeight={600} mb={2}>
               Inhalt
             </Text>
             <RichTextEditor key={editingId ?? "new"} value={contentJson} onChange={setContentJson} />
@@ -275,7 +275,7 @@ export function NewsManager() {
       </SimpleGrid>
 
       <Stack gap={2}>
-        <Text fontSize="lg" className="inter-semibold">
+        <Text fontSize="lg" fontFamily="var(--font-sans)" fontWeight={600}>
           Alle News-Beitraege
         </Text>
         {posts.length === 0 ? (

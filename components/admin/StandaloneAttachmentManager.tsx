@@ -227,7 +227,7 @@ export function StandaloneAttachmentManager() {
 
   if (loading) {
     return (
-      <Text fontSize="sm" color="gray.400" className="inter">
+      <Text fontSize="sm" color="gray.400" fontFamily="var(--font-sans)">
         Eigenständige Anhänge werden geladen…
       </Text>
     );
@@ -254,7 +254,7 @@ export function StandaloneAttachmentManager() {
           <FormLabel
             m={0}
             mb={1}
-            className="inter"
+            fontFamily="var(--font-sans)"
             fontSize="xs"
             textTransform="uppercase"
             letterSpacing="0.06em"
@@ -262,7 +262,7 @@ export function StandaloneAttachmentManager() {
           >
             PDFs &amp; Templates ohne Video
           </FormLabel>
-          <Text fontSize="sm" className="inter" color="gray.400">
+          <Text fontSize="sm" fontFamily="var(--font-sans)" color="gray.400">
             Hochladen ohne Zuordnung zu einem Modul oder Video — für das Arsenal und freie Downloads.
           </Text>
         </Box>
@@ -324,15 +324,15 @@ export function StandaloneAttachmentManager() {
           bg="rgba(30, 58, 138, 0.15)"
         >
           <HStack justify="space-between" mb={1} flexWrap="wrap" gap={1}>
-            <Text fontSize="sm" className="inter-semibold" color="blue.200" noOfLines={1} maxW="75%">
+            <Text fontSize="sm" fontFamily="var(--font-sans)" fontWeight={600} color="blue.200" noOfLines={1} maxW="75%">
               {fileName ?? "Datei…"}
             </Text>
-            <Text fontSize="sm" className="jetbrains-mono" color="blue.300" flexShrink={0}>
+            <Text fontSize="sm" fontFamily="var(--font-mono)" color="blue.300" flexShrink={0}>
               {progress}%
             </Text>
           </HStack>
           {fileSize ? (
-            <Text fontSize="xs" color="gray.400" className="inter" mb={2}>
+            <Text fontSize="xs" color="gray.400" fontFamily="var(--font-sans)" mb={2}>
               {(fileSize / 1024 / 1024).toFixed(2)} MB
               {progress > 0 && progress < 100
                 ? ` — ${((fileSize / 1024 / 1024) * (progress / 100)).toFixed(2)} MB übertragen`
@@ -349,13 +349,13 @@ export function StandaloneAttachmentManager() {
             isAnimated={progress < 100}
           />
           {status ? (
-            <Text fontSize="xs" color="blue.300" className="inter" mt={2}>{status}</Text>
+            <Text fontSize="xs" color="blue.300" fontFamily="var(--font-sans)" mt={2}>{status}</Text>
           ) : null}
         </Box>
       ) : null}
 
       {items.length === 0 ? (
-        <Text fontSize="sm" color="gray.500" className="inter">
+        <Text fontSize="sm" color="gray.500" fontFamily="var(--font-sans)">
           Noch keine eigenständigen Dateien.
         </Text>
       ) : (
@@ -379,7 +379,7 @@ export function StandaloneAttachmentManager() {
                       <FileDown size={18} />
                     </Box>
                     <Box minW={0}>
-                      <Text className="inter" fontSize="sm" noOfLines={2} color="gray.100">
+                      <Text fontFamily="var(--font-sans)" fontSize="sm" noOfLines={2} color="gray.100">
                         {a.filename}
                       </Text>
                       <Text fontSize="xs" color="gray.500">
@@ -400,8 +400,8 @@ export function StandaloneAttachmentManager() {
                       />
                       <Text
                         fontSize="xs"
-                        className="inter-semibold"
-                        color={a.is_free ? "var(--color-accent-gold)" : "gray.500"}
+                        fontFamily="var(--font-sans)" fontWeight={600}
+                        color={a.is_free ? "var(--leaf)" : "gray.500"}
                         textTransform="uppercase"
                         letterSpacing="0.06em"
                       >
@@ -487,7 +487,7 @@ export function StandaloneAttachmentManager() {
       )}
 
       {!busy && status ? (
-        <Text fontSize="sm" color={isError ? "red.300" : "green.300"} className="inter">
+        <Text fontSize="sm" color={isError ? "red.300" : "green.300"} fontFamily="var(--font-sans)">
           {status}
         </Text>
       ) : null}

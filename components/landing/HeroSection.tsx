@@ -49,31 +49,31 @@ interface CardStyle {
 
 const CARD_STYLES: CardStyle[] = [
   {
-    // Bronze (Kupfer-Bronze — deutlich rotstichig, klar von Gold getrennt)
-    border: "rgba(184,94,48,0.48)",
-    bg: "radial-gradient(circle at 85% 15%, rgba(184,94,48,0.18) 0%, rgba(8,8,8,0.70) 60%)",
-    iconBg: "rgba(184,94,48,0.20)",
-    iconColor: "#CD7F32",
-    topLine: "linear-gradient(90deg, transparent 10%, rgba(184,94,48,0.62) 50%, transparent 90%)",
-    shadow: "0 0 22px rgba(184,94,48,0.16), 0 3px 14px rgba(0,0,0,0.50)",
+    // Deep Forest
+    border: "rgba(31,58,46,0.55)",
+    bg: "radial-gradient(circle at 85% 15%, rgba(18,38,32,0.30) 0%, rgba(14,14,12,0.70) 60%)",
+    iconBg: "rgba(18,38,32,0.25)",
+    iconColor: "#4A7C5C",
+    topLine: "linear-gradient(90deg, transparent 10%, rgba(74,124,92,0.55) 50%, transparent 90%)",
+    shadow: "0 0 22px rgba(18,38,32,0.20), 0 3px 14px rgba(14,14,12,0.50)",
   },
   {
-    // Silver
-    border: "rgba(180,195,220,0.32)",
-    bg: "radial-gradient(circle at 15% 85%, rgba(180,200,230,0.12) 0%, rgba(8,8,8,0.72) 60%)",
-    iconBg: "rgba(180,195,220,0.14)",
-    iconColor: "#AAC0D8",
-    topLine: "linear-gradient(90deg, transparent 15%, rgba(160,180,210,0.48) 55%, transparent 90%)",
-    shadow: "0 0 18px rgba(180,200,230,0.10), 0 2px 12px rgba(0,0,0,0.50)",
+    // Mid Forest
+    border: "rgba(45,84,67,0.45)",
+    bg: "radial-gradient(circle at 15% 85%, rgba(31,58,46,0.22) 0%, rgba(14,14,12,0.72) 60%)",
+    iconBg: "rgba(31,58,46,0.22)",
+    iconColor: "#2D5443",
+    topLine: "linear-gradient(90deg, transparent 15%, rgba(45,84,67,0.52) 55%, transparent 90%)",
+    shadow: "0 0 18px rgba(45,84,67,0.14), 0 2px 12px rgba(14,14,12,0.50)",
   },
   {
-    // Gold
-    border: "rgba(212,175,55,0.42)",
-    bg: "radial-gradient(circle at 50% 0%, rgba(212,175,55,0.15) 0%, rgba(8,8,8,0.68) 60%)",
-    iconBg: "rgba(212,175,55,0.18)",
-    iconColor: "#D4AF37",
-    topLine: "linear-gradient(90deg, transparent 8%, rgba(212,175,55,0.65) 45%, rgba(212,175,55,0.65) 55%, transparent 92%)",
-    shadow: "0 0 24px rgba(212,175,55,0.14), 0 3px 14px rgba(0,0,0,0.48)",
+    // Leaf
+    border: "rgba(74,124,92,0.42)",
+    bg: "radial-gradient(circle at 50% 0%, rgba(74,124,92,0.14) 0%, rgba(14,14,12,0.68) 60%)",
+    iconBg: "rgba(45,84,67,0.20)",
+    iconColor: "var(--leaf, #4A7C5C)",
+    topLine: "linear-gradient(90deg, transparent 8%, rgba(74,124,92,0.62) 45%, rgba(74,124,92,0.62) 55%, transparent 92%)",
+    shadow: "0 0 24px rgba(74,124,92,0.12), 0 3px 14px rgba(14,14,12,0.48)",
   },
 ];
 
@@ -87,13 +87,13 @@ const BEWERBUNG_STATEMENT_TITLE: ReactNode = (
   <Text
     as="div"
     fontSize="sm"
-    color="#07080A"
+    color="var(--paper, #FCFCFD)"
     className="inter"
     fontWeight={500}
     lineHeight="1.4"
   >
     <Box as="span" fontWeight={700} className="inter-bold">
-      Capital Circle
+      T&J Consulting
     </Box>
     {" ist kein "}
     <Box as="span" fontWeight={700} className="inter-bold">
@@ -200,14 +200,14 @@ function CommunityCard({ feature, titleContent }: { feature: LandingFeature; tit
       px={{ base: 4, md: 5 }}
       py={{ base: 3.5, md: 3.5 }}
       sx={{
-        background: "linear-gradient(135deg, #E8C547 0%, #D4AF37 50%, #A67C00 100%)",
+        background: "linear-gradient(135deg, #2D5443 0%, #1F3A2E 100%)",
         boxShadow:
-          "0 0 32px rgba(212,175,55,0.35), 0 4px 18px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.22)",
+          "0 0 24px rgba(45,84,67,0.28), 0 4px 18px rgba(14,14,12,0.40), inset 0 1px 0 rgba(255,255,255,0.08)",
         transition: "all 220ms cubic-bezier(0.16, 1, 0.3, 1)",
         _hover: {
-          background: "linear-gradient(135deg, #F0DC82 0%, #E8C547 50%, #D4AF37 100%)",
+          background: "linear-gradient(135deg, #4A7C5C 0%, #2D5443 100%)",
           boxShadow:
-            "0 0 44px rgba(212,175,55,0.50), 0 6px 22px rgba(0,0,0,0.40), inset 0 1px 0 rgba(255,255,255,0.28)",
+            "0 0 36px rgba(74,124,92,0.35), 0 6px 22px rgba(14,14,12,0.40), inset 0 1px 0 rgba(255,255,255,0.12)",
           transform: "translateY(-1px)",
         },
       }}
@@ -221,20 +221,20 @@ function CommunityCard({ feature, titleContent }: { feature: LandingFeature; tit
           alignItems="center"
           justifyContent="center"
           flexShrink={0}
-          bg="rgba(7,8,10,0.18)"
-          border="1px solid rgba(7,8,10,0.12)"
-          color="#07080A"
+          bg="rgba(255,255,255,0.10)"
+          border="1px solid rgba(255,255,255,0.12)"
+          color="var(--paper, #FCFCFD)"
         >
           <Icon size={16} strokeWidth={2.2} />
         </Box>
         <Box textAlign="left">
           {titleContent ?? (
-            <Text fontSize="sm" fontWeight="700" color="#07080A" className="inter-bold" lineHeight="1.2">
+            <Text fontSize="sm" fontWeight="700" color="var(--paper, #FCFCFD)" className="inter-bold" lineHeight="1.2">
               {feature.label}
             </Text>
           )}
           {feature.detail && (
-            <Text fontSize="xs" fontWeight="500" color="rgba(7,8,10,0.68)" className="inter-medium" lineHeight="1.4" mt="2px">
+            <Text fontSize="xs" fontWeight="500" color="rgba(252,252,253,0.72)" className="inter-medium" lineHeight="1.4" mt="2px">
               {feature.detail}
             </Text>
           )}
@@ -253,9 +253,9 @@ function parseSubheadline(text: string): ReactNode[] {
         <Box
           key={i}
           as="span"
-          color="var(--color-accent-gold-light, #E8C547)"
+          color="var(--leaf, #4A7C5C)"
           fontWeight="500"
-          sx={{ background: "rgba(212,175,55,0.10)", borderRadius: "4px", paddingInline: "4px" }}
+          sx={{ background: "rgba(74,124,92,0.10)", borderRadius: "4px", paddingInline: "4px" }}
         >
           {word}
         </Box>
@@ -289,7 +289,7 @@ export function HeroSection({ onApply, ctaOverrides, funnelVideoSrc, landingSlug
       pb={{ base: 14, md: 20 }}
       px={{ base: 4, md: 8, lg: 12 }}
       sx={{
-        backgroundImage: "url('/bg/dashboard.png')",
+        backgroundImage: "url('/bg/tj-hero-bg.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center center",
         backgroundRepeat: "no-repeat",
@@ -303,7 +303,7 @@ export function HeroSection({ onApply, ctaOverrides, funnelVideoSrc, landingSlug
         pointerEvents="none"
         sx={{
           background:
-            "radial-gradient(ellipse 88% 92% at 50% 50%, rgba(7,8,10,0.95) 0%, rgba(7,8,10,0.84) 28%, rgba(7,8,10,0.60) 52%, rgba(7,8,10,0.28) 72%, rgba(7,8,10,0.06) 100%)",
+            "radial-gradient(ellipse 88% 92% at 50% 50%, rgba(14,14,12,0.94) 0%, rgba(18,38,32,0.82) 38%, rgba(31,58,46,0.54) 68%, rgba(31,58,46,0.10) 100%)",
         }}
       />
 
@@ -318,7 +318,7 @@ export function HeroSection({ onApply, ctaOverrides, funnelVideoSrc, landingSlug
         pointerEvents="none"
         sx={{
           background:
-            "linear-gradient(90deg, transparent 5%, rgba(212,175,55,0.45) 30%, rgba(212,175,55,0.45) 70%, transparent 95%)",
+            "linear-gradient(90deg, transparent 5%, rgba(74,124,92,0.45) 30%, rgba(74,124,92,0.45) 70%, transparent 95%)",
         }}
       />
 
@@ -379,28 +379,28 @@ export function HeroSection({ onApply, ctaOverrides, funnelVideoSrc, landingSlug
                       fontWeight="600"
                       fontSize="15px"
                       letterSpacing="0.02em"
-                      color="#07080A"
+                      color="var(--paper, #FCFCFD)"
                       display="flex"
                       alignItems="center"
                       justifyContent="center"
                       gap={2}
                       className="inter-semibold"
                       sx={{
-                        background: "linear-gradient(135deg, #E8C547 0%, #D4AF37 50%, #A67C00 100%)",
+                        background: "var(--ink, #0E0E0C)",
                         boxShadow:
-                          "0 0 28px rgba(212,175,55,0.35), 0 4px 16px rgba(0,0,0,0.40), inset 0 1px 0 rgba(255,255,255,0.22)",
+                          "0 4px 16px rgba(14,14,12,0.40), inset 0 1px 0 rgba(255,255,255,0.06)",
                         border: "none",
                         cursor: "pointer",
                         transition: "all 220ms cubic-bezier(0.16, 1, 0.3, 1)",
                         _hover: {
-                          background: "linear-gradient(135deg, #F0DC82 0%, #E8C547 50%, #D4AF37 100%)",
+                          background: "var(--forest-deep, #122620)",
                           boxShadow:
-                            "0 0 44px rgba(212,175,55,0.50), 0 6px 22px rgba(0,0,0,0.40), inset 0 1px 0 rgba(255,255,255,0.28)",
+                            "0 6px 22px rgba(18,38,32,0.35)",
                           transform: "translateY(-1px)",
                         },
                         _active: {
                           transform: "translateY(0px)",
-                          boxShadow: "0 0 16px rgba(212,175,55,0.20)",
+                          boxShadow: "0 2px 8px rgba(14,14,12,0.30)",
                         },
                       }}
                     >
@@ -426,9 +426,9 @@ export function HeroSection({ onApply, ctaOverrides, funnelVideoSrc, landingSlug
                 overflow="hidden"
                 sx={{
                   aspectRatio: "16 / 9",
-                  border: "1px solid rgba(212,175,55,0.22)",
-                  boxShadow: "0 16px 56px rgba(0,0,0,0.55), 0 0 0 1px rgba(212,175,55,0.08)",
-                  background: "rgba(0,0,0,0.60)",
+                  border: "1px solid rgba(74,124,92,0.22)",
+                  boxShadow: "0 16px 56px rgba(14,14,12,0.55), 0 0 0 1px rgba(74,124,92,0.08)",
+                  background: "rgba(14,14,12,0.60)",
                 }}
                 display="flex"
                 flexDirection="column"
@@ -443,9 +443,9 @@ export function HeroSection({ onApply, ctaOverrides, funnelVideoSrc, landingSlug
                   display="flex"
                   alignItems="center"
                   justifyContent="center"
-                  bg="rgba(212,175,55,0.12)"
-                  border="1px solid rgba(212,175,55,0.35)"
-                  color="var(--color-accent-gold, #D4AF37)"
+                  bg="rgba(74,124,92,0.12)"
+                  border="1px solid rgba(74,124,92,0.35)"
+                  color="var(--leaf, #4A7C5C)"
                   fontSize="22px"
                 >
                   ▶
@@ -466,7 +466,7 @@ export function HeroSection({ onApply, ctaOverrides, funnelVideoSrc, landingSlug
             borderRadius="12px"
             sx={{
               background: "rgba(255,255,255,0.03)",
-              border: "1px solid rgba(212,175,55,0.16)",
+              border: "1px solid rgba(74,124,92,0.20)",
               backdropFilter: "blur(16px)",
               WebkitBackdropFilter: "blur(16px)",
             }}
@@ -491,7 +491,7 @@ export function HeroSection({ onApply, ctaOverrides, funnelVideoSrc, landingSlug
                     objectFit="cover"
                     borderWidth={{ base: "1.5px", md: "2px" }}
                     borderStyle="solid"
-                    borderColor="rgba(7,8,10,0.9)"
+                    borderColor="rgba(14,14,12,0.90)"
                     boxShadow="0 2px 6px rgba(0,0,0,0.4)"
                     zIndex={10 - i}
                     sx={{
@@ -505,10 +505,10 @@ export function HeroSection({ onApply, ctaOverrides, funnelVideoSrc, landingSlug
                 ))}
               </HStack>
               <Text fontSize="sm" color="rgba(255,255,255,0.58)" className="inter" fontWeight={400}>
-                <Box as="span" color="var(--color-accent-gold, #D4AF37)" fontWeight="500">
+                <Box as="span" color="var(--leaf, #4A7C5C)" fontWeight="500">
                   1.000+
                 </Box>{" "}
-                Trader bereits auf ihrem Weg begleitet
+                Mitglieder erfolgreich begleitet
               </Text>
             </HStack>
           </Box>
@@ -524,28 +524,27 @@ export function HeroSection({ onApply, ctaOverrides, funnelVideoSrc, landingSlug
               fontWeight="600"
               fontSize="16px"
               letterSpacing="0.02em"
-              color="#07080A"
+              color="var(--paper, #FCFCFD)"
               display="flex"
               alignItems="center"
               justifyContent="center"
               gap={2}
               className="inter-semibold"
               sx={{
-                background: "linear-gradient(135deg, #E8C547 0%, #D4AF37 50%, #A67C00 100%)",
+                background: "var(--ink, #0E0E0C)",
                 boxShadow:
-                  "0 0 28px rgba(212,175,55,0.30), 0 4px 16px rgba(0,0,0,0.40), inset 0 1px 0 rgba(255,255,255,0.22)",
+                  "0 4px 16px rgba(14,14,12,0.40), inset 0 1px 0 rgba(255,255,255,0.06)",
                 border: "none",
                 cursor: "pointer",
                 transition: "all 220ms cubic-bezier(0.16, 1, 0.3, 1)",
                 _hover: {
-                  background: "linear-gradient(135deg, #F0DC82 0%, #E8C547 50%, #D4AF37 100%)",
-                  boxShadow:
-                    "0 0 44px rgba(212,175,55,0.50), 0 6px 22px rgba(0,0,0,0.40), inset 0 1px 0 rgba(255,255,255,0.28)",
+                  background: "var(--forest-deep, #122620)",
+                  boxShadow: "0 6px 22px rgba(18,38,32,0.35)",
                   transform: "translateY(-1px)",
                 },
                 _active: {
                   transform: "translateY(0px)",
-                  boxShadow: "0 0 16px rgba(212,175,55,0.20)",
+                  boxShadow: "0 2px 8px rgba(14,14,12,0.30)",
                 },
               }}
             >

@@ -51,8 +51,8 @@ const EMPTY_REVIEW: Omit<Review, "id" | "created_at"> = {
 const inputSx = {
   bg: "rgba(255,255,255,0.04)",
   borderColor: "rgba(255,255,255,0.12)",
-  _hover: { borderColor: "rgba(212,175,55,0.4)" },
-  _focus: { borderColor: "rgba(212,175,55,0.6)", boxShadow: "0 0 0 1px rgba(212,175,55,0.4)" },
+  _hover: { borderColor: "rgba(74,124,92,0.35)" },
+  _focus: { borderColor: "rgba(74,124,92,0.18)", boxShadow: "0 0 0 1px rgba(74,124,92,0.35)" },
 };
 
 export function AdminReviewsManager() {
@@ -154,7 +154,7 @@ export function AdminReviewsManager() {
             <option value="insight">Insight</option>
             <option value="global">Global</option>
           </Select>
-          <Text fontSize="sm" color="var(--color-text-secondary)" className="inter">
+          <Text fontSize="sm" color="var(--mute)" fontFamily="var(--font-sans)">
             {reviews.length} Reviews
           </Text>
         </HStack>
@@ -162,12 +162,12 @@ export function AdminReviewsManager() {
           size="sm"
           leftIcon={<Plus size={14} />}
           onClick={() => setEditing({ ...EMPTY_REVIEW, landing_slug: filterSlug })}
-          bg="rgba(212,175,55,0.15)"
-          color="var(--color-accent-gold)"
-          borderColor="rgba(212,175,55,0.3)"
+          bg="rgba(74,124,92,0.18)"
+          color="var(--leaf)"
+          borderColor="rgba(74,124,92,0.18)"
           borderWidth="1px"
-          _hover={{ bg: "rgba(212,175,55,0.25)" }}
-          className="inter-semibold"
+          _hover={{ bg: "rgba(74,124,92,0.18)" }}
+          fontFamily="var(--font-sans)" fontWeight={600}
         >
           Neues Review
         </Button>
@@ -176,7 +176,7 @@ export function AdminReviewsManager() {
       {error && (
         <Alert status="error" variant="subtle" bg="rgba(229,72,77,0.10)" borderRadius="12px">
           <AlertIcon />
-          <Text fontSize="sm" className="inter">{error}</Text>
+          <Text fontSize="sm" fontFamily="var(--font-sans)">{error}</Text>
         </Alert>
       )}
 
@@ -185,16 +185,16 @@ export function AdminReviewsManager() {
           p={5}
           borderRadius="16px"
           bg="rgba(255,255,255,0.04)"
-          border="1px solid rgba(212,175,55,0.25)"
+          border="1px solid rgba(74,124,92,0.18)"
         >
           <Stack spacing={4}>
-            <Heading as="h3" size="sm" className="inter-semibold" color="var(--color-text-primary)">
+            <Heading as="h3" size="sm" fontFamily="var(--font-sans)" fontWeight={600} color="var(--paper)">
               {editing.id ? "Review bearbeiten" : "Neues Review"}
             </Heading>
 
             <HStack spacing={4} align="flex-start" flexWrap="wrap">
               <FormControl flex={1} minW="200px">
-                <FormLabel fontSize="xs" className="inter-semibold" color="rgba(255,255,255,0.6)">Name</FormLabel>
+                <FormLabel fontSize="xs" fontFamily="var(--font-sans)" fontWeight={600} color="rgba(255,255,255,0.6)">Name</FormLabel>
                 <Input
                   size="sm"
                   sx={inputSx}
@@ -203,7 +203,7 @@ export function AdminReviewsManager() {
                 />
               </FormControl>
               <FormControl w="100px">
-                <FormLabel fontSize="xs" className="inter-semibold" color="rgba(255,255,255,0.6)">Rating</FormLabel>
+                <FormLabel fontSize="xs" fontFamily="var(--font-sans)" fontWeight={600} color="rgba(255,255,255,0.6)">Rating</FormLabel>
                 <Select
                   size="sm"
                   sx={inputSx}
@@ -216,7 +216,7 @@ export function AdminReviewsManager() {
                 </Select>
               </FormControl>
               <FormControl w="140px">
-                <FormLabel fontSize="xs" className="inter-semibold" color="rgba(255,255,255,0.6)">Datum</FormLabel>
+                <FormLabel fontSize="xs" fontFamily="var(--font-sans)" fontWeight={600} color="rgba(255,255,255,0.6)">Datum</FormLabel>
                 <Input
                   size="sm"
                   sx={inputSx}
@@ -228,7 +228,7 @@ export function AdminReviewsManager() {
             </HStack>
 
             <FormControl>
-              <FormLabel fontSize="xs" className="inter-semibold" color="rgba(255,255,255,0.6)">Titel</FormLabel>
+              <FormLabel fontSize="xs" fontFamily="var(--font-sans)" fontWeight={600} color="rgba(255,255,255,0.6)">Titel</FormLabel>
               <Input
                 size="sm"
                 sx={inputSx}
@@ -238,7 +238,7 @@ export function AdminReviewsManager() {
             </FormControl>
 
             <FormControl>
-              <FormLabel fontSize="xs" className="inter-semibold" color="rgba(255,255,255,0.6)">Text</FormLabel>
+              <FormLabel fontSize="xs" fontFamily="var(--font-sans)" fontWeight={600} color="rgba(255,255,255,0.6)">Text</FormLabel>
               <Textarea
                 size="sm"
                 sx={inputSx}
@@ -250,7 +250,7 @@ export function AdminReviewsManager() {
 
             <HStack spacing={4} align="flex-end" flexWrap="wrap">
               <FormControl flex={1} minW="200px">
-                <FormLabel fontSize="xs" className="inter-semibold" color="rgba(255,255,255,0.6)">
+                <FormLabel fontSize="xs" fontFamily="var(--font-sans)" fontWeight={600} color="rgba(255,255,255,0.6)">
                   Avatar URL
                 </FormLabel>
                 <HStack>
@@ -294,14 +294,14 @@ export function AdminReviewsManager() {
                   h="40px"
                   borderRadius="full"
                   objectFit="cover"
-                  border="1px solid rgba(212,175,55,0.3)"
+                  border="1px solid rgba(74,124,92,0.18)"
                 />
               )}
             </HStack>
 
             <HStack spacing={4} align="flex-end" flexWrap="wrap">
               <FormControl w="180px">
-                <FormLabel fontSize="xs" className="inter-semibold" color="rgba(255,255,255,0.6)">
+                <FormLabel fontSize="xs" fontFamily="var(--font-sans)" fontWeight={600} color="rgba(255,255,255,0.6)">
                   Landing
                 </FormLabel>
                 <Select
@@ -316,7 +316,7 @@ export function AdminReviewsManager() {
                 </Select>
               </FormControl>
               <FormControl w="100px">
-                <FormLabel fontSize="xs" className="inter-semibold" color="rgba(255,255,255,0.6)">
+                <FormLabel fontSize="xs" fontFamily="var(--font-sans)" fontWeight={600} color="rgba(255,255,255,0.6)">
                   Sortierung
                 </FormLabel>
                 <Input
@@ -334,7 +334,7 @@ export function AdminReviewsManager() {
                   colorScheme="yellow"
                   size="sm"
                 />
-                <FormLabel fontSize="xs" className="inter" color="rgba(255,255,255,0.5)" mb={0}>
+                <FormLabel fontSize="xs" fontFamily="var(--font-sans)" color="rgba(255,255,255,0.5)" mb={0}>
                   Sichtbar
                 </FormLabel>
               </FormControl>
@@ -345,12 +345,12 @@ export function AdminReviewsManager() {
                 size="sm"
                 onClick={handleSave}
                 isLoading={saving}
-                bg="rgba(212,175,55,0.2)"
-                color="var(--color-accent-gold)"
-                borderColor="rgba(212,175,55,0.4)"
+                bg="rgba(74,124,92,0.18)"
+                color="var(--leaf)"
+                borderColor="rgba(74,124,92,0.35)"
                 borderWidth="1px"
-                _hover={{ bg: "rgba(212,175,55,0.35)" }}
-                className="inter-semibold"
+                _hover={{ bg: "rgba(74,124,92,0.18)" }}
+                fontFamily="var(--font-sans)" fontWeight={600}
               >
                 Speichern
               </Button>
@@ -360,7 +360,7 @@ export function AdminReviewsManager() {
                 onClick={() => setEditing(null)}
                 color="rgba(255,255,255,0.5)"
                 _hover={{ bg: "rgba(255,255,255,0.06)" }}
-                className="inter"
+                fontFamily="var(--font-sans)"
               >
                 Abbrechen
               </Button>
@@ -370,9 +370,9 @@ export function AdminReviewsManager() {
       )}
 
       {loading ? (
-        <Text fontSize="sm" color="var(--color-text-secondary)" className="inter">Lade Reviews…</Text>
+        <Text fontSize="sm" color="var(--mute)" fontFamily="var(--font-sans)">Lade Reviews…</Text>
       ) : reviews.length === 0 ? (
-        <Text fontSize="sm" color="var(--color-text-secondary)" className="inter">Keine Reviews vorhanden.</Text>
+        <Text fontSize="sm" color="var(--mute)" fontFamily="var(--font-sans)">Keine Reviews vorhanden.</Text>
       ) : (
         <Stack spacing={0}>
           {reviews.map((review) => (
@@ -395,7 +395,7 @@ export function AdminReviewsManager() {
                   borderRadius="full"
                   objectFit="cover"
                   flexShrink={0}
-                  border="1px solid rgba(212,175,55,0.25)"
+                  border="1px solid rgba(74,124,92,0.18)"
                 />
               ) : (
                 <Box
@@ -406,11 +406,11 @@ export function AdminReviewsManager() {
                   display="flex"
                   alignItems="center"
                   justifyContent="center"
-                  bg="rgba(212,175,55,0.12)"
-                  border="1px solid rgba(212,175,55,0.25)"
-                  color="var(--color-accent-gold)"
+                  bg="rgba(74,124,92,0.12)"
+                  border="1px solid rgba(74,124,92,0.18)"
+                  color="var(--leaf)"
                   fontSize="12px"
-                  className="inter-semibold"
+                  fontFamily="var(--font-sans)" fontWeight={600}
                 >
                   {review.name.charAt(0)}
                 </Box>
@@ -418,19 +418,19 @@ export function AdminReviewsManager() {
 
               <Stack spacing={0} flex={1} minW={0}>
                 <HStack spacing={2}>
-                  <Text fontSize="sm" className="inter-semibold" color="var(--color-text-primary)" noOfLines={1}>
+                  <Text fontSize="sm" fontFamily="var(--font-sans)" fontWeight={600} color="var(--paper)" noOfLines={1}>
                     {review.name}
                   </Text>
                   <HStack spacing={0.5}>
                     {Array.from({ length: review.rating }).map((_, i) => (
-                      <Star key={i} size={10} fill="#D4AF37" color="#D4AF37" />
+                      <Star key={i} size={10} fill="#4A7C5C" color="#4A7C5C" />
                     ))}
                   </HStack>
                   {!review.visible && (
                     <Badge fontSize="9px" colorScheme="red" variant="subtle">Verborgen</Badge>
                   )}
                 </HStack>
-                <Text fontSize="xs" color="rgba(255,255,255,0.45)" className="inter" noOfLines={1}>
+                <Text fontSize="xs" color="rgba(255,255,255,0.45)" fontFamily="var(--font-sans)" noOfLines={1}>
                   {review.title} — {review.date_label}
                 </Text>
               </Stack>
@@ -442,7 +442,7 @@ export function AdminReviewsManager() {
                   size="xs"
                   variant="ghost"
                   color="rgba(255,255,255,0.5)"
-                  _hover={{ color: "var(--color-accent-gold)", bg: "rgba(255,255,255,0.06)" }}
+                  _hover={{ color: "var(--leaf)", bg: "rgba(255,255,255,0.06)" }}
                   onClick={() => setEditing({ ...review })}
                 />
                 <IconButton

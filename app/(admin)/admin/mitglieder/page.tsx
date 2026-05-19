@@ -6,10 +6,10 @@ export default function AdminMembersPage() {
     <Box maxW="1200px" mx="auto" px={{ base: 4, md: 6 }} py={8}>
       <Heading
         as="h1"
-        className="radley-regular"
+        fontFamily="var(--font-display)"
         fontWeight={400}
         fontSize={{ base: "2xl", md: "3xl" }}
-        color="whiteAlpha.950"
+        color="var(--paper)"
         mb={8}
       >
         Mitglieder

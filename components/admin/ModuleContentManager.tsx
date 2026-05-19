@@ -378,7 +378,7 @@ export function ModuleContentManager({
         mb={3}
         borderRadius="16px"
         borderWidth="1px"
-        borderColor={isExpanded ? "rgba(212,175,55,0.3)" : "whiteAlpha.200"}
+        borderColor={isExpanded ? "rgba(74,124,92,0.18)" : "whiteAlpha.200"}
         bg="rgba(255,255,255,0.05)"
         overflow="hidden"
         transition="border-color 0.15s"
@@ -397,7 +397,7 @@ export function ModuleContentManager({
           {handle}
           <Box flex={1} minW={0}>
             <HStack spacing={2} flexWrap="wrap">
-              <Text className="inter" fontSize="sm" fontWeight="600" color="gray.100" noOfLines={1} flex={1} minW={0}>
+              <Text fontFamily="var(--font-sans)" fontSize="sm" fontWeight="600" color="gray.100" noOfLines={1} flex={1} minW={0}>
                 {item.title}
               </Text>
               <Badge fontSize="10px" colorScheme="gray" variant="subtle" px={2} py={0.5} borderRadius="md" flexShrink={0}>
@@ -442,7 +442,7 @@ export function ModuleContentManager({
               <HStack align="flex-start" spacing={0} flex={1} minW={0}>
                 <Stack flex={1} spacing={4} minW={0}>
                   <FormControl>
-                    <FormLabel className="inter" fontSize="xs" textTransform="uppercase" letterSpacing="0.07em" color="gray.300" mb={1}>
+                    <FormLabel fontFamily="var(--font-sans)" fontSize="xs" textTransform="uppercase" letterSpacing="0.07em" color="gray.300" mb={1}>
                       Zuordnung
                     </FormLabel>
                     <Select
@@ -464,10 +464,10 @@ export function ModuleContentManager({
                   <Divider borderColor="whiteAlpha.100" />
 
                   <FormControl>
-                    <FormLabel className="inter" fontSize="xs" textTransform="uppercase" letterSpacing="0.07em" color="gray.300" mb={1}>
+                    <FormLabel fontFamily="var(--font-sans)" fontSize="xs" textTransform="uppercase" letterSpacing="0.07em" color="gray.300" mb={1}>
                       Vorschaubild (Dashboard &amp; Institut-Karte)
                     </FormLabel>
-                    <Text fontSize="sm" color="gray.500" className="inter" mb={3}>
+                    <Text fontSize="sm" color="gray.500" fontFamily="var(--font-sans)" mb={3}>
                       Entspricht der großen Bildfläche auf der Modulkarte.
                     </Text>
                     <Box position="relative" w="100%" maxW="360px" borderRadius="xl" overflow="hidden" role="img">
@@ -493,9 +493,9 @@ export function ModuleContentManager({
                             display="flex"
                             alignItems="center"
                             justifyContent="center"
-                            bg="linear-gradient(145deg, rgba(212,175,55,0.15) 0%, rgba(15,23,42,0.9) 60%)"
+                            bg="linear-gradient(145deg, rgba(74,124,92,0.18) 0%, rgba(15,23,42,0.9) 60%)"
                           >
-                            <Text fontSize="sm" textAlign="center" px={4} color="gray.400" className="inter">
+                            <Text fontSize="sm" textAlign="center" px={4} color="gray.400" fontFamily="var(--font-sans)">
                               Noch kein Vorschaubild
                             </Text>
                           </Box>
@@ -508,7 +508,7 @@ export function ModuleContentManager({
                   </FormControl>
 
                   <FormControl>
-                    <FormLabel className="inter" fontSize="xs" textTransform="uppercase" letterSpacing="0.07em" color="gray.300" mb={2}>
+                    <FormLabel fontFamily="var(--font-sans)" fontSize="xs" textTransform="uppercase" letterSpacing="0.07em" color="gray.300" mb={2}>
                       Titel
                     </FormLabel>
                     <Input
@@ -524,7 +524,7 @@ export function ModuleContentManager({
                   </FormControl>
 
                   <FormControl>
-                    <FormLabel className="inter" fontSize="xs" textTransform="uppercase" letterSpacing="0.07em" color="gray.300">
+                    <FormLabel fontFamily="var(--font-sans)" fontSize="xs" textTransform="uppercase" letterSpacing="0.07em" color="gray.300">
                       Beschreibung (für Lernende)
                     </FormLabel>
                     <Textarea
@@ -543,15 +543,15 @@ export function ModuleContentManager({
                       }
                       {...fieldStyles}
                       fontSize="sm"
-                      className="inter"
+                      fontFamily="var(--font-sans)"
                     />
                   </FormControl>
 
                   <FormControl>
-                    <FormLabel className="inter" fontSize="xs" textTransform="uppercase" letterSpacing="0.07em" color="gray.300">
+                    <FormLabel fontFamily="var(--font-sans)" fontSize="xs" textTransform="uppercase" letterSpacing="0.07em" color="gray.300">
                       Speicherort (Object Storage)
                     </FormLabel>
-                    <Text fontSize="xs" className="jetbrains-mono" color="gray.500" title={item.storage_key} noOfLines={2} wordBreak="break-all">
+                    <Text fontSize="xs" fontFamily="var(--font-mono)" color="gray.500" title={item.storage_key} noOfLines={2} wordBreak="break-all">
                       {item.storage_key}
                     </Text>
                   </FormControl>
@@ -570,7 +570,7 @@ export function ModuleContentManager({
                 pt={{ base: 2, lg: 0 }}
               >
                 <FormControl>
-                  <FormLabel className="inter" fontSize="sm" color="gray.200" mb={1}>
+                  <FormLabel fontFamily="var(--font-sans)" fontSize="sm" color="gray.200" mb={1}>
                     Veröffentlicht
                   </FormLabel>
                   <HStack spacing={3}>
@@ -584,7 +584,7 @@ export function ModuleContentManager({
                       }}
                       colorScheme="blue"
                     />
-                    <Text fontSize="sm" color="gray.400" className="inter">
+                    <Text fontSize="sm" color="gray.400" fontFamily="var(--font-sans)">
                       Sichtbar in der Plattform
                     </Text>
                   </HStack>
@@ -648,7 +648,7 @@ export function ModuleContentManager({
           {handle}
           <Box flex={1} minW={0}>
             <HStack spacing={2} flexWrap="wrap">
-              <Text className="inter" fontSize="sm" fontWeight="600" color="gray.100" noOfLines={1} flex={1} minW={0}>
+              <Text fontFamily="var(--font-sans)" fontSize="sm" fontWeight="600" color="gray.100" noOfLines={1} flex={1} minW={0}>
                 {sub.title}
               </Text>
               <Badge fontSize="10px" colorScheme="purple" variant="subtle" px={2} py={0.5} borderRadius="md">
@@ -699,7 +699,7 @@ export function ModuleContentManager({
 
         <Collapse in={isExpanded} animateOpacity>
           <Box px={{ base: 3, md: 5 }} pt={2} pb={5} borderTopWidth="1px" borderColor="whiteAlpha.100">
-            <Text fontSize="sm" color="gray.500" className="inter" mb={4}>
+            <Text fontSize="sm" color="gray.500" fontFamily="var(--font-sans)" mb={4}>
               {sub.description?.trim() ? sub.description : "Keine Beschreibung."}
             </Text>
             <VideoManager
@@ -719,16 +719,16 @@ export function ModuleContentManager({
   return (
     <Stack spacing={5}>
       <Box>
-        <Text className="radley-regular" fontSize="xl" color="whiteAlpha.950">
+        <Text fontFamily="var(--font-display)" fontSize="xl" color="whiteAlpha.950">
           Inhalt des Moduls
         </Text>
-        <Text mt={1} fontSize="sm" className="inter" color="gray.400">
+        <Text mt={1} fontSize="sm" fontFamily="var(--font-sans)" color="gray.400">
           Videos und Subkategorien frei per Griff sortieren. Reihenfolge wird gespeichert. In Subkategorien: Videos separat sortieren.
         </Text>
       </Box>
 
       {draggableItems.length === 0 ? (
-        <Text fontSize="sm" color="gray.400" className="inter">
+        <Text fontSize="sm" color="gray.400" fontFamily="var(--font-sans)">
           Noch keine direkten Videos und keine Subkategorien — unten hochladen oder Subkategorie anlegen.
         </Text>
       ) : (
@@ -755,7 +755,7 @@ export function ModuleContentManager({
       <Modal isOpen={isCreateSubOpen} onClose={onCreateSubClose} isCentered>
         <ModalOverlay bg="blackAlpha.800" backdropFilter="blur(4px)" />
         <ModalContent bg="rgba(10, 11, 14, 0.96)" border="1px solid rgba(255,255,255,0.09)" borderRadius="24px" mx={4}>
-          <ModalHeader className="radley-regular" fontWeight={400}>
+          <ModalHeader fontFamily="var(--font-display)" fontWeight={400}>
             Neue Subkategorie
           </ModalHeader>
           <ModalBody>
@@ -781,7 +781,7 @@ export function ModuleContentManager({
       <Modal isOpen={isEditSubOpen} onClose={() => { onEditSubClose(); setEditSubId(null); }} isCentered>
         <ModalOverlay bg="blackAlpha.800" backdropFilter="blur(4px)" />
         <ModalContent bg="rgba(10, 11, 14, 0.96)" border="1px solid rgba(255,255,255,0.09)" borderRadius="24px" mx={4}>
-          <ModalHeader className="radley-regular" fontWeight={400}>
+          <ModalHeader fontFamily="var(--font-display)" fontWeight={400}>
             Subkategorie bearbeiten
           </ModalHeader>
           <ModalBody>

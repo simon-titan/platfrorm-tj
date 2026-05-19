@@ -268,7 +268,7 @@ export function VideoManager({
 
   if (loading) {
     return (
-      <Text fontSize="sm" color="gray.500" className="inter">
+      <Text fontSize="sm" color="gray.500" fontFamily="var(--font-sans)">
         Videos werden geladen…
       </Text>
     );
@@ -285,16 +285,16 @@ export function VideoManager({
   return (
     <Stack spacing={5}>
       <Box>
-        <Text className="radley-regular" fontSize="lg" color="whiteAlpha.950">
+        <Text fontFamily="var(--font-display)" fontSize="lg" color="whiteAlpha.950">
           {subcategoryId ? "Videos in dieser Subkategorie" : "Videos direkt im Modul"}
         </Text>
-        <Text mt={1} fontSize="sm" className="inter" color="gray.400">
+        <Text mt={1} fontSize="sm" fontFamily="var(--font-sans)" color="gray.400">
           Reihenfolge per Griff links ändern. Auf den Titel klicken zum Auf-/Einklappen.
         </Text>
       </Box>
 
       {items.length === 0 ? (
-        <Text fontSize="sm" color="gray.400" className="inter">
+        <Text fontSize="sm" color="gray.400" fontFamily="var(--font-sans)">
           Noch keine Videos — unten eine Videodatei hochladen.
         </Text>
       ) : (
@@ -314,7 +314,7 @@ export function VideoManager({
                 mb={3}
                 borderRadius="16px"
                 borderWidth="1px"
-                borderColor={isExpanded ? "rgba(212,175,55,0.3)" : "whiteAlpha.200"}
+                borderColor={isExpanded ? "rgba(74,124,92,0.18)" : "whiteAlpha.200"}
                 bg="rgba(255,255,255,0.05)"
                 overflow="hidden"
                 transition="border-color 0.15s"
@@ -335,7 +335,7 @@ export function VideoManager({
                   <Box flex={1} minW={0}>
                     <HStack spacing={2} flexWrap="wrap">
                       <Text
-                        className="inter"
+                        fontFamily="var(--font-sans)"
                         fontSize="sm"
                         fontWeight="600"
                         color="gray.100"
@@ -419,7 +419,7 @@ export function VideoManager({
                           {/* Subkategorie-Zuordnung — prominent oben */}
                           <FormControl>
                             <FormLabel
-                              className="inter"
+                              fontFamily="var(--font-sans)"
                               fontSize="xs"
                               textTransform="uppercase"
                               letterSpacing="0.07em"
@@ -448,7 +448,7 @@ export function VideoManager({
 
                           <FormControl>
                             <FormLabel
-                              className="inter"
+                              fontFamily="var(--font-sans)"
                               fontSize="xs"
                               textTransform="uppercase"
                               letterSpacing="0.07em"
@@ -457,7 +457,7 @@ export function VideoManager({
                             >
                               Vorschaubild (Dashboard &amp; Institut-Karte)
                             </FormLabel>
-                            <Text fontSize="sm" color="gray.500" className="inter" mb={3}>
+                            <Text fontSize="sm" color="gray.500" fontFamily="var(--font-sans)" mb={3}>
                               Entspricht der großen Bildfläche auf der Modulkarte — nicht nur der kleinen Liste in der
                               Videowiedergabe.
                             </Text>
@@ -491,9 +491,9 @@ export function VideoManager({
                                     display="flex"
                                     alignItems="center"
                                     justifyContent="center"
-                                    bg="linear-gradient(145deg, rgba(212,175,55,0.15) 0%, rgba(15,23,42,0.9) 60%)"
+                                    bg="linear-gradient(145deg, rgba(74,124,92,0.18) 0%, rgba(15,23,42,0.9) 60%)"
                                   >
-                                    <Text fontSize="sm" textAlign="center" px={4} color="gray.400" className="inter">
+                                    <Text fontSize="sm" textAlign="center" px={4} color="gray.400" fontFamily="var(--font-sans)">
                                       Noch kein Vorschaubild
                                     </Text>
                                   </Box>
@@ -512,7 +512,7 @@ export function VideoManager({
                               >
                                 <Text
                                   fontSize="10px"
-                                  className="inter-medium"
+                                  fontFamily="var(--font-sans)" fontWeight={500}
                                   color="gray.300"
                                   textTransform="uppercase"
                                 >
@@ -533,7 +533,7 @@ export function VideoManager({
 
                           <FormControl>
                             <FormLabel
-                              className="inter"
+                              fontFamily="var(--font-sans)"
                               fontSize="xs"
                               textTransform="uppercase"
                               letterSpacing="0.07em"
@@ -558,7 +558,7 @@ export function VideoManager({
 
                           <FormControl>
                             <FormLabel
-                              className="inter"
+                              fontFamily="var(--font-sans)"
                               fontSize="xs"
                               textTransform="uppercase"
                               letterSpacing="0.07em"
@@ -584,13 +584,13 @@ export function VideoManager({
                               }
                               {...fieldStyles}
                               fontSize="sm"
-                              className="inter"
+                              fontFamily="var(--font-sans)"
                             />
                           </FormControl>
 
                           <FormControl>
                             <FormLabel
-                              className="inter"
+                              fontFamily="var(--font-sans)"
                               fontSize="xs"
                               textTransform="uppercase"
                               letterSpacing="0.07em"
@@ -600,7 +600,7 @@ export function VideoManager({
                             </FormLabel>
                             <Text
                               fontSize="xs"
-                              className="jetbrains-mono"
+                              fontFamily="var(--font-mono)"
                               color="gray.500"
                               title={item.storage_key}
                               noOfLines={2}
@@ -624,7 +624,7 @@ export function VideoManager({
                         pt={{ base: 2, lg: 0 }}
                       >
                         <FormControl>
-                          <FormLabel className="inter" fontSize="sm" color="gray.200" mb={1}>
+                          <FormLabel fontFamily="var(--font-sans)" fontSize="sm" color="gray.200" mb={1}>
                             Veröffentlicht
                           </FormLabel>
                           <HStack spacing={3}>
@@ -640,7 +640,7 @@ export function VideoManager({
                               }}
                               colorScheme="blue"
                             />
-                            <Text fontSize="sm" color="gray.400" className="inter">
+                            <Text fontSize="sm" color="gray.400" fontFamily="var(--font-sans)">
                               Sichtbar in der Plattform
                             </Text>
                           </HStack>

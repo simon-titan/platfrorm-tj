@@ -50,7 +50,7 @@ export function DashboardAppointmentCard({ data }: { data: Step2AppointmentData 
         borderRadius="full"
         bg={hasAppointment
           ? "radial-gradient(circle, rgba(52,211,153,0.08) 0%, transparent 70%)"
-          : "radial-gradient(circle, rgba(212,175,55,0.10) 0%, transparent 70%)"
+          : "radial-gradient(circle, rgba(74,124,92,0.10) 0%, transparent 70%)"
         }
         pointerEvents="none"
         aria-hidden
@@ -75,17 +75,17 @@ export function DashboardAppointmentCard({ data }: { data: Step2AppointmentData 
                 flexShrink={0}
                 bg={hasAppointment
                   ? "linear-gradient(145deg, rgba(52,211,153,0.25) 0%, rgba(52,211,153,0.10) 100%)"
-                  : "linear-gradient(145deg, rgba(212,175,55,0.30) 0%, rgba(212,175,55,0.12) 100%)"
+                  : "linear-gradient(145deg, rgba(74,124,92,0.28) 0%, rgba(74,124,92,0.10) 100%)"
                 }
-                border={`1px solid ${hasAppointment ? "rgba(52,211,153,0.45)" : "rgba(212,175,55,0.50)"}`}
+                border={`1px solid ${hasAppointment ? "rgba(52,211,153,0.45)" : "rgba(74,124,92,0.45)"}`}
                 boxShadow={hasAppointment
                   ? "0 0 20px rgba(52,211,153,0.18), inset 0 1px 0 rgba(255,255,255,0.12)"
-                  : "0 0 20px rgba(212,175,55,0.18), inset 0 1px 0 rgba(255,255,255,0.12)"
+                  : "0 0 20px rgba(74,124,92,0.18), inset 0 1px 0 rgba(255,255,255,0.12)"
                 }
               >
                 <Calendar
                   size={22}
-                  color={hasAppointment ? "#34D399" : "#D4AF37"}
+                  color={hasAppointment ? "#34D399" : "#4A7C5C"}
                   strokeWidth={1.75}
                 />
               </Box>
@@ -101,9 +101,9 @@ export function DashboardAppointmentCard({ data }: { data: Step2AppointmentData 
                   Bewerbungsgespräch
                 </Text>
                 <Text
-                  className="radley-regular-italic"
+                  className="fraunces-italic"
                   fontSize={{ base: "lg", md: "xl" }}
-                  color={hasAppointment ? "rgba(52,211,153,0.95)" : "var(--color-accent-gold-light)"}
+                  color={hasAppointment ? "rgba(52,211,153,0.95)" : "var(--leaf, #4A7C5C)"}
                   lineHeight={1.25}
                 >
                   {hasAppointment ? "Dein Termin steht." : "Dein nächster Schritt."}
@@ -114,13 +114,13 @@ export function DashboardAppointmentCard({ data }: { data: Step2AppointmentData 
             <Text
               className="inter"
               fontSize="sm"
-              color="rgba(245, 236, 210, 0.78)"
+              color="rgba(252, 252, 253, 0.75)"
               lineHeight="1.7"
               maxW="44ch"
             >
               {hasAppointment
                 ? "Wir freuen uns auf dich — sei bitte pünktlich und bereite dich gut vor. Das ist deine erste Chance."
-                : "Du hast deine erweiterte Bewerbung eingereicht. Buche jetzt deinen persönlichen Gesprächstermin — das ist deine Chance, Teil des Capital Circle zu werden."}
+                : "Du hast deine erweiterte Bewerbung eingereicht. Buche jetzt deinen persönlichen Gesprächstermin — das ist deine Chance, Teil des T&J Consulting zu werden."}
             </Text>
 
             {emailSent && (
@@ -170,7 +170,7 @@ export function DashboardAppointmentCard({ data }: { data: Step2AppointmentData 
                   border="1px solid rgba(52,211,153,0.10)"
                 >
                   <Text className="inter" fontSize="xs" color="rgba(255,255,255,0.55)" lineHeight="1.65">
-                    Bitte erscheine pünktlich und bereite kurz vor, warum du in den Capital Circle möchtest.
+                    Bitte erscheine pünktlich und bereite kurz vor, warum du in den T&J Consulting möchtest.
                     Wir freuen uns auf dich!
                   </Text>
                 </Box>
@@ -182,13 +182,13 @@ export function DashboardAppointmentCard({ data }: { data: Step2AppointmentData 
                   px={5}
                   py={4}
                   borderRadius="16px"
-                  bg="rgba(212,175,55,0.06)"
-                  border="1px solid rgba(212,175,55,0.16)"
+                  bg="rgba(74,124,92,0.07)"
+                  border="1px solid rgba(74,124,92,0.20)"
                 >
                   <HStack spacing={3}>
-                    <Clock size={18} color="rgba(212,175,55,0.70)" style={{ flexShrink: 0 }} />
+                    <Clock size={18} color="rgba(74,124,92,0.80)" style={{ flexShrink: 0 }} />
                     <Stack spacing={0.5}>
-                      <Text className="inter-semibold" fontSize="sm" color="var(--color-accent-gold)">
+                      <Text className="inter-semibold" fontSize="sm" color="var(--leaf, #4A7C5C)">
                         Termin noch ausstehend
                       </Text>
                       <Text className="inter" fontSize="xs" color="rgba(255,255,255,0.50)">
@@ -208,15 +208,15 @@ export function DashboardAppointmentCard({ data }: { data: Step2AppointmentData 
                   px={5}
                   py={4}
                   borderRadius="14px"
-                  bg="linear-gradient(135deg, var(--color-accent-gold-dark) 0%, var(--color-accent-gold-light) 100%)"
-                  color="#0a0a0a"
+                  bg="var(--ink, #0E0E0C)"
+                  color="var(--paper, #FCFCFD)"
                   fontWeight={600}
                   fontSize="sm"
                   className="inter-semibold"
                   transition="all 200ms ease"
                   _hover={{
-                    filter: "brightness(1.07)",
-                    boxShadow: "0 0 28px rgba(212, 175, 55, 0.40)",
+                    bg: "var(--forest-deep, #122620)",
+                    boxShadow: "0 6px 22px rgba(18,38,32,0.35)",
                     transform: "translateY(-1px)",
                   }}
                   textDecoration="none"

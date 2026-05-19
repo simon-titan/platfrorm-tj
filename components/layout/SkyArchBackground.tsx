@@ -6,14 +6,14 @@ type SkyArchBackgroundProps = {
   children: React.ReactNode;
 };
 
-/** Vollflächiger Hintergrund wie Login — `public/bg/sky-arch.png` + Verlauf. */
+/** Vollflächiger Hintergrund — `public/bg/tj-hero-bg.jpg` + Forest-Overlay. */
 export function SkyArchBackground({ children }: SkyArchBackgroundProps) {
   return (
     <Box position="relative" minH="100vh" w="full" overflow="hidden">
       <Box
         position="absolute"
         inset={0}
-        bgImage="url(/bg/sky-arch.png)"
+        bgImage="url(/bg/tj-hero-bg.jpg)"
         bgSize="cover"
         bgPosition="center"
         bgRepeat="no-repeat"
@@ -21,7 +21,7 @@ export function SkyArchBackground({ children }: SkyArchBackgroundProps) {
       <Box
         position="absolute"
         inset={0}
-        bgGradient="linear(to-b, rgba(7, 8, 10, 0.42), rgba(7, 8, 10, 0.82))"
+        bgGradient="linear(to-b, rgba(18, 38, 32, 0.52), rgba(14, 14, 12, 0.88))"
         pointerEvents="none"
       />
       <Box position="relative" zIndex={1} minH="100vh" w="full">

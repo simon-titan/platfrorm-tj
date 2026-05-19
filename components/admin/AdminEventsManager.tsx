@@ -3,7 +3,7 @@
 import { Box, Button, Checkbox, FormLabel, HStack, Input, Select, Stack, Text, Textarea } from "@chakra-ui/react";
 import { useState } from "react";
 
-const EVENT_COLORS = ["#D4AF37", "#4A90D9", "#4ADE80", "#F87171", "#A78BFA"] as const;
+const EVENT_COLORS = ["#4A7C5C", "#4A90D9", "#4ADE80", "#F87171", "#A78BFA"] as const;
 
 type EventItem = {
   id: string;
@@ -23,7 +23,7 @@ export function AdminEventsManager({ initialEvents }: { initialEvents: EventItem
   const [startTime, setStartTime] = useState("");
   const [endTime, setEndTime] = useState("");
   const [eventType, setEventType] = useState("Q&A");
-  const [eventColor, setEventColor] = useState<string>("#D4AF37");
+  const [eventColor, setEventColor] = useState<string>("#4A7C5C");
   const [externalUrl, setExternalUrl] = useState("");
   const [weeklyRepeat, setWeeklyRepeat] = useState(false);
   const [recurrenceEndDate, setRecurrenceEndDate] = useState("");

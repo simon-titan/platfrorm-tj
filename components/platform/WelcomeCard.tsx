@@ -1,5 +1,4 @@
 import { Box, Grid, GridItem, Heading, HStack, Text, Tooltip, VStack } from "@chakra-ui/react";
-import { GlassCard } from "@/components/ui/GlassCard";
 import { CalendarDays, Check, Flame } from "lucide-react";
 import { formatLearningDurationDe, type LearningWeekDay } from "@/lib/learning-daily";
 import type { WelcomeDashboardMetrics } from "@/lib/welcome-metrics";
@@ -47,8 +46,15 @@ export function WelcomeCard({
           : "Starte heute deinen Streak: ein kurzer Besuch reicht, um die Serie zu beginnen.";
 
   return (
-    <GlassCard hero p={{ base: 4, md: 5 }} position="relative">
-      <Box position="relative" zIndex={1}>
+    <Box
+      bg="rgba(255,255,255,0.07)"
+      backdropFilter="blur(12px) saturate(1.3)"
+      border="1px solid rgba(255,255,255,0.10)"
+      borderRadius="var(--radius-5)"
+      boxShadow="0 2px 16px rgba(14,14,12,0.08)"
+      p={{ base: 4, md: 5 }}
+      position="relative"
+    >
         <VStack spacing={{ base: 4, md: 5 }} align="stretch" w="100%">
           <Grid
             templateColumns={{ base: "1fr", md: "minmax(0,1fr) minmax(0,1fr)" }}
@@ -59,10 +65,11 @@ export function WelcomeCard({
           <GridItem display="flex" flexDirection="column">
             <Box mb={3}>
               <Text
-                className="radley-regular-italic"
+                className="fraunces-italic"
                 fontSize={{ base: "lg", md: "xl" }}
-                color="rgba(245, 236, 210, 0.88)"
+                color="rgba(252, 252, 253, 0.72)"
                 lineHeight={1.35}
+                fontWeight={300}
               >
                 Willkommen zurück. Lass uns weitermachen.
               </Text>
@@ -70,16 +77,16 @@ export function WelcomeCard({
             <Heading
               as="h1"
               fontSize={{ base: "2xl", md: "3xl" }}
-              className="inter-semibold"
+              fontFamily="var(--font-sans)"
               fontWeight={600}
               lineHeight={1.15}
               letterSpacing="-0.02em"
-              color="var(--color-accent-gold-light)"
+              color="var(--leaf, #4A7C5C)"
               mb={3}
             >
               Hallo {name}!
             </Heading>
-            <Text className="inter" color="rgba(245, 236, 210, 0.92)" fontSize={{ base: "sm", md: "md" }} lineHeight="tall" maxW="56ch">
+            <Text className="inter" color="rgba(252,252,253,0.80)" fontSize={{ base: "sm", md: "md" }} lineHeight="tall" maxW="56ch">
               {streakPraise}
             </Text>
 
@@ -92,11 +99,11 @@ export function WelcomeCard({
               px={4}
               py={3}
               borderRadius="14px"
-              border="1px solid rgba(212, 175, 55, 0.35)"
-              bg="linear-gradient(135deg, rgba(212, 175, 55, 0.12) 0%, rgba(8, 8, 8, 0.35) 100%)"
+              border="1px solid rgba(74, 124, 92, 0.32)"
+              bg="linear-gradient(135deg, rgba(74, 124, 92, 0.10) 0%, rgba(14, 14, 12, 0.35) 100%)"
               boxShadow="inset 0 1px 0 rgba(255,255,255,0.08), 0 8px 24px rgba(0,0,0,0.25)"
             >
-              <Box borderRadius="full" p={2} bg="rgba(212, 175, 55, 0.2)" color="var(--color-accent-gold-light)" aria-hidden>
+              <Box borderRadius="full" p={2} bg="rgba(74, 124, 92, 0.18)" color="var(--leaf, #4A7C5C)" aria-hidden>
                 <CalendarDays size={20} strokeWidth={1.75} />
               </Box>
               <Box>
@@ -146,15 +153,15 @@ export function WelcomeCard({
                     className="welcome-streak-flame"
                     borderRadius="16px"
                     p={3}
-                    bg="linear-gradient(145deg, rgba(255, 140, 60, 0.35) 0%, rgba(212, 175, 55, 0.2) 100%)"
-                    border="1px solid rgba(255, 160, 80, 0.45)"
-                    boxShadow="0 0 32px rgba(255, 140, 60, 0.25), inset 0 1px 0 rgba(255,255,255,0.15)"
+                    bg="rgba(255,255,255,0.08)"
+                    border="1px solid rgba(255,255,255,0.15)"
+                    boxShadow="0 0 12px rgba(255,255,255,0.06), inset 0 1px 0 rgba(255,255,255,0.10)"
                     aria-hidden
                   >
-                    <Flame size={28} strokeWidth={1.6} color="#ffb454" fill="rgba(255, 120, 40, 0.35)" />
+                    <Flame size={28} strokeWidth={1.6} color="rgba(255,255,255,0.85)" fill="rgba(255,255,255,0.12)" />
                   </Box>
                   <Box>
-                    <Text className="inter-medium" fontSize="xs" letterSpacing="0.12em" textTransform="uppercase" color="rgba(255,220,200,0.65)" mb={1}>
+                    <Text className="inter-medium" fontSize="xs" letterSpacing="0.12em" textTransform="uppercase" color="rgba(255,255,255,0.50)" mb={1}>
                       Streak
                     </Text>
                     <Text
@@ -163,7 +170,7 @@ export function WelcomeCard({
                       lineHeight={0.95}
                       fontWeight={800}
                       sx={{
-                        background: "linear-gradient(135deg, #fff2d0 0%, #e8c547 45%, #c99500 100%)",
+                        background: "linear-gradient(135deg, #a8d4bb 0%, #4A7C5C 45%, #1F3A2E 100%)",
                         WebkitBackgroundClip: "text",
                         backgroundClip: "text",
                         color: "transparent",
@@ -198,7 +205,7 @@ export function WelcomeCard({
                           bg="rgba(12, 12, 12, 0.95)"
                           color="var(--color-text-primary)"
                           borderWidth="1px"
-                          borderColor="rgba(212, 175, 55, 0.45)"
+                          borderColor="rgba(74, 124, 92, 0.40)"
                           px={3}
                           py={2}
                           borderRadius="md"
@@ -217,10 +224,10 @@ export function WelcomeCard({
                                   w="26px"
                                   h="26px"
                                   borderRadius="full"
-                                  bg="rgba(212, 175, 55, 0.18)"
-                                  border="1px solid rgba(212, 175, 55, 0.45)"
+                                  bg="rgba(74, 124, 92, 0.18)"
+                                  border="1px solid rgba(74, 124, 92, 0.45)"
                                 >
-                                  <Check size={15} strokeWidth={2.6} color="#e8c547" aria-hidden />
+                                  <Check size={15} strokeWidth={2.6} color="#4A7C5C" aria-hidden />
                                 </Box>
                               ) : (
                                 <Box
@@ -262,7 +269,7 @@ export function WelcomeCard({
 
           <Box
               borderRadius="12px"
-              border="1px solid rgba(212, 175, 55, 0.28)"
+              border="1px solid rgba(74, 124, 92, 0.22)"
               bg="rgba(0,0,0,0.25)"
               px={4}
               py={3}
@@ -284,13 +291,12 @@ export function WelcomeCard({
                 <Text className="inter-medium" fontSize="xs" letterSpacing="0.08em" color="rgba(255,255,255,0.45)" mb={0.5}>
                   Lernzeit gesamt
                 </Text>
-                <Text className="inter-semibold" fontSize="md" color="var(--color-accent-gold-light)" noOfLines={1}>
+                <Text className="inter-semibold" fontSize="md" color="var(--leaf, #4A7C5C)" noOfLines={1}>
                   {learningLabel}
                 </Text>
               </Box>
           </Box>
         </VStack>
-      </Box>
-    </GlassCard>
+    </Box>
   );
 }

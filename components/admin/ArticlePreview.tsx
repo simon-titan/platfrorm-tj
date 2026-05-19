@@ -11,7 +11,7 @@ type ArticlePreviewProps = {
 export function ArticlePreview({ content }: ArticlePreviewProps) {
   return (
     <Box>
-      <Text fontSize="xs" textTransform="uppercase" letterSpacing="0.1em" className="inter-semibold" color="gray.500" mb={3}>
+      <Text fontSize="xs" textTransform="uppercase" letterSpacing="0.1em" fontFamily="var(--font-sans)" fontWeight={600} color="gray.500" mb={3}>
         Vorschau
       </Text>
       <Box

@@ -7,8 +7,8 @@ export function GoldGlowDivider() {
     <Box
       w="100%"
       h="1px"
-      background="linear-gradient(90deg, transparent 0%, rgba(212,175,55,0.55) 40%, rgba(212,175,55,0.55) 60%, transparent 100%)"
-      boxShadow="0 0 20px rgba(212,175,55,0.22), 0 0 8px rgba(212,175,55,0.12)"
+      background="linear-gradient(90deg, transparent 0%, rgba(74,124,92,0.45) 40%, rgba(74,124,92,0.45) 60%, transparent 100%)"
+      boxShadow="0 0 12px rgba(45,84,67,0.30), 0 0 6px rgba(45,84,67,0.14)"
     />
   );
 }

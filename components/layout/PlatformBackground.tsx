@@ -14,7 +14,7 @@ export function PlatformBackground({ children }: PlatformBackgroundProps) {
         position="fixed"
         inset={0}
         zIndex={0}
-        bgImage="url(/bg/landscape.png)"
+        bgImage="url(/bg/tj-hero-bg.jpg)"
         bgSize="cover"
         bgPosition="center"
         bgRepeat="no-repeat"
@@ -23,7 +23,7 @@ export function PlatformBackground({ children }: PlatformBackgroundProps) {
         position="fixed"
         inset={0}
         zIndex={0}
-        bgGradient="linear(to-b, rgba(10, 9, 6, 0.78), rgba(6, 6, 8, 0.92))"
+        bgGradient="linear(to-b, rgba(18, 38, 32, 0.72), rgba(14, 14, 12, 0.88))"
         pointerEvents="none"
       />
       <Box position="relative" zIndex={1} minH="100vh" w="full">

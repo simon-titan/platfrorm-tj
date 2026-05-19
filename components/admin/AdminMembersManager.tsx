@@ -45,20 +45,20 @@ type UserRow = {
 const TIER_BADGE_COLORS: Record<Tier, { bg: string; color: string; border: string; label: string }> = {
   free: {
     bg: "rgba(255,255,255,0.06)",
-    color: "#9A9AA4",
+    color: "var(--mute)",
     border: "rgba(255,255,255,0.10)",
     label: "Free",
   },
   monthly: {
-    bg: "rgba(212,175,55,0.10)",
-    color: "#E8C547",
-    border: "rgba(212,175,55,0.22)",
+    bg: "rgba(74,124,92,0.12)",
+    color: "var(--leaf)",
+    border: "rgba(74,124,92,0.28)",
     label: "Monthly",
   },
   lifetime: {
-    bg: "rgba(212,175,55,0.18)",
-    color: "#FFD66B",
-    border: "rgba(212,175,55,0.40)",
+    bg: "rgba(45,84,67,0.25)",
+    color: "var(--leaf)",
+    border: "rgba(74,124,92,0.40)",
     label: "Lifetime",
   },
   ht_1on1: {
@@ -71,10 +71,10 @@ const TIER_BADGE_COLORS: Record<Tier, { bg: string; color: string; border: strin
 
 const fieldStyles = {
   bg: "rgba(255,255,255,0.06)",
-  borderColor: "whiteAlpha.300",
-  color: "gray.100",
-  _placeholder: { color: "gray.500" },
-  _focus: { borderColor: "blue.400", boxShadow: "0 0 0 1px rgba(59,130,246,0.45)" },
+  borderColor: "rgba(255,255,255,0.15)",
+  color: "var(--paper)",
+  _placeholder: { color: "var(--mute)" },
+  _focus: { borderColor: "var(--leaf)", boxShadow: "0 0 0 3px rgba(74,124,92,0.12)" },
 } as const;
 
 export function AdminMembersManager() {
@@ -201,12 +201,12 @@ export function AdminMembersManager() {
       >
         <Box>
           <HStack spacing={3} mb={1}>
-            <UserPlus size={20} color="var(--chakra-colors-blue-300)" />
-            <Text className="radley-regular" fontSize="xl" color="whiteAlpha.950">
+            <UserPlus size={20} color="var(--leaf)" />
+            <Text fontFamily="var(--font-display)" fontSize="xl" color="var(--paper)">
               Neuen Nutzer anlegen
             </Text>
           </HStack>
-          <Text fontSize="sm" className="inter" color="gray.400">
+          <Text fontSize="sm" fontFamily="var(--font-sans)" color="var(--mute)">
             Nutzer wird direkt mit bestätigter E-Mail angelegt — kein Bestätigungs-Link nötig.
           </Text>
         </Box>
@@ -215,7 +215,7 @@ export function AdminMembersManager() {
 
         <Stack spacing={4} direction={{ base: "column", md: "row" }} flexWrap="wrap">
           <FormControl flex={1} minW="240px">
-            <FormLabel className="inter" fontSize="xs" textTransform="uppercase" letterSpacing="0.07em" color="gray.300">
+            <FormLabel fontFamily="var(--font-sans)" fontSize="xs" textTransform="uppercase" letterSpacing="0.07em" color="var(--paper)">
               E-Mail-Adresse *
             </FormLabel>
             <Input
@@ -228,7 +228,7 @@ export function AdminMembersManager() {
           </FormControl>
 
           <FormControl flex={1} minW="240px">
-            <FormLabel className="inter" fontSize="xs" textTransform="uppercase" letterSpacing="0.07em" color="gray.300">
+            <FormLabel fontFamily="var(--font-sans)" fontSize="xs" textTransform="uppercase" letterSpacing="0.07em" color="var(--paper)">
               Passwort * (min. 8 Zeichen)
             </FormLabel>
             <InputGroup>
@@ -244,7 +244,7 @@ export function AdminMembersManager() {
                   aria-label={showPw ? "Passwort verbergen" : "Passwort anzeigen"}
                   size="sm"
                   variant="ghost"
-                  color="gray.400"
+                  color="var(--mute)"
                   icon={showPw ? <EyeOff size={16} /> : <Eye size={16} />}
                   onClick={() => setShowPw((v) => !v)}
                 />
@@ -253,7 +253,7 @@ export function AdminMembersManager() {
           </FormControl>
 
           <FormControl flex={1} minW="200px">
-            <FormLabel className="inter" fontSize="xs" textTransform="uppercase" letterSpacing="0.07em" color="gray.300">
+            <FormLabel fontFamily="var(--font-sans)" fontSize="xs" textTransform="uppercase" letterSpacing="0.07em" color="var(--paper)">
               Vollständiger Name (optional)
             </FormLabel>
             <Input
@@ -267,13 +267,13 @@ export function AdminMembersManager() {
 
         <HStack spacing={8} flexWrap="wrap">
           <FormControl display="flex" alignItems="center" w="auto">
-            <FormLabel mb={0} className="inter" fontSize="sm" color="gray.200" mr={3}>
+            <FormLabel mb={0} fontFamily="var(--font-sans)" fontSize="sm" color="var(--paper)" mr={3}>
               Paid-Mitglied
             </FormLabel>
-            <Switch size="lg" colorScheme="blue" isChecked={isPaid} onChange={(e) => setIsPaid(e.target.checked)} />
+            <Switch size="lg" colorScheme="green" isChecked={isPaid} onChange={(e) => setIsPaid(e.target.checked)} />
           </FormControl>
           <FormControl display="flex" alignItems="center" w="auto">
-            <FormLabel mb={0} className="inter" fontSize="sm" color="gray.200" mr={3}>
+            <FormLabel mb={0} fontFamily="var(--font-sans)" fontSize="sm" color="var(--paper)" mr={3}>
               Admin-Rechte
             </FormLabel>
             <Switch size="lg" colorScheme="orange" isChecked={isAdmin} onChange={(e) => setIsAdmin(e.target.checked)} />
@@ -283,18 +283,21 @@ export function AdminMembersManager() {
         <HStack>
           <Button
             size="md"
-            colorScheme="blue"
             leftIcon={<UserPlus size={18} />}
             onClick={() => void createUser()}
             isLoading={creating}
             isDisabled={!email.trim() || !password.trim() || password.length < 8}
+            bg="var(--glow)"
+            color="var(--paper)"
+            _hover={{ bg: "var(--leaf)" }}
+            fontFamily="var(--font-sans)"
           >
             Nutzer anlegen
           </Button>
         </HStack>
 
         {formStatus && (
-          <Text fontSize="sm" className="inter" color={formStatus.ok ? "green.300" : "red.300"}>
+          <Text fontSize="sm" fontFamily="var(--font-sans)" color={formStatus.ok ? "green.300" : "red.300"}>
             {formStatus.msg}
           </Text>
         )}
@@ -304,10 +307,10 @@ export function AdminMembersManager() {
       <Stack spacing={4}>
         <HStack justify="space-between" flexWrap="wrap" gap={3}>
           <Box>
-            <Text className="radley-regular" fontSize="xl" color="whiteAlpha.950">
+            <Text fontFamily="var(--font-display)" fontSize="xl" color="whiteAlpha.950">
               Alle Mitglieder
             </Text>
-            <Text fontSize="sm" className="inter" color="gray.400" mt={0.5}>
+            <Text fontSize="sm" fontFamily="var(--font-sans)" color="var(--mute)" mt={0.5}>
               {loading ? "Wird geladen…" : `${users.length} Nutzer gesamt`}
             </Text>
           </Box>
@@ -352,11 +355,11 @@ export function AdminMembersManager() {
                           : "70px"
                   }
                   fontSize="11px"
-                  className="inter"
+                  fontFamily="var(--font-sans)"
                   fontWeight={500}
                   letterSpacing="0.08em"
                   textTransform="uppercase"
-                  color="gray.600"
+                  color="var(--mute)"
                   textAlign={h === "" ? "right" : "left"}
                 >
                   {h}
@@ -366,11 +369,11 @@ export function AdminMembersManager() {
           </HStack>
 
           {loading ? (
-            <Text px={4} py={6} fontSize="sm" color="gray.400" className="inter">
+            <Text px={4} py={6} fontSize="sm" color="var(--mute)" fontFamily="var(--font-sans)">
               Mitglieder werden geladen…
             </Text>
           ) : filtered.length === 0 ? (
-            <Text px={4} py={6} fontSize="sm" color="gray.400" className="inter">
+            <Text px={4} py={6} fontSize="sm" color="var(--mute)" fontFamily="var(--font-sans)">
               Keine Mitglieder gefunden.
             </Text>
           ) : (
@@ -387,11 +390,11 @@ export function AdminMembersManager() {
                 flexDir={{ base: "column", lg: "row" }}
               >
                 <Stack flex={1} spacing={0.5} align="flex-start" minW={0}>
-                  <Text className="inter" fontSize="sm" fontWeight={500} color="gray.100" noOfLines={1}>
+                  <Text fontFamily="var(--font-sans)" fontSize="sm" fontWeight={500} color="var(--paper)" noOfLines={1}>
                     {user.email}
                   </Text>
                   {user.fullName || user.username ? (
-                    <Text fontSize="xs" className="inter" color="gray.500" noOfLines={1}>
+                    <Text fontSize="xs" fontFamily="var(--font-sans)" color="var(--mute)" noOfLines={1}>
                       {user.fullName ?? user.username}
                     </Text>
                   ) : null}
@@ -408,7 +411,7 @@ export function AdminMembersManager() {
                     color={TIER_BADGE_COLORS[user.membershipTier].color}
                     borderColor={TIER_BADGE_COLORS[user.membershipTier].border}
                     _hover={{ filter: "brightness(1.1)" }}
-                    className="inter"
+                    fontFamily="var(--font-sans)"
                     fontWeight={500}
                   >
                     {TIER_BADGE_COLORS[user.membershipTier].label}
@@ -419,7 +422,7 @@ export function AdminMembersManager() {
                 <Box w={{ base: "auto", lg: "70px" }}>
                   <Switch
                     size="md"
-                    colorScheme="blue"
+                    colorScheme="green"
                     isChecked={user.isPaid}
                     onChange={() => void togglePaid(user)}
                   />
@@ -441,7 +444,7 @@ export function AdminMembersManager() {
                     colorScheme={user.codexAccepted ? "green" : "gray"}
                     variant="subtle"
                     fontSize="xs"
-                    className="inter"
+                    fontFamily="var(--font-sans)"
                   >
                     {user.codexAccepted ? "Ja" : "Nein"}
                   </Badge>
@@ -451,8 +454,8 @@ export function AdminMembersManager() {
                 <Text
                   w={{ base: "auto", lg: "70px" }}
                   fontSize="xs"
-                  className="inter"
-                  color="gray.400"
+                  fontFamily="var(--font-sans)"
+                  color="var(--mute)"
                   noOfLines={1}
                 >
                   {user.discordUsername ?? "—"}
@@ -462,8 +465,8 @@ export function AdminMembersManager() {
                 <Text
                   w={{ base: "auto", lg: "110px" }}
                   fontSize="xs"
-                  className="jetbrains-mono"
-                  color="gray.500"
+                  fontFamily="var(--font-mono)"
+                  color="var(--mute)"
                   flexShrink={0}
                 >
                   {new Date(user.createdAt).toLocaleDateString("de-DE")}
@@ -540,13 +543,13 @@ export function AdminMembersManager() {
           borderRadius="24px"
           mx={4}
         >
-          <ModalHeader className="radley-regular" fontWeight={400} color="red.300">
+          <ModalHeader fontFamily="var(--font-display)" fontWeight={400} color="#F87171">
             Nutzer löschen
           </ModalHeader>
           <ModalBody>
-            <Text className="inter" fontSize="sm" color="gray.300">
+            <Text fontFamily="var(--font-sans)" fontSize="sm" color="var(--paper)">
               Soll der Nutzer{" "}
-              <Text as="span" fontWeight={600} color="gray.100">
+              <Text as="span" fontWeight={600} color="var(--paper)">
                 {deleteTarget?.email}
               </Text>{" "}
               wirklich gelöscht werden? Diese Aktion kann nicht rückgängig gemacht werden.

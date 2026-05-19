@@ -40,18 +40,18 @@ type ModuleFormProps = {
 
 const fieldStyles = {
   bg: "rgba(255,255,255,0.06)",
-  borderColor: "whiteAlpha.300",
-  color: "gray.100",
-  _placeholder: { color: "gray.500" },
-  _focus: { borderColor: "blue.400", boxShadow: "0 0 0 1px rgba(59,130,246,0.45)" },
+  borderColor: "rgba(255,255,255,0.15)",
+  color: "var(--paper)",
+  _placeholder: { color: "var(--mute)" },
+  _focus: { borderColor: "var(--leaf)", boxShadow: "0 0 0 3px rgba(74,124,92,0.12)" },
 } as const;
 
 const labelStyles = {
-  className: "inter" as const,
+  fontFamily: "var(--font-sans)" as const,
   fontSize: "xs" as const,
   textTransform: "uppercase" as const,
   letterSpacing: "0.07em" as const,
-  color: "gray.300" as const,
+  color: "var(--mute)" as const,
 };
 
 export function ModuleForm({ courseId, moduleId, initialModule }: ModuleFormProps) {
@@ -192,10 +192,10 @@ export function ModuleForm({ courseId, moduleId, initialModule }: ModuleFormProp
         bg="rgba(255,255,255,0.04)"
       >
         <Box>
-          <Text className="radley-regular" fontSize="xl" color="whiteAlpha.950">
+          <Text fontFamily="var(--font-display)" fontSize="xl" color="whiteAlpha.950">
             Modul-Metadaten
           </Text>
-          <Text mt={1} fontSize="sm" className="inter" color="gray.400">
+          <Text mt={1} fontSize="sm" fontFamily="var(--font-sans)" color="var(--mute)">
             Titel, Beschreibung, Slug und Vorschaubild für die Akademie-Karte.
           </Text>
         </Box>
@@ -206,7 +206,7 @@ export function ModuleForm({ courseId, moduleId, initialModule }: ModuleFormProp
           <FormLabel {...labelStyles} mb={1}>
             Vorschaubild (Modul-Karte im Dashboard)
           </FormLabel>
-          <Text fontSize="sm" color="gray.500" className="inter" mb={3}>
+          <Text fontSize="sm" color="var(--mute)" fontFamily="var(--font-sans)" mb={3}>
             Wird als großes 16:9-Bild auf der Akademie-Karte angezeigt.
             {!moduleId && (
               <Text as="span" color="yellow.400">
@@ -226,15 +226,15 @@ export function ModuleForm({ courseId, moduleId, initialModule }: ModuleFormProp
               ) : (
                 <Box
                   position="absolute" inset={0} display="flex" alignItems="center" justifyContent="center"
-                  bg="linear-gradient(145deg, rgba(212,175,55,0.15) 0%, rgba(15,23,42,0.9) 60%)"
+                  bg="linear-gradient(145deg, rgba(74,124,92,0.18) 0%, rgba(15,23,42,0.9) 60%)"
                 >
-                  <Text fontSize="sm" textAlign="center" px={4} color="gray.400" className="inter">
+                  <Text fontSize="sm" textAlign="center" px={4} color="var(--mute)" fontFamily="var(--font-sans)">
                     Noch kein Vorschaubild
                   </Text>
                 </Box>
               )}
               <Box position="absolute" top={2} right={2} px={2} py={1} borderRadius="md" bg="rgba(8,10,14,0.75)" borderWidth="1px" borderColor="whiteAlpha.200">
-                <Text fontSize="10px" className="inter-medium" color="gray.300" textTransform="uppercase">16:9 wie im Dashboard</Text>
+                <Text fontSize="10px" fontFamily="var(--font-sans)" fontWeight={500} color="var(--mute)" textTransform="uppercase">16:9 wie im Dashboard</Text>
               </Box>
             </Box>
           </Box>
@@ -242,7 +242,7 @@ export function ModuleForm({ courseId, moduleId, initialModule }: ModuleFormProp
             Vorschaubild hochladen oder ersetzen
           </Button>
           {thumbnailStorageKey && (
-            <Text mt={2} fontSize="xs" className="jetbrains-mono" color="gray.600" noOfLines={1}>{thumbnailStorageKey}</Text>
+            <Text mt={2} fontSize="xs" fontFamily="var(--font-mono)" color="var(--mute)" noOfLines={1}>{thumbnailStorageKey}</Text>
           )}
         </FormControl>
 
@@ -255,12 +255,12 @@ export function ModuleForm({ courseId, moduleId, initialModule }: ModuleFormProp
 
         <FormControl>
           <FormLabel {...labelStyles}>URL-Slug (optional)</FormLabel>
-          <Input value={slug} onChange={(e) => setSlug(e.target.value)} placeholder="z. B. trading-grundlagen" {...fieldStyles} className="jetbrains-mono" fontSize="sm" />
+          <Input value={slug} onChange={(e) => setSlug(e.target.value)} placeholder="z. B. trading-grundlagen" {...fieldStyles} fontFamily="var(--font-mono)" fontSize="sm" />
         </FormControl>
 
         <FormControl>
           <FormLabel {...labelStyles}>Beschreibung</FormLabel>
-          <Textarea value={description} onChange={(e) => setDescription(e.target.value)} minH="100px" {...fieldStyles} className="inter" />
+          <Textarea value={description} onChange={(e) => setDescription(e.target.value)} minH="100px" {...fieldStyles} fontFamily="var(--font-sans)" />
         </FormControl>
 
         <Divider borderColor="whiteAlpha.150" />
@@ -271,17 +271,17 @@ export function ModuleForm({ courseId, moduleId, initialModule }: ModuleFormProp
             <Input type="number" min={1} value={orderIndex} onChange={(e) => setOrderIndex(Number(e.target.value))} {...fieldStyles} />
           </FormControl>
           <FormControl display="flex" alignItems="center" w="auto" pt={5}>
-            <FormLabel mb={0} className="inter" fontSize="sm" color="gray.200">Veröffentlicht</FormLabel>
+            <FormLabel mb={0} fontFamily="var(--font-sans)" fontSize="sm" color="var(--mute)">Veröffentlicht</FormLabel>
             <Switch ml={3} size="lg" isChecked={isPublished} onChange={(e) => setIsPublished(e.target.checked)} colorScheme="blue" />
           </FormControl>
           <FormControl display="flex" alignItems="center" w="auto" pt={5}>
-            <FormLabel mb={0} className="inter" fontSize="sm" color="gray.200">
+            <FormLabel mb={0} fontFamily="var(--font-sans)" fontSize="sm" color="var(--mute)">
               Modul sperren
             </FormLabel>
             <Switch ml={3} size="lg" isChecked={isLocked} onChange={(e) => setIsLocked(e.target.checked)} colorScheme="orange" />
           </FormControl>
           {moduleId && (
-            <Badge alignSelf="flex-end" mb={1} px={3} py={1.5} borderRadius="md" colorScheme={isPublished ? "green" : "gray"} variant="subtle" fontSize="sm" className="inter">
+            <Badge alignSelf="flex-end" mb={1} px={3} py={1.5} borderRadius="md" colorScheme={isPublished ? "green" : "gray"} variant="subtle" fontSize="sm" fontFamily="var(--font-sans)">
               {isPublished ? "Sichtbar für Mitglieder" : "Versteckt"}
             </Badge>
           )}
@@ -293,7 +293,7 @@ export function ModuleForm({ courseId, moduleId, initialModule }: ModuleFormProp
           <Button size="md" colorScheme="blue" onClick={() => void onSave()} isLoading={saving}>
             {moduleId ? "Änderungen speichern" : "Modul anlegen"}
           </Button>
-          <Button as={Link} href={`/admin/kurse/${courseId}`} variant="outline" size="md" borderColor="whiteAlpha.300" color="gray.200">
+          <Button as={Link} href={`/admin/kurse/${courseId}`} variant="outline" size="md" borderColor="whiteAlpha.300" color="var(--mute)">
             Zurück zur Kursübersicht
           </Button>
           {moduleId && (
@@ -304,7 +304,7 @@ export function ModuleForm({ courseId, moduleId, initialModule }: ModuleFormProp
         </HStack>
 
         {status && (
-          <Text fontSize="sm" className="inter" color={status.includes("fehler") || status.includes("Fehler") ? "red.300" : "blue.200"}>
+          <Text fontSize="sm" fontFamily="var(--font-sans)" color={status.includes("fehler") || status.includes("Fehler") ? "red.300" : "blue.200"}>
             {status}
           </Text>
         )}

@@ -67,10 +67,10 @@ export function AdminDiscordManager() {
     <Stack spacing={4}>
       <HStack justify="space-between" flexWrap="wrap" gap={3}>
         <Box>
-          <Text className="radley-regular" fontSize="xl" color="whiteAlpha.950">
+          <Text fontFamily="var(--font-display)" fontSize="xl" color="whiteAlpha.950">
             Discord Übersicht
           </Text>
-          <Text fontSize="sm" className="inter" color="gray.400" mt={0.5}>
+          <Text fontSize="sm" fontFamily="var(--font-sans)" color="gray.400" mt={0.5}>
             {loading ? "Wird geladen…" : `${rows.length} Nutzer gesamt`}
           </Text>
         </Box>
@@ -117,7 +117,7 @@ export function AdminDiscordManager() {
               }
               minW={h === "E-Mail" ? "160px" : undefined}
               fontSize="11px"
-              className="inter"
+              fontFamily="var(--font-sans)"
               fontWeight={500}
               letterSpacing="0.08em"
               textTransform="uppercase"
@@ -129,11 +129,11 @@ export function AdminDiscordManager() {
         </HStack>
 
         {loading ? (
-          <Text px={4} py={6} fontSize="sm" color="gray.400" className="inter">
+          <Text px={4} py={6} fontSize="sm" color="gray.400" fontFamily="var(--font-sans)">
             Daten werden geladen…
           </Text>
         ) : filtered.length === 0 ? (
-          <Text px={4} py={6} fontSize="sm" color="gray.400" className="inter">
+          <Text px={4} py={6} fontSize="sm" color="gray.400" fontFamily="var(--font-sans)">
             Keine Einträge.
           </Text>
         ) : (
@@ -149,11 +149,11 @@ export function AdminDiscordManager() {
               transition="background 150ms"
               _hover={{ bg: "rgba(255,255,255,0.03)" }}
             >
-              <Text className="inter" fontSize="sm" fontWeight={500} color="gray.100" flex={1} minW={0} noOfLines={2}>
+              <Text fontFamily="var(--font-sans)" fontSize="sm" fontWeight={500} color="gray.100" flex={1} minW={0} noOfLines={2}>
                 {r.name}
               </Text>
               <Text
-                className="inter"
+                fontFamily="var(--font-sans)"
                 fontSize="sm"
                 color="gray.300"
                 flex={1.2}
@@ -163,22 +163,22 @@ export function AdminDiscordManager() {
               >
                 {r.email}
               </Text>
-              <Text w={{ base: "100%", xl: "120px" }} fontSize="sm" className="inter" color="gray.400" noOfLines={1}>
+              <Text w={{ base: "100%", xl: "120px" }} fontSize="sm" fontFamily="var(--font-sans)" color="gray.400" noOfLines={1}>
                 {r.discordUsername ?? "—"}
               </Text>
               <Text
                 w={{ base: "100%", xl: "140px" }}
                 fontSize="xs"
-                className="jetbrains-mono"
+                fontFamily="var(--font-mono)"
                 color="gray.500"
                 noOfLines={1}
               >
                 {r.discordUserId ?? "—"}
               </Text>
-              <Text w={{ base: "100%", xl: "130px" }} fontSize="xs" className="inter" color="gray.500">
+              <Text w={{ base: "100%", xl: "130px" }} fontSize="xs" fontFamily="var(--font-sans)" color="gray.500">
                 {formatConnected(r.connectedAt)}
               </Text>
-              <Text w={{ base: "100%", xl: "120px" }} fontSize="sm" className="inter" color="gray.200">
+              <Text w={{ base: "100%", xl: "120px" }} fontSize="sm" fontFamily="var(--font-sans)" color="gray.200">
                 {r.connected ? "✅ Verbunden" : "⚠️ Nicht verbunden"}
               </Text>
             </HStack>

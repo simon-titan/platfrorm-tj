@@ -1,6 +1,7 @@
 @AGENTS.md
+@design/index.md
 
-# Capital Circle — Projekt-Kontext (Blueprint)
+# T&J Consulting — Projekt-Kontext (Blueprint)
 
 ## Was ist dieses Projekt?
 
@@ -61,7 +62,8 @@ lib/
   security/         → Turnstile-Verifikation
 
 config/             → Landing-Config, HT-Fragen, Insight-Fragen
-theme/              → Chakra UI Theme (tokens aus DESIGN.json)
+theme/              → Chakra UI Theme (tokens aus design/index.md)
+design/             → Design System (Farben, Typo, Gradients, Cards, Components, Motion, Layout)
 supabase/migrations/ → 54 SQL-Migrations
 ```
 
@@ -69,20 +71,19 @@ supabase/migrations/ → 54 SQL-Migrations
 
 ## Design System
 
-**Single Source of Truth:** `DESIGN.json`
+**Single Source of Truth:** `design/` — vollständige Dokumentation in 8 Dateien.
 
 Alle UI-, Theme- oder Style-Änderungen:
-1. `DESIGN.json` prüfen/anpassen
-2. `theme/index.ts` synchron halten
-3. `app/globals.css` CSS-Variablen synchron halten
+1. `design/index.md` als Einstiegspunkt lesen
+2. `theme/index.ts` synchron halten (Chakra extendTheme aus `design/index.md`)
+3. `app/globals.css` CSS-Variablen aus `design/index.md` synchron halten
 
 **Typografie:**
-- Überschriften: **Radley** (serif) — Klassen `.radley-regular`, `.radley-regular-italic`
-- Fließtext/UI: **Inter** — Klassen `.inter`, `.inter-medium`, `.inter-semibold`, `.inter-bold`
-- Code/Zahlen: **JetBrains Mono** — Klasse `.jetbrains-mono`
-- Legacy-Alias: `.dm-sans` → Inter-Body (bestehende Komponenten); neue Markup nutzt `.inter`
+- Headlines/Display: **Fraunces** (variable, Display) — Variable Axes: `SOFT` (0–100), `WONK` (0–1)
+- Fließtext/UI: **Geist Sans** — Body, Labels, Buttons, Navigation
+- Meta/Daten: **Geist Mono** — Kicker-Labels, Timestamps, Datenpunkte
 
-**Akzentfarbe:** Gold `#D4AF37` (CSS-Var: `--color-accent-gold`)
+**Akzentfarbe:** Forest `#1F3A2E` (CSS-Var: `--forest`) — monochromatische Forest-Familie
 
 ---
 
@@ -110,6 +111,36 @@ Details: `docs/DATABASE.md`
 
 ---
 
+## Rebranding-Status (T&J Consulting — Mai 2026)
+
+Das Branding ist vollständig auf **T&J Consulting** migriert:
+- Akzentfarbe: **Forest-Familie** (`--forest-deep → --leaf`). Kein Gold (`#D4AF37`) irgendwo.
+- Fonts: **Fraunces** (Display) · **Geist Sans** (UI) · **Geist Mono** (Daten)
+- Background: `public/bg/tj-hero-bg.jpg` in allen Hintergrundbereichen
+- `DESIGN.json` existiert nicht mehr — Single Source of Truth ist `design/index.md`
+
+**Noch ausstehend (außerhalb des Plan-Scopes):** ~300 Gold-Farbinstanzen in 40+ Dateien
+(landing, marketing, onboarding, weitere platform-Komponenten). Betrifft Nicht-Dashboard-Seiten.
+
+---
+
+## GlassCard — Kontrast-Regeln
+
+`components/ui/GlassCard.tsx` hat 5 Varianten. **Textfarbe hängt vom Hintergrund ab:**
+
+| Prop | Hintergrund | Texte müssen sein |
+|---|---|---|
+| `hero` | Dunkel (10–22 % weiß über bg) | Hell: `var(--paper)`, `rgba(255,255,255,…)` |
+| `dashboard` | **Hell** `rgba(248,248,250,0.85)` | Dunkel: `var(--ink)`, `var(--mute)` |
+| `spotlight` | Dunkel (10 % weiß) | Hell: `var(--paper)`, `rgba(255,255,255,…)` |
+
+**Sonderfall `LastVideoCard`:** Nutzt `<GlassCard dashboard>` als Wrapper (hell), aber `.institut-card-body` CSS-Klasse überschreibt den Hintergrund mit `rgba(22,22,26,0.96)` (dunkel).
+→ Alle Texte **innerhalb `.institut-card-body`** müssen hell sein (`var(--paper)`, `rgba(252,252,253,…)`).
+
+Details und Codebeispiele: `design/cards.md` → Abschnitt "Platform GlassCard"
+
+---
+
 ## Trading-Features
 
 Alle trading-spezifischen Features wurden entfernt (Branch `remove-trading-features`):
@@ -133,7 +164,14 @@ Die Plattform ist bereinigt und einsatzbereit als nischen-agnostischer Blueprint
 | `docs/INTEGRATIONS.md` | Alle Drittanbieter + Env-Variablen |
 | `docs/ADMIN-PANEL.md` | Admin-Bereiche, Upload-Architektur |
 | `docs/REBRANDING-GUIDE.md` | Schritt-für-Schritt Blueprint-Adaptation |
-| `DESIGN.json` | Design-Tokens (Farben, Spacing, Komponenten) |
+| `design/index.md` | Design System Master-Index (Tokens, Theme, Do/Don'ts) |
+| `design/colors.md` | Farbpalette & Semantic Mapping |
+| `design/typography.md` | Fonts, Type Scale, Type Moments |
+| `design/gradients.md` | 20+ Gradient-Varianten |
+| `design/cards.md` | Alle Card-Varianten |
+| `design/components.md` | Buttons, Inputs, Icons, Chase Trail |
+| `design/motion.md` | Framer Motion Variants, Easter Eggs |
+| `design/layout.md` | Spacing, Radii, Shadows, Grid |
 | `AGENTS.md` | Coding-Konventionen + Design-System-Regeln |
 | `.env.local.example` | Alle benötigten Umgebungsvariablen |
 
@@ -142,7 +180,7 @@ Die Plattform ist bereinigt und einsatzbereit als nischen-agnostischer Blueprint
 ## Wichtige Konventionen
 
 1. **Kein Code ohne Docs lesen:** Bei Next.js-spezifischen Features zuerst `node_modules/next/dist/docs/` prüfen (Breaking Changes in dieser Version möglich)
-2. **Design:** Änderungen immer über `DESIGN.json` → Theme → CSS (nie direkt)
+2. **Design:** Änderungen immer über `design/` → `theme/index.ts` → `app/globals.css` (nie direkt hardcoden)
 3. **DB-Zugriff:** Immer den sparsam richtigen Client nutzen (Browser-Client für Client-Components, Server-Client für Server-Components, Service-Client nur wenn RLS-Bypass nötig)
 4. **Uploads:** Nie Dateien durch Vercel-Serverless proxyen — immer Presigned URLs nutzen
 5. **E-Mails:** Immer `email_sequence_log` prüfen vor dem Versand (Duplikate vermeiden)

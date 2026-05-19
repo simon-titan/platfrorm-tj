@@ -20,14 +20,14 @@ export default async function AdminApplicationsPage() {
         <Stack spacing={1}>
           <Heading
             as="h1"
-            className="radley-regular"
+            fontFamily="var(--font-display)"
             fontWeight={400}
             fontSize={{ base: "2xl", md: "3xl" }}
-            color="whiteAlpha.950"
+            color="var(--paper)"
           >
             Bewerbungen
           </Heading>
-          <Text fontSize="sm" color="var(--color-text-secondary)" className="inter">
+          <Text fontSize="sm" color="var(--mute)" fontFamily="var(--font-sans)">
             Prüfe neue Free-Funnel-Bewerbungen und entscheide, wer in den 5-Tage-Onboarding-Kurs aufgenommen wird.
           </Text>
         </Stack>

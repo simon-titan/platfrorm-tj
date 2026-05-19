@@ -132,14 +132,14 @@ function CreateLinkModal({
         bg="rgba(12,12,16,0.98)"
         border="1px solid rgba(255,255,255,0.08)"
         borderRadius="20px"
-        boxShadow="0 24px 80px rgba(0,0,0,0.70), 0 0 0 1px rgba(212,175,55,0.06)"
+        boxShadow="0 24px 80px rgba(0,0,0,0.70), 0 0 0 1px rgba(74,124,92,0.18)"
       >
         <ModalHeader
           pt={6}
           pb={2}
           fontSize="lg"
-          className="inter-semibold"
-          color="var(--color-text-primary)"
+          fontFamily="var(--font-sans)" fontWeight={600}
+          color="var(--paper)"
         >
           Neuen Tracking-Link erstellen
         </ModalHeader>
@@ -151,7 +151,7 @@ function CreateLinkModal({
                 textTransform="uppercase"
                 letterSpacing="0.06em"
                 color="rgba(255,255,255,0.55)"
-                className="inter-semibold"
+                fontFamily="var(--font-sans)" fontWeight={600}
               >
                 Bezeichnung (Kanal)
               </FormLabel>
@@ -161,12 +161,12 @@ function CreateLinkModal({
                 placeholder="z.B. Instagram Bio"
                 bg="rgba(255,255,255,0.04)"
                 borderColor="rgba(255,255,255,0.10)"
-                color="var(--color-text-primary)"
+                color="var(--paper)"
                 _placeholder={{ color: "rgba(255,255,255,0.25)" }}
-                _hover={{ borderColor: "rgba(212,175,55,0.35)" }}
-                _focus={{ borderColor: "rgba(212,175,55,0.60)", boxShadow: "0 0 0 1px rgba(212,175,55,0.40)" }}
+                _hover={{ borderColor: "rgba(74,124,92,0.18)" }}
+                _focus={{ borderColor: "rgba(74,124,92,0.45)", boxShadow: "0 0 0 1px rgba(74,124,92,0.35)" }}
                 borderRadius="10px"
-                className="inter"
+                fontFamily="var(--font-sans)"
               />
               <FormErrorMessage>{errors.label}</FormErrorMessage>
             </FormControl>
@@ -177,7 +177,7 @@ function CreateLinkModal({
                 textTransform="uppercase"
                 letterSpacing="0.06em"
                 color="rgba(255,255,255,0.55)"
-                className="inter-semibold"
+                fontFamily="var(--font-sans)" fontWeight={600}
               >
                 URL-Slug
               </FormLabel>
@@ -190,16 +190,15 @@ function CreateLinkModal({
                 placeholder="instagram-bio"
                 bg="rgba(255,255,255,0.04)"
                 borderColor="rgba(255,255,255,0.10)"
-                color="var(--color-text-primary)"
+                color="var(--paper)"
                 _placeholder={{ color: "rgba(255,255,255,0.25)" }}
-                _hover={{ borderColor: "rgba(212,175,55,0.35)" }}
-                _focus={{ borderColor: "rgba(212,175,55,0.60)", boxShadow: "0 0 0 1px rgba(212,175,55,0.40)" }}
+                _hover={{ borderColor: "rgba(74,124,92,0.18)" }}
+                _focus={{ borderColor: "rgba(74,124,92,0.45)", boxShadow: "0 0 0 1px rgba(74,124,92,0.35)" }}
                 borderRadius="10px"
-                className="inter"
-                fontFamily="JetBrains Mono, monospace"
+                fontFamily="var(--font-mono)"
                 fontSize="sm"
               />
-              <FormHelperText color="rgba(255,255,255,0.30)" fontSize="xs" className="inter">
+              <FormHelperText color="rgba(255,255,255,0.30)" fontSize="xs" fontFamily="var(--font-sans)">
                 Wird zu <Box as="span" fontFamily="JetBrains Mono, monospace">/insight?ref={slug || "..."}</Box>
               </FormHelperText>
               <FormErrorMessage>{errors.slug}</FormErrorMessage>
@@ -214,7 +213,7 @@ function CreateLinkModal({
                 border="1px solid rgba(229,72,77,0.22)"
               >
                 <AlertIcon />
-                <Text fontSize="sm" className="inter">{serverError}</Text>
+                <Text fontSize="sm" fontFamily="var(--font-sans)">{serverError}</Text>
               </Alert>
             )}
           </Stack>
@@ -226,7 +225,7 @@ function CreateLinkModal({
             color="rgba(255,255,255,0.45)"
             _hover={{ bg: "rgba(255,255,255,0.06)" }}
             borderRadius="10px"
-            className="inter"
+            fontFamily="var(--font-sans)"
           >
             Abbrechen
           </Button>
@@ -235,11 +234,11 @@ function CreateLinkModal({
             isLoading={saving}
             loadingText="Erstellen…"
             borderRadius="10px"
-            className="inter-semibold"
-            bg="rgba(212,175,55,0.15)"
-            color="var(--color-accent-gold)"
-            border="1px solid rgba(212,175,55,0.35)"
-            _hover={{ bg: "rgba(212,175,55,0.25)", borderColor: "rgba(212,175,55,0.60)" }}
+            fontFamily="var(--font-sans)" fontWeight={600}
+            bg="rgba(74,124,92,0.18)"
+            color="var(--leaf)"
+            border="1px solid rgba(74,124,92,0.18)"
+            _hover={{ bg: "rgba(74,124,92,0.18)", borderColor: "rgba(74,124,92,0.45)" }}
           >
             Link erstellen
           </Button>
@@ -288,12 +287,12 @@ function DeleteConfirmModal({
         borderRadius="20px"
         boxShadow="0 24px 80px rgba(0,0,0,0.70)"
       >
-        <ModalHeader fontSize="md" className="inter-semibold" color="var(--color-text-primary)" pt={6} pb={2}>
+        <ModalHeader fontSize="md" fontFamily="var(--font-sans)" fontWeight={600} color="var(--paper)" pt={6} pb={2}>
           Link löschen?
         </ModalHeader>
         <ModalBody pb={2}>
-          <Text fontSize="sm" color="rgba(255,255,255,0.60)" className="inter" lineHeight="1.65">
-            Der Link <Box as="span" fontFamily="JetBrains Mono, monospace" color="var(--color-text-primary)" fontSize="xs">{link?.slug}</Box>{" "}
+          <Text fontSize="sm" color="rgba(255,255,255,0.60)" fontFamily="var(--font-sans)" lineHeight="1.65">
+            Der Link <Box as="span" fontFamily="JetBrains Mono, monospace" color="var(--paper)" fontSize="xs">{link?.slug}</Box>{" "}
             und alle zugehörigen Tracking-Daten werden unwiderruflich gelöscht.
           </Text>
         </ModalBody>
@@ -304,7 +303,7 @@ function DeleteConfirmModal({
             color="rgba(255,255,255,0.45)"
             _hover={{ bg: "rgba(255,255,255,0.06)" }}
             borderRadius="10px"
-            className="inter"
+            fontFamily="var(--font-sans)"
           >
             Abbrechen
           </Button>
@@ -313,7 +312,7 @@ function DeleteConfirmModal({
             isLoading={deleting}
             loadingText="Löschen…"
             borderRadius="10px"
-            className="inter-semibold"
+            fontFamily="var(--font-sans)" fontWeight={600}
             bg="rgba(229,72,77,0.15)"
             color="rgba(248,113,113,0.90)"
             border="1px solid rgba(229,72,77,0.30)"
@@ -392,28 +391,28 @@ export function TrackingLinksManager() {
         {/* Summary Stats */}
         <HStack spacing={6}>
           <Box>
-            <Text fontSize="xs" color="rgba(255,255,255,0.40)" className="inter-semibold" textTransform="uppercase" letterSpacing="0.08em">
+            <Text fontSize="xs" color="rgba(255,255,255,0.40)" fontFamily="var(--font-sans)" fontWeight={600} textTransform="uppercase" letterSpacing="0.08em">
               Gesamt Visits
             </Text>
-            <Text fontSize="2xl" className="inter-bold" color="var(--color-text-primary)">
+            <Text fontSize="2xl" fontFamily="var(--font-sans)" fontWeight={700} color="var(--paper)">
               {totalVisits.toLocaleString("de-DE")}
             </Text>
           </Box>
           <Box w="1px" h="36px" bg="rgba(255,255,255,0.08)" />
           <Box>
-            <Text fontSize="xs" color="rgba(255,255,255,0.40)" className="inter-semibold" textTransform="uppercase" letterSpacing="0.08em">
+            <Text fontSize="xs" color="rgba(255,255,255,0.40)" fontFamily="var(--font-sans)" fontWeight={600} textTransform="uppercase" letterSpacing="0.08em">
               Gesamt Bewerbungen
             </Text>
-            <Text fontSize="2xl" className="inter-bold" color="var(--color-accent-gold)">
+            <Text fontSize="2xl" fontFamily="var(--font-sans)" fontWeight={700} color="var(--leaf)">
               {totalApplications.toLocaleString("de-DE")}
             </Text>
           </Box>
           <Box w="1px" h="36px" bg="rgba(255,255,255,0.08)" />
           <Box>
-            <Text fontSize="xs" color="rgba(255,255,255,0.40)" className="inter-semibold" textTransform="uppercase" letterSpacing="0.08em">
+            <Text fontSize="xs" color="rgba(255,255,255,0.40)" fontFamily="var(--font-sans)" fontWeight={600} textTransform="uppercase" letterSpacing="0.08em">
               Conv.-Rate
             </Text>
-            <Text fontSize="2xl" className="inter-bold" color="var(--color-text-primary)">
+            <Text fontSize="2xl" fontFamily="var(--font-sans)" fontWeight={700} color="var(--paper)">
               {conversionRate(totalVisits, totalApplications)}
             </Text>
           </Box>
@@ -423,11 +422,11 @@ export function TrackingLinksManager() {
           leftIcon={<Plus size={16} />}
           onClick={createModal.onOpen}
           borderRadius="10px"
-          className="inter-semibold"
-          bg="rgba(212,175,55,0.15)"
-          color="var(--color-accent-gold)"
-          border="1px solid rgba(212,175,55,0.35)"
-          _hover={{ bg: "rgba(212,175,55,0.25)", borderColor: "rgba(212,175,55,0.60)" }}
+          fontFamily="var(--font-sans)" fontWeight={600}
+          bg="rgba(74,124,92,0.18)"
+          color="var(--leaf)"
+          border="1px solid rgba(74,124,92,0.18)"
+          _hover={{ bg: "rgba(74,124,92,0.18)", borderColor: "rgba(74,124,92,0.45)" }}
           size="sm"
         >
           Neuen Link erstellen
@@ -444,16 +443,16 @@ export function TrackingLinksManager() {
       >
         {loading ? (
           <Box p={8} textAlign="center">
-            <Text color="rgba(255,255,255,0.35)" className="inter" fontSize="sm">
+            <Text color="rgba(255,255,255,0.35)" fontFamily="var(--font-sans)" fontSize="sm">
               Lade Tracking-Links…
             </Text>
           </Box>
         ) : links.length === 0 ? (
           <Box p={10} textAlign="center">
-            <Text color="rgba(255,255,255,0.35)" className="inter" fontSize="sm" mb={2}>
+            <Text color="rgba(255,255,255,0.35)" fontFamily="var(--font-sans)" fontSize="sm" mb={2}>
               Noch keine Tracking-Links erstellt.
             </Text>
-            <Text color="rgba(255,255,255,0.20)" className="inter" fontSize="xs">
+            <Text color="rgba(255,255,255,0.20)" fontFamily="var(--font-sans)" fontSize="xs">
               Erstelle deinen ersten Link um Kanal-Performance zu messen.
             </Text>
           </Box>
@@ -471,7 +470,7 @@ export function TrackingLinksManager() {
                       letterSpacing="0.10em"
                       textTransform="uppercase"
                       color="rgba(255,255,255,0.35)"
-                      className="inter-semibold"
+                      fontFamily="var(--font-sans)"
                       fontWeight={600}
                     >
                       {h}
@@ -497,8 +496,8 @@ export function TrackingLinksManager() {
                       <Td py={3.5} px={4}>
                         <Text
                           fontSize="sm"
-                          className="inter-semibold"
-                          color="var(--color-text-primary)"
+                          fontFamily="var(--font-sans)" fontWeight={600}
+                          color="var(--paper)"
                         >
                           {link.label}
                         </Text>
@@ -510,12 +509,12 @@ export function TrackingLinksManager() {
                           <Text
                             fontSize="xs"
                             fontFamily="JetBrains Mono, monospace"
-                            color="rgba(212,175,55,0.75)"
-                            bg="rgba(212,175,55,0.07)"
+                            color="rgba(74,124,92,0.18)"
+                            bg="rgba(74,124,92,0.18)"
                             px={2}
                             py={0.5}
                             borderRadius="6px"
-                            border="1px solid rgba(212,175,55,0.15)"
+                            border="1px solid rgba(74,124,92,0.18)"
                           >
                             {link.slug}
                           </Text>
@@ -536,7 +535,7 @@ export function TrackingLinksManager() {
 
                       {/* Visits */}
                       <Td py={3.5} px={4}>
-                        <Text fontSize="sm" className="inter" color="var(--color-text-primary)">
+                        <Text fontSize="sm" fontFamily="var(--font-sans)" color="var(--paper)">
                           {link.visits.toLocaleString("de-DE")}
                         </Text>
                       </Td>
@@ -545,8 +544,8 @@ export function TrackingLinksManager() {
                       <Td py={3.5} px={4}>
                         <Text
                           fontSize="sm"
-                          className="inter-semibold"
-                          color={link.applications > 0 ? "var(--color-accent-gold)" : "rgba(255,255,255,0.35)"}
+                          fontFamily="var(--font-sans)" fontWeight={600}
+                          color={link.applications > 0 ? "var(--leaf)" : "rgba(255,255,255,0.35)"}
                         >
                           {link.applications.toLocaleString("de-DE")}
                         </Text>
@@ -564,14 +563,14 @@ export function TrackingLinksManager() {
                               parseFloat(cr) >= 10
                                 ? "rgba(34,197,94,0.15)"
                                 : parseFloat(cr) >= 5
-                                  ? "rgba(212,175,55,0.15)"
+                                  ? "rgba(74,124,92,0.18)"
                                   : "rgba(255,255,255,0.06)"
                             }
                             color={
                               parseFloat(cr) >= 10
                                 ? "rgba(74,222,128,0.90)"
                                 : parseFloat(cr) >= 5
-                                  ? "rgba(212,175,55,0.90)"
+                                  ? "rgba(74,124,92,0.18)"
                                   : "rgba(255,255,255,0.40)"
                             }
                             border="none"
@@ -579,7 +578,7 @@ export function TrackingLinksManager() {
                             {cr} %
                           </Badge>
                         ) : (
-                          <Text fontSize="xs" color="rgba(255,255,255,0.25)" className="inter">
+                          <Text fontSize="xs" color="rgba(255,255,255,0.25)" fontFamily="var(--font-sans)">
                             —
                           </Text>
                         )}
@@ -594,7 +593,7 @@ export function TrackingLinksManager() {
                             size="xs"
                             variant="ghost"
                             color="rgba(255,255,255,0.35)"
-                            _hover={{ color: "rgba(212,175,55,0.80)", bg: "rgba(212,175,55,0.08)" }}
+                            _hover={{ color: "rgba(74,124,92,0.18)", bg: "rgba(74,124,92,0.18)" }}
                             borderRadius="7px"
                             onClick={() => copyToClipboard(link.slug)}
                           />
@@ -619,7 +618,7 @@ export function TrackingLinksManager() {
         )}
       </Box>
 
-      <Text fontSize="xs" color="rgba(255,255,255,0.20)" className="inter" mt={2}>
+      <Text fontSize="xs" color="rgba(255,255,255,0.20)" fontFamily="var(--font-sans)" mt={2}>
         Visits werden pro Browser-Session dedupliziert. Bewerbungen werden nicht dedupliziert.
       </Text>
 

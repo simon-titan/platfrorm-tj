@@ -57,7 +57,7 @@ export function UpcomingEventsCard({ events }: UpcomingEventsCardProps) {
   return (
     <GlassCard dashboard h="100%">
       <Box display="flex" alignItems="flex-start" gap={3} mb={{ base: 5, md: 6 }}>
-        <Box color="var(--color-accent-gold)" aria-hidden flexShrink={0} mt={0.5}>
+        <Box color="var(--leaf, #4A7C5C)" aria-hidden flexShrink={0} mt={0.5}>
           <CalendarCheck2 size={24} strokeWidth={1.7} />
         </Box>
         <Box minW={0}>
@@ -66,7 +66,7 @@ export function UpcomingEventsCard({ events }: UpcomingEventsCardProps) {
             fontSize="xs"
             textTransform="uppercase"
             letterSpacing="0.14em"
-            color="rgba(255, 255, 255, 0.5)"
+            color="var(--mute, #8B867E)"
             mb={1.5}
           >
             Anstehend
@@ -75,15 +75,15 @@ export function UpcomingEventsCard({ events }: UpcomingEventsCardProps) {
             Nächste Termine
           </Heading>
           <Text
-            className="radley-regular-italic"
+            className="fraunces-italic"
             fontSize={{ base: "sm", md: "sm" }}
-            color="rgba(245, 236, 210, 0.88)"
+            color="rgba(14,14,12,0.60)"
             lineHeight={1.35}
             mt={2}
           >
             Deine nächsten Termine im Blick.
           </Text>
-          <Text className="inter" fontSize="xs" color="var(--color-text-muted)" mt={2} lineHeight="tall">
+          <Text className="inter" fontSize="xs" color="rgba(14,14,12,0.50)" mt={2} lineHeight="tall">
             Die nächsten Events inklusive Kalender-Export.
           </Text>
         </Box>
@@ -95,12 +95,12 @@ export function UpcomingEventsCard({ events }: UpcomingEventsCardProps) {
           px={3}
           textAlign="center"
           borderRadius="12px"
-          border="1px dashed var(--color-border)"
-          bg="rgba(255,255,255,0.02)"
+          border="1px dashed rgba(14,14,12,0.12)"
+          bg="rgba(14,14,12,0.03)"
         >
-          <Text className="inter" color="var(--color-text-muted)" fontSize="sm">
+          <Text className="inter" color="rgba(14,14,12,0.55)" fontSize="sm">
             Aktuell sind keine anstehenden Events geplant.{" "}
-            <Link href="/events" style={{ color: "var(--color-accent-gold-light)", textDecoration: "underline" }}>
+            <Link href="/events" style={{ color: "var(--glow, #2D5443)", textDecoration: "underline" }}>
               Zur Event-Übersicht
             </Link>
           </Text>
@@ -126,7 +126,7 @@ export function UpcomingEventsCard({ events }: UpcomingEventsCardProps) {
                 variant="ghost"
                 onClick={() => setActiveIndex((prev) => (prev - 1 + events.length) % events.length)}
               />
-              <Text className="jetbrains-mono" fontSize="xs" color="var(--color-text-muted)">
+              <Text className="jetbrains-mono" fontSize="xs" color="rgba(14,14,12,0.50)">
                 {activeIndex + 1}/{events.length}
               </Text>
               <IconButton
@@ -143,7 +143,7 @@ export function UpcomingEventsCard({ events }: UpcomingEventsCardProps) {
 
       {events.length > 0 ? (
         <Box mt={5}>
-          <Link href="/events" className="inter-semibold" style={{ color: "var(--color-accent-gold-light)", fontSize: "0.875rem" }}>
+          <Link href="/events" className="inter-semibold" style={{ color: "var(--glow, #2D5443)", fontSize: "0.875rem" }}>
             Alle Events →
           </Link>
         </Box>

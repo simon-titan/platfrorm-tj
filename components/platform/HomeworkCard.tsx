@@ -18,7 +18,7 @@ const kicker = {
   fontSize: "xs",
   letterSpacing: "0.14em",
   textTransform: "uppercase" as const,
-  color: "rgba(255, 255, 255, 0.5)",
+  color: "var(--mute, #8B867E)",
 };
 
 function dueStatus(due: string | null): "overdue" | "soon" | "ok" | "none" {
@@ -37,7 +37,7 @@ export function HomeworkCard({
   homework,
   initialOfficialDone,
   initialCustomTasks,
-  spotlight = true,
+  spotlight = false,
 }: HomeworkCardProps) {
   const customDoneCount = initialCustomTasks.filter((t) => t.done).length;
   const customTotal = initialCustomTasks.length;
@@ -55,25 +55,25 @@ export function HomeworkCard({
     status === "overdue"
       ? "#fca5a5"
       : status === "soon"
-        ? "var(--color-accent-gold-light)"
-        : "rgba(245, 236, 210, 0.85)";
+        ? "var(--leaf, #4A7C5C)"
+        : "rgba(252, 252, 253, 0.80)";
   const badgeBg =
     status === "overdue"
       ? "rgba(239, 68, 68, 0.12)"
       : status === "soon"
-        ? "rgba(212, 175, 55, 0.12)"
+        ? "rgba(74, 124, 92, 0.12)"
         : "rgba(255,255,255,0.06)";
   const badgeBorder =
     status === "overdue"
       ? "rgba(248, 113, 113, 0.35)"
       : status === "soon"
-        ? "rgba(212, 175, 55, 0.38)"
-        : "rgba(212, 175, 55, 0.22)";
+        ? "rgba(74, 124, 92, 0.38)"
+        : "rgba(74, 124, 92, 0.22)";
 
   return (
     <GlassCard dashboard={!spotlight} spotlight={spotlight} h="100%" position="relative" overflow="hidden">
       <Box display="flex" alignItems="flex-start" gap={3} mb={{ base: 4, md: 4 }}>
-        <Box color="var(--color-accent-gold)" aria-hidden flexShrink={0} mt={0.5}>
+        <Box color="var(--leaf, #4A7C5C)" aria-hidden flexShrink={0} mt={0.5}>
           <ClipboardList size={26} strokeWidth={1.7} />
         </Box>
         <Box minW={0}>
@@ -84,9 +84,9 @@ export function HomeworkCard({
             Hausaufgabe & Checkliste
           </Heading>
           <Text
-            className="radley-regular-italic"
+            className="fraunces-italic"
             fontSize={{ base: "sm", md: "sm" }}
-            color="rgba(245, 236, 210, 0.88)"
+            color="rgba(14,14,12,0.55)"
             lineHeight={1.35}
             mt={2}
           >
@@ -97,8 +97,8 @@ export function HomeworkCard({
 
       {!hasContent ? (
         <VStack spacing={4} align="stretch" py={2}>
-          <Box py={5} px={3} textAlign="center" borderRadius="12px" border="1px dashed var(--color-border)" bg="rgba(255,255,255,0.02)">
-            <Text className="inter" color="var(--color-text-muted)" fontSize="sm" mb={4}>
+          <Box py={5} px={3} textAlign="center" borderRadius="12px" border="1px dashed rgba(14,14,12,0.12)" bg="rgba(14,14,12,0.03)">
+            <Text className="inter" color="rgba(14,14,12,0.55)" fontSize="sm" mb={4}>
               Es gibt keine aktive Wochenaufgabe. Lege auf der Unterseite eigene Aufgaben an.
             </Text>
           </Box>
@@ -109,10 +109,10 @@ export function HomeworkCard({
             w="100%"
             rightIcon={<ArrowRight size={16} />}
             borderRadius="10px"
-            bg="linear-gradient(135deg, var(--color-accent-gold-light) 0%, var(--color-accent-gold) 45%, var(--color-accent-gold-dark) 100%)"
-            color="#0a0a0a"
+            bg="var(--ink, #0E0E0C)"
+            color="var(--paper, #FCFCFD)"
             className="inter-semibold"
-            _hover={{ boxShadow: "0 0 20px var(--color-accent-glow)" }}
+            _hover={{ bg: "var(--forest-deep, #122620)", boxShadow: "0 6px 22px rgba(18,38,32,0.35)" }}
           >
             Zur Hausaufgabe
           </Button>
@@ -126,10 +126,10 @@ export function HomeworkCard({
           overflow="hidden"
           p={{ base: 3, md: 3.5 }}
           borderRadius="12px"
-          border="1px solid rgba(212, 175, 55, 0.32)"
-          bg="linear-gradient(165deg, rgba(212, 175, 55, 0.08) 0%, rgba(8, 8, 8, 0.38) 55%)"
+          border="1px solid rgba(74, 124, 92, 0.28)"
+          bg="linear-gradient(165deg, rgba(74, 124, 92, 0.18) 0%, rgba(14, 14, 12, 0.62) 55%)"
           transition="border-color 0.2s ease, box-shadow 0.2s ease"
-          _hover={{ borderColor: "rgba(212, 175, 55, 0.55)", boxShadow: "0 8px 28px rgba(0,0,0,0.35)" }}
+          _hover={{ borderColor: "rgba(74, 124, 92, 0.50)", boxShadow: "0 8px 28px rgba(14,14,12,0.35)" }}
           cursor="pointer"
           textDecoration="none"
           color="inherit"
@@ -140,7 +140,7 @@ export function HomeworkCard({
             left={0}
             right={0}
             h="3px"
-            bgGradient="linear(to-r, #E8C547, rgba(212, 175, 55, 0.2))"
+            bgGradient="linear(to-r, #4A7C5C, rgba(74, 124, 92, 0.2))"
             pointerEvents="none"
           />
 
@@ -153,8 +153,8 @@ export function HomeworkCard({
                     py={1.5}
                     px={2.5}
                     borderRadius="10px"
-                    bg="rgba(212, 175, 55, 0.12)"
-                    border="1px solid rgba(212, 175, 55, 0.28)"
+                    bg="rgba(74, 124, 92, 0.10)"
+                    border="1px solid rgba(74, 124, 92, 0.25)"
                   >
                     <Text className="jetbrains-mono" fontSize="md" fontWeight={500} color="var(--color-text-primary)">
                       {dayNum}
@@ -165,7 +165,7 @@ export function HomeworkCard({
                         fontSize="10px"
                         textTransform="uppercase"
                         letterSpacing="0.12em"
-                        color="var(--color-accent-gold-light)"
+                        color="var(--leaf, #4A7C5C)"
                       >
                         {month}
                       </Text>
@@ -194,7 +194,7 @@ export function HomeworkCard({
                   ) : null}
                 </HStack>
 
-                <Text as="span" className="radley-regular" fontSize="md" fontWeight={400} lineHeight="short" noOfLines={2} color="var(--color-text-primary)">
+                <Text as="span" className="fraunces" fontSize="md" fontWeight={300} lineHeight="short" noOfLines={2} color="var(--paper, #FCFCFD)">
                   {homework.title}
                 </Text>
 
@@ -225,10 +225,10 @@ export function HomeworkCard({
             )}
 
             <HStack justify="flex-end" pt={1}>
-              <Text className="inter-semibold" fontSize="sm" color="var(--color-accent-gold-light)">
+              <Text className="inter-semibold" fontSize="sm" color="var(--leaf, #4A7C5C)">
                 Details & Checkliste
               </Text>
-              <Box color="var(--color-accent-gold-light)" aria-hidden>
+              <Box color="var(--leaf, #4A7C5C)" aria-hidden>
                 <ArrowRight size={18} />
               </Box>
             </HStack>

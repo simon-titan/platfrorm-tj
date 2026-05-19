@@ -57,20 +57,20 @@ export function AdminModuleScan() {
       borderColor="whiteAlpha.200"
       bg="whiteAlpha.50"
     >
-      <Text className="inter-semibold" fontSize="sm" color="gray.200">
+      <Text fontFamily="var(--font-sans)" fontWeight={600} fontSize="sm" color="gray.200">
         Hetzner-Bucket synchronisieren (Prefix{" "}
-        <Text as="span" className="jetbrains-mono" color="gray.400">
+        <Text as="span" fontFamily="var(--font-mono)" color="gray.400">
           modules/
         </Text>
         )
       </Text>
-      <Text className="inter" fontSize="xs" color="gray.500">
+      <Text fontFamily="var(--font-sans)" fontSize="xs" color="gray.500">
         Scannt alle Ordner im Bucket. Ordner = Modul, optional Unterordner = Subkategorie, Dateien{" "}
-        <Text as="span" className="jetbrains-mono">
+        <Text as="span" fontFamily="var(--font-mono)">
           .mp4 / .webm / .mov
         </Text>
         , Thumbnail{" "}
-        <Text as="span" className="jetbrains-mono">
+        <Text as="span" fontFamily="var(--font-mono)">
           thumbnail.jpg|png
         </Text>
         . Neue Module landen in „Nicht zugeordnet" und können dort einem Kurs zugewiesen werden.
@@ -80,7 +80,7 @@ export function AdminModuleScan() {
         Bucket scannen & synchronisieren
       </Button>
       {message ? (
-        <Text className="inter" fontSize="sm" color="gray.400" whiteSpace="pre-wrap">
+        <Text fontFamily="var(--font-sans)" fontSize="sm" color="gray.400" whiteSpace="pre-wrap">
           {message}
         </Text>
       ) : null}

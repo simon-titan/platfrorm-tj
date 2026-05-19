@@ -28,15 +28,15 @@ export default async function AdminQuizOverviewPage() {
   return (
     <Stack gap={6} maxW="1000px" mx="auto">
       <Stack spacing={1}>
-        <Text as="h1" className="radley-regular" fontSize={{ base: "2xl", md: "3xl" }} color="var(--color-text-primary)">
+        <Text as="h1" fontFamily="var(--font-display)" fontSize={{ base: "2xl", md: "3xl" }} color="var(--paper)">
           Quiz Verwaltung
         </Text>
-        <Text className="inter" fontSize="sm" color="var(--color-text-secondary)">
+        <Text fontFamily="var(--font-sans)" fontSize="sm" color="var(--mute)">
           Wähle ein Modul und bearbeite den Modul-Test.
         </Text>
       </Stack>
 
-      <Box border="1px solid var(--color-border-default)" borderRadius="16px" overflow="hidden" bg="rgba(255,255,255,0.03)">
+      <Box border="1px solid rgba(255,255,255,0.08)" borderRadius="16px" overflow="hidden" bg="rgba(255,255,255,0.03)">
         {modules.map((module) => (
           (() => {
             const quiz = module.quizzes?.[0] ?? null;
@@ -54,10 +54,10 @@ export default async function AdminQuizOverviewPage() {
             _hover={{ bg: "rgba(255,255,255,0.04)" }}
           >
             <Stack spacing={1.5}>
-              <Text className="inter-semibold" color="var(--color-text-primary)">
+              <Text fontFamily="var(--font-sans)" fontWeight={600} color="var(--paper)">
                 {module.title}
               </Text>
-              <Text className="jetbrains-mono" fontSize="xs" color="var(--color-text-tertiary)">
+              <Text fontFamily="var(--font-mono)" fontSize="xs" color="rgba(139,134,126,0.6)">
                 {module.slug || module.id}
               </Text>
               <HStack spacing={2} flexWrap="wrap">
@@ -66,14 +66,14 @@ export default async function AdminQuizOverviewPage() {
                   px={2}
                   py={0.5}
                   bg={hasQuiz ? "rgba(212,175,55,0.15)" : "rgba(255,255,255,0.08)"}
-                  color={hasQuiz ? "var(--color-accent-gold-light)" : "var(--color-text-secondary)"}
+                  color={hasQuiz ? "var(--leaf)" : "var(--mute)"}
                   border="1px solid"
                   borderColor={hasQuiz ? "rgba(212,175,55,0.35)" : "rgba(255,255,255,0.15)"}
                 >
                   {hasQuiz ? "Quiz vorhanden" : "Kein Quiz"}
                 </Badge>
                 {hasQuiz ? (
-                  <Badge borderRadius="full" px={2} py={0.5} bg="rgba(255,255,255,0.08)" color="var(--color-text-secondary)">
+                  <Badge borderRadius="full" px={2} py={0.5} bg="rgba(255,255,255,0.08)" color="var(--mute)">
                     {questionCount} Fragen · {threshold}%
                   </Badge>
                 ) : null}
@@ -83,7 +83,7 @@ export default async function AdminQuizOverviewPage() {
               <Button
                 variant="outline"
                 borderColor="rgba(212,175,55,0.45)"
-                color="var(--color-accent-gold-light)"
+                color="var(--leaf)"
                 _hover={{ bg: "rgba(212,175,55,0.08)", borderColor: "rgba(212,175,55,0.7)" }}
               >
                 {hasQuiz ? "Quiz bearbeiten" : "Quiz anlegen"}

@@ -26,8 +26,8 @@ export function WelcomeLearningWeek({ days, weekTotalLabel }: WelcomeLearningWee
       w="100%"
       minW={0}
       borderRadius="14px"
-      border="1px solid rgba(212, 175, 55, 0.38)"
-      bg="linear-gradient(165deg, rgba(212, 175, 55, 0.1) 0%, rgba(8, 8, 8, 0.55) 55%)"
+      border="1px solid rgba(74, 124, 92, 0.32)"
+      bg="linear-gradient(165deg, rgba(74, 124, 92, 0.08) 0%, rgba(14, 14, 12, 0.55) 55%)"
       px={{ base: 3, md: 4 }}
       py={{ base: 2, md: 3 }}
       h="100%"
@@ -37,7 +37,7 @@ export function WelcomeLearningWeek({ days, weekTotalLabel }: WelcomeLearningWee
       <Text className="inter-medium" fontSize="xs" letterSpacing="0.1em" textTransform="uppercase" color="rgba(255,255,255,0.5)" mb={1}>
         Lernzeit
       </Text>
-      <Text className="inter-semibold" fontSize="sm" color="rgba(245, 236, 210, 0.95)" mb={4}>
+      <Text className="inter-semibold" fontSize="sm" color="rgba(252, 252, 253, 0.90)" mb={4}>
         {weekTotalLabel} · letzte 7 Tage
       </Text>
       <Box display="flex" alignItems="flex-end" justifyContent="space-between" gap={{ base: 1, sm: 2 }} flex="1" pt={1} w="100%" minW={0}>
@@ -59,7 +59,7 @@ export function WelcomeLearningWeek({ days, weekTotalLabel }: WelcomeLearningWee
               bg="rgba(12, 12, 12, 0.95)"
               color="var(--color-text-primary)"
               borderWidth="1px"
-              borderColor="rgba(212, 175, 55, 0.45)"
+              borderColor="rgba(74, 124, 92, 0.40)"
               px={3}
               py={2}
               borderRadius="md"
@@ -80,9 +80,9 @@ export function WelcomeLearningWeek({ days, weekTotalLabel }: WelcomeLearningWee
                     maxW="34px"
                     h={`${barPx}px`}
                     borderRadius="8px 8px 4px 4px"
-                    bg="linear-gradient(180deg, #f0dc82 0%, #d4af37 45%, #8a6f1c 100%)"
+                    bg="linear-gradient(180deg, #a8d4bb 0%, #4A7C5C 45%, #1F3A2E 100%)"
                     boxShadow={
-                      d.seconds > 0 ? "0 0 16px rgba(212, 175, 55, 0.35), inset 0 1px 0 rgba(255,255,255,0.2)" : undefined
+                      d.seconds > 0 ? "0 0 16px rgba(74, 124, 92, 0.35), inset 0 1px 0 rgba(255,255,255,0.2)" : undefined
                     }
                     opacity={d.seconds > 0 ? 1 : 0.35}
                     transition="height 0.35s ease, opacity 0.2s"

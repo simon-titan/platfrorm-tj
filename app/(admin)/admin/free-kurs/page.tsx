@@ -80,10 +80,10 @@ export default async function AdminFreeKursPage() {
   return (
     <Stack gap={8} maxW="var(--adminMaxWidth, 1440px)" mx="auto" px={{ base: 4, md: 6 }} py={{ base: 6, md: 8 }}>
       <Stack spacing={2}>
-        <Text as="h1" className="radley-regular" fontSize={{ base: "2xl", md: "3xl" }} color="whiteAlpha.900">
+        <Text as="h1" fontFamily="var(--font-display)" fontSize={{ base: "2xl", md: "3xl" }} color="whiteAlpha.900">
           Free Kurs Verwaltung
         </Text>
-        <Text className="inter" fontSize="sm" color="gray.500">
+        <Text fontFamily="var(--font-sans)" fontSize="sm" color="gray.500">
           Verwaltung des kostenlosen Kurs-Bereichs. Beide Kurse sind fuer alle eingeloggten
           Nutzer sichtbar (auch ohne Paid-Mitgliedschaft).
         </Text>
@@ -103,7 +103,7 @@ export default async function AdminFreeKursPage() {
         >
           <Stack spacing={2}>
             <HStack spacing={3} flexWrap="wrap">
-              <Text className="inter-semibold" fontSize={{ base: "lg", md: "xl" }} color="whiteAlpha.900">
+              <Text fontFamily="var(--font-sans)" fontWeight={600} fontSize={{ base: "lg", md: "xl" }} color="whiteAlpha.900">
                 {section.title}
               </Text>
               <Badge
@@ -113,7 +113,7 @@ export default async function AdminFreeKursPage() {
                 variant="subtle"
                 colorScheme="yellow"
                 fontSize="xs"
-                className="inter"
+                fontFamily="var(--font-sans)"
               >
                 is_free = true
               </Badge>
@@ -124,19 +124,19 @@ export default async function AdminFreeKursPage() {
                 variant="subtle"
                 colorScheme="gray"
                 fontSize="xs"
-                className="jetbrains-mono"
+                fontFamily="var(--font-mono)"
               >
                 {section.bucketPrefix}
               </Badge>
             </HStack>
             {section.description ? (
-              <Text className="inter" fontSize="sm" color="gray.400">
+              <Text fontFamily="var(--font-sans)" fontSize="sm" color="var(--mute)">
                 {section.description}
               </Text>
             ) : null}
-            <Text className="inter" fontSize="xs" color="gray.500">
+            <Text fontFamily="var(--font-sans)" fontSize="xs" color="gray.500">
               Slug:{" "}
-              <Box as="span" className="jetbrains-mono" color="gray.400">
+              <Box as="span" fontFamily="var(--font-mono)" color="var(--mute)">
                 {section.slug}
               </Box>
             </Text>
@@ -158,7 +158,7 @@ export default async function AdminFreeKursPage() {
           </HStack>
 
           {section.modules.length === 0 ? (
-            <Text className="inter" fontSize="sm" color="gray.400">
+            <Text fontFamily="var(--font-sans)" fontSize="sm" color="var(--mute)">
               Noch keine Module. Synchronisiere oben den Bucket oder lege ein Modul manuell an.
             </Text>
           ) : (

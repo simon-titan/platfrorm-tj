@@ -5,47 +5,47 @@ import Image from "next/image";
 import { TrendingUp, Users, DollarSign, Award } from "lucide-react";
 import { landingConfig } from "@/config/landing-config";
 
-// Colors aligned with HeroSection CARD_THEMES (warm gold family only)
+// Forest-family achievement cards
 const ACHIEVEMENT_CARDS = [
   {
     icon: Award,
-    label: "Funded Status",
-    value: "7-stellig",
-    sub: "Nachgewiesen und gehalten",
-    accent: "#D4AF37",
-    glow: "rgba(212,175,55,0.18)",
-    bg: "linear-gradient(135deg, rgba(212,175,55,0.13) 0%, rgba(8,8,8,0.62) 100%)",
-    border: "rgba(212,175,55,0.38)",
-  },
-  {
-    icon: DollarSign,
-    label: "Verifizierte Payouts",
-    value: "300.000 €",
-    sub: "Ausgezahlte Gewinne",
-    accent: "#FF9430",
-    glow: "rgba(255,148,48,0.16)",
-    bg: "linear-gradient(135deg, rgba(255,140,40,0.12) 0%, rgba(200,80,0,0.06) 50%, rgba(8,8,8,0.62) 100%)",
-    border: "rgba(255,148,50,0.36)",
-  },
-  {
-    icon: Users,
-    label: "Ausgebildete Trader",
+    label: "Begleitete Mitglieder",
     value: "1.000+",
-    sub: "Persönlich betreut",
-    accent: "#F0DC82",
-    glow: "rgba(240,220,130,0.16)",
-    bg: "linear-gradient(135deg, rgba(240,220,130,0.12) 0%, rgba(212,175,55,0.06) 50%, rgba(8,8,8,0.62) 100%)",
-    border: "rgba(240,220,130,0.38)",
+    sub: "Persönlich geprüfte Aufnahme",
+    accent: "#4A7C5C",
+    glow: "rgba(74,124,92,0.18)",
+    bg: "linear-gradient(135deg, rgba(74,124,92,0.13) 0%, rgba(14,14,12,0.62) 100%)",
+    border: "rgba(74,124,92,0.38)",
   },
   {
     icon: TrendingUp,
-    label: "Aktives Trading",
-    value: "5 Jahre",
-    sub: "An den Kapitalmärkten",
-    accent: "#B4C8E8",
-    glow: "rgba(180,200,232,0.14)",
-    bg: "linear-gradient(135deg, rgba(180,200,230,0.10) 0%, rgba(212,175,55,0.05) 50%, rgba(8,8,8,0.62) 100%)",
-    border: "rgba(190,210,240,0.30)",
+    label: "Nachgewiesene Ergebnisse",
+    value: "Messbar",
+    sub: "Dokumentiert und verifiziert",
+    accent: "#2D5443",
+    glow: "rgba(45,84,67,0.16)",
+    bg: "linear-gradient(135deg, rgba(45,84,67,0.14) 0%, rgba(18,38,32,0.06) 50%, rgba(14,14,12,0.62) 100%)",
+    border: "rgba(45,84,67,0.36)",
+  },
+  {
+    icon: Users,
+    label: "Jahre Erfahrung",
+    value: "5+",
+    sub: "Praktische Expertise",
+    accent: "#4A7C5C",
+    glow: "rgba(74,124,92,0.16)",
+    bg: "linear-gradient(135deg, rgba(74,124,92,0.12) 0%, rgba(45,84,67,0.06) 50%, rgba(14,14,12,0.62) 100%)",
+    border: "rgba(74,124,92,0.38)",
+  },
+  {
+    icon: DollarSign,
+    label: "Weiterempfehlung",
+    value: "98 %",
+    sub: "Aus der Community",
+    accent: "#1F3A2E",
+    glow: "rgba(31,58,46,0.14)",
+    bg: "linear-gradient(135deg, rgba(31,58,46,0.14) 0%, rgba(18,38,32,0.06) 50%, rgba(14,14,12,0.62) 100%)",
+    border: "rgba(31,58,46,0.36)",
   },
 ];
 
@@ -60,7 +60,7 @@ export function FounderSection() {
       // No overflow="hidden" — can clip nested shadows / sticky content
       py={{ base: 14, md: 20 }}
       sx={{
-        backgroundImage: "url('/bg/landscape.png')",
+        backgroundImage: "url('/bg/tj-hero-bg.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center 30%",
         backgroundRepeat: "no-repeat",
@@ -70,7 +70,7 @@ export function FounderSection() {
           position: "absolute",
           inset: 0,
           background:
-            "linear-gradient(180deg, rgba(7,8,12,0.93) 0%, rgba(7,8,12,0.72) 35%, rgba(7,8,12,0.72) 65%, rgba(7,8,12,0.93) 100%)",
+            "linear-gradient(180deg, rgba(18,38,32,0.92) 0%, rgba(18,38,32,0.70) 35%, rgba(18,38,32,0.70) 65%, rgba(18,38,32,0.92) 100%)",
           zIndex: 0,
         },
       }}
@@ -86,7 +86,7 @@ export function FounderSection() {
         zIndex={0}
         sx={{
           background:
-            "radial-gradient(ellipse at top right, rgba(212,175,55,0.07) 0%, transparent 65%)",
+            "radial-gradient(ellipse at top right, rgba(74,124,92,0.07) 0%, transparent 65%)",
           filter: "blur(40px)",
         }}
       />
@@ -101,7 +101,7 @@ export function FounderSection() {
         zIndex={0}
         sx={{
           background:
-            "radial-gradient(ellipse at bottom left, rgba(212,175,55,0.05) 0%, transparent 65%)",
+            "radial-gradient(ellipse at bottom left, rgba(45,84,67,0.05) 0%, transparent 65%)",
           filter: "blur(50px)",
         }}
       />
@@ -119,13 +119,13 @@ export function FounderSection() {
           <Box
             w="28px"
             h="1px"
-            bg="linear-gradient(90deg, transparent, rgba(212,175,55,0.70))"
+            bg="linear-gradient(90deg, transparent, rgba(74,124,92,0.70))"
           />
           <Text
             fontSize="xs"
             letterSpacing="0.22em"
             textTransform="uppercase"
-            color="var(--color-accent-gold, #D4AF37)"
+            color="var(--leaf, #4A7C5C)"
             className="inter-semibold"
           >
             Meet the Founder
@@ -133,7 +133,7 @@ export function FounderSection() {
           <Box
             w="28px"
             h="1px"
-            bg="linear-gradient(90deg, rgba(212,175,55,0.70), transparent)"
+            bg="linear-gradient(90deg, rgba(74,124,92,0.70), transparent)"
           />
         </HStack>
 
@@ -162,8 +162,8 @@ export function FounderSection() {
                 pointerEvents="none"
                 sx={{
                   background:
-                    "linear-gradient(135deg, rgba(212,175,55,0.10), transparent 60%)",
-                  border: "1px solid rgba(212,175,55,0.12)",
+                    "linear-gradient(135deg, rgba(74,124,92,0.10), transparent 60%)",
+                  border: "1px solid rgba(74,124,92,0.12)",
                 }}
               />
               {/* Image container */}
@@ -175,9 +175,9 @@ export function FounderSection() {
                 position="relative"
                 mx="auto"
                 sx={{
-                  border: "1px solid rgba(212,175,55,0.32)",
+                  border: "1px solid rgba(74,124,92,0.32)",
                   boxShadow:
-                    "0 20px 64px rgba(0,0,0,0.65), 0 0 48px rgba(212,175,55,0.08)",
+                    "0 20px 64px rgba(14,14,12,0.65), 0 0 48px rgba(74,124,92,0.08)",
                   background: "rgba(255,255,255,0.03)",
                 }}
               >
@@ -187,7 +187,7 @@ export function FounderSection() {
                   left={0}
                   right={0}
                   h="2px"
-                  background="linear-gradient(90deg, transparent, rgba(212,175,55,0.75), transparent)"
+                  background="linear-gradient(90deg, transparent, rgba(74,124,92,0.75), transparent)"
                   zIndex={1}
                 />
                 <Box position="relative" w="full" h="full" minH={0}>
@@ -222,9 +222,9 @@ export function FounderSection() {
                   color: "rgba(255,255,255,0.45)",
                   transition: "all 220ms ease",
                   _hover: {
-                    background: "rgba(212,175,55,0.12)",
-                    borderColor: "rgba(212,175,55,0.40)",
-                    color: "var(--color-accent-gold, #D4AF37)",
+                    background: "rgba(74,124,92,0.12)",
+                    borderColor: "rgba(74,124,92,0.40)",
+                    color: "var(--leaf, #4A7C5C)",
                     transform: "translateY(-2px)",
                   },
                 }}
@@ -261,9 +261,9 @@ export function FounderSection() {
                   color: "rgba(255,255,255,0.45)",
                   transition: "all 220ms ease",
                   _hover: {
-                    background: "rgba(212,175,55,0.12)",
-                    borderColor: "rgba(212,175,55,0.40)",
-                    color: "var(--color-accent-gold, #D4AF37)",
+                    background: "rgba(74,124,92,0.12)",
+                    borderColor: "rgba(74,124,92,0.40)",
+                    color: "var(--leaf, #4A7C5C)",
                     transform: "translateY(-2px)",
                   },
                 }}
@@ -290,9 +290,9 @@ export function FounderSection() {
                   color: "rgba(255,255,255,0.45)",
                   transition: "all 220ms ease",
                   _hover: {
-                    background: "rgba(212,175,55,0.12)",
-                    borderColor: "rgba(212,175,55,0.40)",
-                    color: "var(--color-accent-gold, #D4AF37)",
+                    background: "rgba(74,124,92,0.12)",
+                    borderColor: "rgba(74,124,92,0.40)",
+                    color: "var(--leaf, #4A7C5C)",
                     transform: "translateY(-2px)",
                   },
                 }}
@@ -310,6 +310,43 @@ export function FounderSection() {
                 >
                   <path d="M22 2L11 13" />
                   <path d="M22 2l-7 20-4-9-9-4 20-7z" />
+                </svg>
+              </Box>
+              <Box
+                as="a"
+                href={founder.socialLinks.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="T&J Consulting auf LinkedIn"
+                w="40px"
+                h="40px"
+                borderRadius="full"
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+                sx={{
+                  background: "rgba(255,255,255,0.04)",
+                  border: "1px solid rgba(255,255,255,0.10)",
+                  color: "rgba(255,255,255,0.45)",
+                  transition: "all 220ms ease",
+                  _hover: {
+                    background: "rgba(74,124,92,0.12)",
+                    borderColor: "rgba(74,124,92,0.40)",
+                    color: "var(--leaf, #4A7C5C)",
+                    transform: "translateY(-2px)",
+                  },
+                }}
+              >
+                <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden
+                >
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                  <rect x="2" y="9" width="4" height="12" />
+                  <circle cx="4" cy="4" r="2" />
                 </svg>
               </Box>
             </HStack>
@@ -330,80 +367,45 @@ export function FounderSection() {
               </Text>
               <Text
                 as="h2"
-                className="radley-regular"
-                fontWeight={400}
+                className="fraunces"
+                fontWeight={300}
                 fontSize={{ base: "3xl", md: "4xl", lg: "4xl" }}
-                color="var(--color-text-primary, #F0F0F2)"
+                color="var(--paper, #FCFCFD)"
                 lineHeight="1.05"
-                letterSpacing="-0.01em"
+                letterSpacing="-0.02em"
               >
                 {founder.name}
               </Text>
               <Box
                 w="44px"
                 h="2px"
-                bg="linear-gradient(90deg, var(--color-accent-gold, #D4AF37), transparent)"
+                bg="linear-gradient(90deg, var(--leaf, #4A7C5C), transparent)"
                 borderRadius="full"
               />
             </Stack>
 
             {/* ── Bio — 3 individually styled paragraphs ── */}
             <Stack gap={4}>
-              {/* Paragraph 1: normal text with gold-highlighted keywords */}
+              {/* Paragraph 1 */}
               <Text
                 fontSize={{ base: "sm", md: "md" }}
                 color="rgba(255,255,255,0.68)"
                 className="inter"
                 lineHeight="1.82"
               >
-                Ich trade seit über{" "}
-                <Box
-                  as="span"
-                  color="var(--color-accent-gold, #D4AF37)"
-                  className="inter-semibold"
-                  sx={{ textShadow: "0 0 12px rgba(212,175,55,0.35)" }}
-                >
-                  5 Jahren
-                </Box>
-                . Nicht als Hobby. Nicht nebenbei.{" "}
-                <Box
-                  as="span"
-                  color="rgba(255,255,255,0.90)"
-                  className="inter-semibold"
-                >
-                  Vollzeit, an echten Märkten, mit echtem Geld.
-                </Box>{" "}
-                Ich habe den{" "}
-                <Box
-                  as="span"
-                  color="var(--color-accent-gold, #D4AF37)"
-                  className="inter-semibold"
-                  sx={{ textShadow: "0 0 12px rgba(212,175,55,0.35)" }}
-                >
-                  siebenstelligen Funded Status
-                </Box>{" "}
-                erreicht und über{" "}
-                <Box
-                  as="span"
-                  color="var(--color-accent-gold, #D4AF37)"
-                  className="inter-semibold"
-                  sx={{ textShadow: "0 0 12px rgba(212,175,55,0.35)" }}
-                >
-                  300.000 € in verifizierten Payouts
-                </Box>{" "}
-                ausgezahlt bekommen.
+                {founder.bio[0]}
               </Text>
 
-              {/* Paragraph 2: gold highlight box */}
+              {/* Paragraph 2: forest highlight box */}
               <Box
                 px={4}
                 py={4}
                 borderRadius="12px"
                 sx={{
                   background:
-                    "linear-gradient(135deg, rgba(212,175,55,0.09) 0%, rgba(212,175,55,0.03) 100%)",
-                  border: "1px solid rgba(212,175,55,0.22)",
-                  borderLeft: "3px solid rgba(212,175,55,0.60)",
+                    "linear-gradient(135deg, rgba(74,124,92,0.09) 0%, rgba(45,84,67,0.03) 100%)",
+                  border: "1px solid rgba(74,124,92,0.22)",
+                  borderLeft: "3px solid rgba(74,124,92,0.60)",
                   backdropFilter: "blur(8px)",
                   WebkitBackdropFilter: "blur(8px)",
                 }}
@@ -414,25 +416,7 @@ export function FounderSection() {
                   className="inter"
                   lineHeight="1.82"
                 >
-                  Irgendwann war mir klar: Was ich aufgebaut habe, ist zu
-                  wertvoll um es für mich zu behalten. Aber ich wollte{" "}
-                  <Box
-                    as="span"
-                    color="rgba(255,255,255,0.95)"
-                    className="inter-semibold"
-                  >
-                    keinen Massenkurs bauen, der jeden reinlässt.
-                  </Box>{" "}
-                  Deshalb habe ich{" "}
-                  <Box
-                    as="span"
-                    color="var(--color-accent-gold, #D4AF37)"
-                    className="inter-semibold"
-                  >
-                    Capital Circle
-                  </Box>{" "}
-                  gegründet. Eine Community, in der nur Trader landen, die es
-                  wirklich ernst meinen.
+                  {founder.bio[1]}
                 </Text>
               </Box>
 
@@ -444,16 +428,7 @@ export function FounderSection() {
                 lineHeight="1.82"
                 fontStyle="italic"
               >
-                Kein Fluff. Kein Copy-Paste System.{" "}
-                <Box
-                  as="span"
-                  color="var(--color-accent-gold, #D4AF37)"
-                  className="inter-semibold"
-                  fontStyle="normal"
-                >
-                  Nur eine Methodik die funktioniert – und ein Umfeld das dich zwingt besser zu
-                  werden.
-                </Box>
+                {founder.bio[2]}
               </Text>
             </Stack>
 

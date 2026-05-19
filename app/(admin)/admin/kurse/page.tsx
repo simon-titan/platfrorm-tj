@@ -39,10 +39,10 @@ export default async function AdminKursePage() {
   return (
     <Stack gap={8} maxW="var(--adminMaxWidth, 1440px)" mx="auto" px={{ base: 4, md: 6 }} py={{ base: 6, md: 8 }}>
       <Stack spacing={2}>
-        <Text as="h1" className="radley-regular" fontSize={{ base: "2xl", md: "3xl" }} color="whiteAlpha.900">
+        <Text as="h1" fontFamily="var(--font-display)" fontSize={{ base: "2xl", md: "3xl" }} color="whiteAlpha.900">
           Bereiche & Module
         </Text>
-        <Text className="inter" fontSize="sm" color="gray.500">
+        <Text fontFamily="var(--font-sans)" fontSize="sm" color="gray.500">
           Zwei logische Bereiche: Free (`is_free`) und Paid. Module haengen an einem Bereich; die Akademie zeigt
           Mitgliedern automatisch nur passende Module (Paid nur mit `profiles.is_paid`).
         </Text>

@@ -1,32 +1,93 @@
 :root {
-  /*
-   * TradingView Web Components — globale Theme-Tokens (Theme Builder exportieren).
-   * https://www.tradingview.com/widget-docs/theme-builder/#widgets-theme-builder
-   */
+  /* === T&J Consulting Design System v3 (design/index.md) === */
+
+  /* COLORS */
+  --ink:          #0E0E0C;
+  --paper:        #FCFCFD;
+  --frost:        #F8F8FA;
+  --mist:         #EEEEF1;
+  --mute:         #8B867E;
+  --forest-deep:  #122620;
+  --forest:       #1F3A2E;
+  --glow:         #2D5443;
+  --leaf:         #4A7C5C;
+
+  /* GRADIENTS */
+  --gradient-forest-hero:        linear-gradient(135deg, #122620 0%, #1F3A2E 55%, #2D5443 100%);
+  --gradient-forest-card:        linear-gradient(180deg, #1F3A2E 0%, #122620 100%);
+  --gradient-forest-spotlight:   radial-gradient(ellipse 80% 60% at 50% 0%, #2D5443 0%, #1F3A2E 40%, #122620 100%);
+  --gradient-forest-overlay:     linear-gradient(180deg, transparent 0%, rgba(18,38,32,0.7) 60%, rgba(18,38,32,0.95) 100%);
+  --gradient-forest-text-mask:   linear-gradient(135deg, #4A7C5C 0%, #2D5443 50%, #1F3A2E 100%);
+  --gradient-paper-wash:         linear-gradient(180deg, #FCFCFD 0%, #F8F8FA 100%);
+  --gradient-ink-premium:        linear-gradient(135deg, #0E0E0C 0%, #122620 100%);
+  --gradient-leaf-glow:          linear-gradient(135deg, #2D5443 0%, #4A7C5C 100%);
+  --gradient-leaf-subtle:        linear-gradient(135deg, rgba(45,84,67,0.06) 0%, rgba(74,124,92,0.06) 100%);
+  --gradient-leaf-radial:        radial-gradient(circle at 50% 50%, rgba(74,124,92,0.15) 0%, transparent 70%);
+  --gradient-hover-glow:         radial-gradient(circle at 50% 0%, rgba(74,124,92,0.08) 0%, transparent 60%);
+  --gradient-scrim-bottom:       linear-gradient(180deg, transparent 40%, rgba(14,14,12,0.85) 100%);
+
+  /* SPACING (4px grid) */
+  --space-1:  2px;  --space-2:  4px;  --space-3:  8px;  --space-4:  12px;
+  --space-5:  16px; --space-6:  24px; --space-7:  32px; --space-8:  48px;
+  --space-9:  64px; --space-10: 96px; --space-11: 128px;
+
+  /* RADII */
+  --radius-1: 2px; --radius-2: 4px; --radius-3: 8px;
+  --radius-4: 14px; --radius-5: 20px; --radius-full: 9999px;
+
+  /* SHADOWS */
+  --shadow-1: 0 1px 2px rgba(14,14,12,0.04), 0 1px 1px rgba(14,14,12,0.03);
+  --shadow-2: 0 4px 8px rgba(14,14,12,0.06), 0 2px 4px rgba(14,14,12,0.04);
+  --shadow-3: 0 12px 24px rgba(14,14,12,0.08), 0 4px 8px rgba(14,14,12,0.05);
+  --shadow-4: 0 24px 48px rgba(14,14,12,0.10), 0 8px 16px rgba(14,14,12,0.06);
+  --shadow-cool-2: 0 4px 8px rgba(18,38,32,0.08), 0 2px 4px rgba(18,38,32,0.05);
+  --shadow-cool-3: 0 12px 24px rgba(18,38,32,0.10), 0 4px 8px rgba(18,38,32,0.07);
+
+  /* TYPOGRAPHY */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-sans:    'Geist Sans', system-ui, sans-serif;
+  --font-mono:    'Geist Mono', 'JetBrains Mono', monospace;
+
+  /* MOTION */
+  --ease-default:   cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-editorial: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-cartoon:   cubic-bezier(0.34, 1.56, 0.64, 1);
+  --duration-fast:      120ms;
+  --duration-base:      200ms;
+  --duration-slow:      400ms;
+  --duration-cinematic: 800ms;
+
+  /* LAYOUT */
+  --nav-height:        64px;
+  --sidebar-width:     240px;
+  --content-max-width: 1280px;
+
+  /* === Backward-compatibility aliases (platform components) === */
+  --color-bg:              var(--ink);
+  --color-bg-primary:      var(--forest-deep);
+  --color-bg-secondary:    #0f0f0f;
+  --color-surface:         rgba(255, 255, 255, 0.04);
+  --color-border:          rgba(255, 255, 255, 0.08);
+  --color-text-primary:    #f0f0f0;
+  --color-text-secondary:  rgba(255, 255, 255, 0.72);
+  --color-text-muted:      rgba(255, 255, 255, 0.40);
+  --color-accent-blue:     var(--leaf);
+  --color-accent-gold:     var(--leaf);
+  --color-accent-gold-light: var(--glow);
+  --color-accent-gold-dark:  var(--forest-deep);
+  --color-accent-glow:     rgba(74, 124, 92, 0.28);
+  --color-white:           #ffffff;
+  /* Legacy font vars */
+  --font-heading: var(--font-display);
+  --font-body:    var(--font-sans);
+
+  /* TradingView Web Components (kept for legacy widget compat) */
   color-scheme: light dark;
   --tv-widget-accent-color: light-dark(#2962ff, rgba(255, 255, 255, 1));
   --tv-widget-link-color: light-dark(#2962ff, rgba(255, 255, 255, 1));
   --tv-widget-background-color: light-dark(#fff, transparent);
   --tv-widget-focus-outline-color: light-dark(#2962ff, rgba(255, 255, 255, 1));
   --tv-widget-map-hover-stroke-color: light-dark(#2962ff, rgba(255, 255, 255, 1));
-
-  --color-bg: #080808;
-  --color-bg-secondary: #0f0f0f;
-  --color-surface: rgba(255, 255, 255, 0.04);
-  --color-border: rgba(255, 255, 255, 0.08);
-  --color-text-primary: #f0f0f0;
-  --color-text-muted: rgba(255, 255, 255, 0.4);
-  /* Gold-Highlights (Plattform; Name accent-blue = Legacy-Kompatibilität für var(--color-accent-blue)) */
-  --color-accent-blue: #d4af37;
-  --color-accent-gold: #d4af37;
-  --color-accent-gold-light: #e8c547;
-  --color-accent-gold-dark: #a67c00;
-  --color-accent-glow: rgba(212, 175, 55, 0.28);
-  --color-white: #ffffff;
-  /* Design System: DESIGN..json — Typografie */
-  --font-heading: "Radley", serif;
-  --font-body: "Inter", sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
 }
 
 /* TradingView Ticker-Streifen: Vollton/Blur entfernt — Widget-Hintergrund transparent (Token + Vorfahr) */
@@ -64,9 +125,9 @@ body {
 }
 
 body {
-  background: var(--color-bg);
+  background: var(--ink);
   color: var(--color-text-primary);
-  font-family: var(--font-body);
+  font-family: var(--font-sans);
   font-optical-sizing: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -78,7 +139,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-heading);
+  font-family: var(--font-display);
 }
 
 /* Mitgliederbereich: Überschriften durchgängig Inter (theme/globals überschreiben) */
@@ -119,29 +180,29 @@ a {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
-/* Dashboard: höhere Deckkraft + Gold-Akzentlinie */
+/* Dashboard: höhere Deckkraft + Forest-Akzentlinie */
 .glass-card-highlight {
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(212, 175, 55, 0.5);
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(74, 124, 92, 0.45);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border-radius: 16px;
   box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.45),
-    0 0 0 1px rgba(212, 175, 55, 0.18),
+    0 8px 32px rgba(14, 14, 12, 0.45),
+    0 0 0 1px rgba(74, 124, 92, 0.14),
     inset 0 1px 0 rgba(255, 255, 255, 0.07);
 }
 
 /* Hausaufgabe / Events: extra betont */
 .glass-card-spotlight {
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(212, 175, 55, 0.62);
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(74, 124, 92, 0.55);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border-radius: 16px;
   box-shadow:
-    0 12px 40px rgba(0, 0, 0, 0.5),
-    0 0 28px rgba(212, 175, 55, 0.16),
+    0 12px 40px rgba(14, 14, 12, 0.5),
+    0 0 28px rgba(74, 124, 92, 0.14),
     inset 0 1px 0 rgba(255, 255, 255, 0.09);
 }
 
@@ -149,20 +210,20 @@ a {
   0%,
   100% {
     box-shadow:
-      0 0 0 1px rgba(212, 175, 55, 0.42),
-      0 0 28px rgba(212, 175, 55, 0.2);
+      0 0 0 1px rgba(74, 124, 92, 0.42),
+      0 0 28px rgba(45, 84, 67, 0.2);
   }
   50% {
     box-shadow:
-      0 0 0 2px rgba(232, 197, 71, 0.55),
-      0 0 44px rgba(212, 175, 55, 0.32);
+      0 0 0 2px rgba(74, 124, 92, 0.55),
+      0 0 44px rgba(45, 84, 67, 0.32);
   }
 }
 
 .event-next-spotlight-ring {
   border-radius: 18px;
   padding: 2px;
-  background: linear-gradient(135deg, rgba(232, 197, 71, 0.55), rgba(212, 175, 55, 0.12));
+  background: linear-gradient(135deg, rgba(74, 124, 92, 0.55), rgba(45, 84, 67, 0.12));
   animation: event-next-spotlight-pulse 2.8s ease-in-out infinite;
 }
 
@@ -170,55 +231,49 @@ a {
   border-radius: 14px;
 }
 
-/* Dashboard: gleiche Familie wie Institut-Rings / Lernzeit-Woche (HERO-UI-SPEZIFIKATION) */
+/* Dashboard Widget: Light frosted glass — per cards.md Widget spec */
 .glass-card-dashboard {
-  background:
-    radial-gradient(circle at 100% 0%, rgba(212, 175, 55, 0.16), transparent 46%),
-    radial-gradient(circle at 0% 12%, rgba(232, 197, 71, 0.09), transparent 50%),
-    linear-gradient(165deg, rgba(212, 175, 55, 0.1) 0%, rgba(8, 8, 8, 0.55) 55%);
-  border: 1px solid rgba(212, 175, 55, 0.38);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border-radius: 14px;
-  box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.45),
-    0 0 24px rgba(212, 175, 55, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  background: rgba(248, 248, 250, 0.85);
+  backdrop-filter: blur(12px) saturate(1.4);
+  -webkit-backdrop-filter: blur(12px) saturate(1.4);
+  border: 1px solid rgba(14, 14, 12, 0.08);
+  border-radius: var(--radius-5);
+  box-shadow: var(--shadow-2);
   position: relative;
   overflow: hidden;
 }
 
-.glass-card-dashboard::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(
-    90deg,
-    rgba(212, 175, 55, 0) 0%,
-    rgba(232, 197, 71, 0.85) 42%,
-    rgba(212, 175, 55, 0.45) 100%
-  );
-  z-index: 0;
-  pointer-events: none;
+/* Widget typography helpers */
+.widget-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mute);
 }
 
-/* Arsenal: leere Karten — subtiler Gold-Puls (HERO-Familie) */
+.widget-value {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 36px;
+  color: var(--ink);
+  line-height: 1;
+}
+
+/* Arsenal: leere Karten — subtiler Forest-Puls */
 @keyframes arsenal-empty-glow {
   0%,
   100% {
     box-shadow:
-      0 8px 28px rgba(0, 0, 0, 0.4),
-      0 0 20px rgba(212, 175, 55, 0.1);
-    border-color: rgba(212, 175, 55, 0.28);
+      0 8px 28px rgba(14, 14, 12, 0.4),
+      0 0 20px rgba(74, 124, 92, 0.08);
+    border-color: rgba(74, 124, 92, 0.24);
   }
   50% {
     box-shadow:
-      0 10px 36px rgba(0, 0, 0, 0.48),
-      0 0 32px rgba(232, 197, 71, 0.22);
-    border-color: rgba(212, 175, 55, 0.48);
+      0 10px 36px rgba(14, 14, 12, 0.48),
+      0 0 32px rgba(74, 124, 92, 0.18);
+    border-color: rgba(74, 124, 92, 0.42);
   }
 }
 
@@ -236,15 +291,15 @@ a {
   0%,
   100% {
     box-shadow:
-      0 14px 46px rgba(0, 0, 0, 0.5),
-      0 0 34px rgba(212, 175, 55, 0.2),
-      inset 0 1px 0 rgba(255, 255, 255, 0.12);
+      0 14px 46px rgba(14, 14, 12, 0.5),
+      0 0 34px rgba(74, 124, 92, 0.16),
+      inset 0 1px 0 rgba(255, 255, 255, 0.10);
   }
   50% {
     box-shadow:
-      0 16px 52px rgba(0, 0, 0, 0.55),
-      0 0 48px rgba(232, 197, 71, 0.34),
-      inset 0 1px 0 rgba(255, 255, 255, 0.14);
+      0 16px 52px rgba(14, 14, 12, 0.55),
+      0 0 48px rgba(74, 124, 92, 0.26),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12);
   }
 }
 
@@ -252,27 +307,27 @@ a {
   0%,
   100% {
     background-position: 0% 50%;
-    opacity: 0.46;
+    opacity: 0.40;
   }
   50% {
     background-position: 100% 50%;
-    opacity: 0.92;
+    opacity: 0.80;
   }
 }
 
 .glass-card-hero {
   background:
-    radial-gradient(circle at top right, rgba(212, 175, 55, 0.28), transparent 48%),
-    radial-gradient(circle at 18% 18%, rgba(232, 197, 71, 0.12), transparent 52%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.08) 100%);
-  border: 1px solid rgba(212, 175, 55, 0.56);
+    radial-gradient(circle at top right, rgba(74, 124, 92, 0.22), transparent 48%),
+    radial-gradient(circle at 18% 18%, rgba(45, 84, 67, 0.12), transparent 52%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.10) 0%, rgba(255, 255, 255, 0.06) 100%);
+  border: 1px solid rgba(74, 124, 92, 0.48);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border-radius: 18px;
   box-shadow:
-    0 14px 46px rgba(0, 0, 0, 0.5),
-    0 0 34px rgba(212, 175, 55, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    0 14px 46px rgba(14, 14, 12, 0.5),
+    0 0 34px rgba(74, 124, 92, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.10);
   position: relative;
   overflow: hidden;
   animation: glass-card-hero-breathe 5.6s ease-in-out infinite;
@@ -287,9 +342,9 @@ a {
   height: 2px;
   background: linear-gradient(
     90deg,
-    rgba(212, 175, 55, 0) 0%,
-    rgba(232, 197, 71, 0.95) 42%,
-    rgba(212, 175, 55, 0.55) 100%
+    rgba(74, 124, 92, 0) 0%,
+    rgba(74, 124, 92, 0.85) 42%,
+    rgba(45, 84, 67, 0.45) 100%
   );
   z-index: 0;
 }
@@ -302,9 +357,9 @@ a {
   background: linear-gradient(
     115deg,
     transparent 0%,
-    rgba(232, 197, 71, 0.18) 38%,
+    rgba(74, 124, 92, 0.14) 38%,
     transparent 62%,
-    rgba(212, 175, 55, 0.12) 100%
+    rgba(45, 84, 67, 0.08) 100%
   );
   background-size: 220% 220%;
   animation: glass-card-hero-shimmer 7.2s ease-in-out infinite;
@@ -326,12 +381,12 @@ a {
   0%,
   100% {
     box-shadow:
-      0 0 40px rgba(255, 130, 60, 0.22),
+      0 0 24px rgba(74, 124, 92, 0.14),
       inset 0 1px 0 rgba(255, 255, 255, 0.08);
   }
   50% {
     box-shadow:
-      0 0 56px rgba(255, 170, 80, 0.42),
+      0 0 36px rgba(74, 124, 92, 0.24),
       inset 0 1px 0 rgba(255, 255, 255, 0.12);
   }
 }
@@ -340,20 +395,20 @@ a {
   0%,
   100% {
     transform: scale(1);
-    filter: drop-shadow(0 0 10px rgba(255, 150, 60, 0.45));
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.20));
   }
   50% {
     transform: scale(1.04);
-    filter: drop-shadow(0 0 18px rgba(255, 190, 90, 0.65));
+    filter: drop-shadow(0 0 14px rgba(255, 255, 255, 0.35));
   }
 }
 
 .welcome-streak-hot {
   background:
-    radial-gradient(ellipse 90% 80% at 20% 30%, rgba(255, 120, 50, 0.2), transparent 55%),
-    radial-gradient(ellipse 70% 60% at 90% 80%, rgba(212, 175, 55, 0.14), transparent 50%),
-    linear-gradient(165deg, rgba(18, 12, 8, 0.95) 0%, rgba(6, 6, 8, 0.98) 100%);
-  border: 1px solid rgba(255, 150, 80, 0.35);
+    radial-gradient(ellipse 90% 80% at 20% 30%, rgba(74, 124, 92, 0.14), transparent 55%),
+    radial-gradient(ellipse 70% 60% at 90% 80%, rgba(45, 84, 67, 0.08), transparent 50%),
+    linear-gradient(165deg, rgba(14, 14, 12, 0.90) 0%, rgba(18, 38, 32, 0.95) 100%);
+  border: 1px solid rgba(74, 124, 92, 0.25);
   animation: welcome-streak-glow 4s ease-in-out infinite;
 }
 
@@ -363,17 +418,17 @@ a {
 
 .appointment-card-glow {
   background:
-    radial-gradient(ellipse 80% 70% at 15% 40%, rgba(212, 175, 55, 0.18), transparent 55%),
-    radial-gradient(ellipse 60% 60% at 85% 20%, rgba(255, 140, 50, 0.12), transparent 50%),
-    linear-gradient(155deg, rgba(16, 12, 8, 0.97) 0%, rgba(6, 6, 9, 0.99) 100%);
-  border: 1px solid rgba(212, 175, 55, 0.32);
+    radial-gradient(ellipse 80% 70% at 15% 40%, rgba(74, 124, 92, 0.16), transparent 55%),
+    radial-gradient(ellipse 60% 60% at 85% 20%, rgba(45, 84, 67, 0.10), transparent 50%),
+    linear-gradient(155deg, rgba(18, 38, 32, 0.97) 0%, rgba(14, 14, 12, 0.99) 100%);
+  border: 1px solid rgba(74, 124, 92, 0.30);
   animation: appointment-card-pulse 5s ease-in-out infinite;
 }
 
 .appointment-card-glow-booked {
   background:
     radial-gradient(ellipse 80% 70% at 15% 40%, rgba(52, 211, 153, 0.12), transparent 55%),
-    radial-gradient(ellipse 60% 60% at 85% 20%, rgba(212, 175, 55, 0.08), transparent 50%),
+    radial-gradient(ellipse 60% 60% at 85% 20%, rgba(45, 84, 67, 0.06), transparent 50%),
     linear-gradient(155deg, rgba(10, 18, 14, 0.97) 0%, rgba(6, 6, 9, 0.99) 100%);
   border: 1px solid rgba(52, 211, 153, 0.28);
   animation: appointment-card-pulse-green 5s ease-in-out infinite;
@@ -382,12 +437,12 @@ a {
 @keyframes appointment-card-pulse {
   0%, 100% {
     box-shadow:
-      0 0 36px rgba(212, 175, 55, 0.14),
+      0 0 36px rgba(74, 124, 92, 0.12),
       inset 0 1px 0 rgba(255, 255, 255, 0.06);
   }
   50% {
     box-shadow:
-      0 0 52px rgba(212, 175, 55, 0.26),
+      0 0 52px rgba(74, 124, 92, 0.22),
       inset 0 1px 0 rgba(255, 255, 255, 0.10);
   }
 }
@@ -405,18 +460,18 @@ a {
   }
 }
 
-/* Institut-Karte (Dashboard): Medienkopf, warm wie Streak-Block */
+/* Institut-Karte (Dashboard): Medienkopf, Forest-Familie */
 .institut-card-media {
   background:
-    radial-gradient(ellipse 90% 80% at 18% 28%, rgba(255, 120, 50, 0.2), transparent 54%),
-    radial-gradient(ellipse 72% 58% at 88% 78%, rgba(212, 175, 55, 0.14), transparent 50%),
-    linear-gradient(165deg, rgba(16, 12, 10, 0.98) 0%, rgba(6, 6, 9, 1) 100%);
-  border-bottom: 1px solid rgba(255, 150, 80, 0.22);
+    radial-gradient(ellipse 90% 80% at 18% 28%, rgba(74, 124, 92, 0.18), transparent 54%),
+    radial-gradient(ellipse 72% 58% at 88% 78%, rgba(45, 84, 67, 0.12), transparent 50%),
+    linear-gradient(165deg, rgba(18, 38, 32, 0.98) 0%, rgba(14, 14, 12, 1) 100%);
+  border-bottom: 1px solid rgba(74, 124, 92, 0.20);
 }
 
 .institut-card-body {
-  background: linear-gradient(180deg, rgba(22, 22, 26, 0.96) 0%, rgba(12, 12, 14, 0.98) 100%);
-  border-top: 1px solid rgba(212, 175, 55, 0.12);
+  background: linear-gradient(180deg, rgba(22, 22, 26, 0.96) 0%, rgba(14, 14, 12, 0.98) 100%);
+  border-top: 1px solid rgba(74, 124, 92, 0.10);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -428,42 +483,56 @@ a {
   }
 }
 
+/* Display: Fraunces (variable) */
+.fraunces {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-style: normal;
+}
+
+.fraunces-italic {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* Legacy-Klassen: jetzt auf Geist Sans gemappt */
 .radley-regular {
-  font-family: "Radley", serif;
+  font-family: var(--font-display);
   font-weight: 400;
   font-style: normal;
 }
 
 .radley-regular-italic {
-  font-family: "Radley", serif;
+  font-family: var(--font-display);
   font-weight: 400;
   font-style: italic;
 }
 
-/* Inter: variable — Gewicht 100–900 nach Bedarf */
+/* UI-Font: Geist Sans */
 .inter {
-  font-family: var(--font-body);
+  font-family: var(--font-sans);
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
 }
 
 .inter-medium {
-  font-family: var(--font-body);
+  font-family: var(--font-sans);
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
 }
 
 .inter-semibold {
-  font-family: var(--font-body);
+  font-family: var(--font-sans);
   font-optical-sizing: auto;
   font-weight: 600;
   font-style: normal;
 }
 
 .inter-bold {
-  font-family: var(--font-body);
+  font-family: var(--font-sans);
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
@@ -471,7 +540,7 @@ a {
 
 /* Legacy-Klasse: gleiche Regeln wie .inter */
 .dm-sans {
-  font-family: var(--font-body);
+  font-family: var(--font-sans);
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
@@ -645,27 +714,27 @@ a {
 .article-body blockquote {
   margin: 1rem 0;
   padding: 0.75rem 1rem;
-  border-left: 3px solid rgba(212, 175, 55, 0.65);
-  background: rgba(212, 175, 55, 0.06);
+  border-left: 3px solid rgba(74, 124, 92, 0.60);
+  background: rgba(74, 124, 92, 0.06);
   border-radius: 0 10px 10px 0;
   color: var(--color-text-muted);
 }
 
 .article-body a.article-body-link {
-  color: var(--color-accent-gold);
+  color: var(--leaf);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
 .article-body a.article-body-link:hover {
-  color: var(--color-accent-gold-light);
+  color: var(--glow);
 }
 
 .article-body hr {
   border: none;
   height: 1px;
   margin: 1.5rem 0;
-  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.35), transparent);
+  background: linear-gradient(90deg, transparent, rgba(74, 124, 92, 0.35), transparent);
 }
 
 .article-body code {
@@ -718,8 +787,8 @@ a {
 }
 
 .article-body th {
-  background: rgba(212, 175, 55, 0.08);
-  font-family: var(--font-body);
+  background: rgba(74, 124, 92, 0.08);
+  font-family: var(--font-sans);
   font-weight: 600;
   color: var(--color-text-primary);
 }

@@ -69,10 +69,10 @@ export function FreeKursScan() {
       borderColor="whiteAlpha.200"
       bg="whiteAlpha.50"
     >
-      <Text className="inter-semibold" fontSize="sm" color="gray.200">
+      <Text fontFamily="var(--font-sans)" fontWeight={600} fontSize="sm" color="gray.200">
         Free-Kurs Bucket-Synchronisation
       </Text>
-      <Text className="inter" fontSize="xs" color="gray.500">
+      <Text fontFamily="var(--font-sans)" fontSize="xs" color="gray.500">
         Scannt die beiden Bucket-Prefixe und gleicht Module, Subkategorien und Videos ab. Neu
         erkannte Module werden automatisch dem jeweiligen Free-Kurs zugeordnet und sofort
         veroeffentlicht. Bestehende Module werden nicht verschoben oder umbenannt; nur neue Videos
@@ -100,7 +100,7 @@ export function FreeKursScan() {
         </Button>
       </HStack>
       {message ? (
-        <Text className="inter" fontSize="sm" color="gray.400" whiteSpace="pre-wrap">
+        <Text fontFamily="var(--font-sans)" fontSize="sm" color="gray.400" whiteSpace="pre-wrap">
           {message}
         </Text>
       ) : null}

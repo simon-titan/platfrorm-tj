@@ -100,7 +100,7 @@ export function LandingPageClient({
         alignItems="center"
         justifyContent="center"
         gap={5}
-        bg="#07080A"
+        bg="var(--ink, #0E0E0C)"
         pointerEvents={loading ? "auto" : "none"}
         sx={{
           transition: "transform 450ms cubic-bezier(0.4, 0, 0.2, 1), opacity 350ms ease",
@@ -115,7 +115,7 @@ export function LandingPageClient({
             h="full"
             borderRadius="full"
             sx={{
-              background: "linear-gradient(90deg, #A67C00, #D4AF37, #E8C547)",
+              background: "linear-gradient(90deg, #122620, #1F3A2E, #4A7C5C)",
               animation: "splashProgress 300ms linear forwards",
               "@keyframes splashProgress": {
                 "0%": { width: "0%" },
@@ -154,7 +154,7 @@ export function LandingPageClient({
           position: "fixed",
           inset: 0,
           background:
-            "radial-gradient(ellipse 80% 60% at 80% -10%, rgba(212,175,55,0.12), transparent 60%), radial-gradient(ellipse 60% 50% at 10% 100%, rgba(212,175,55,0.06), transparent 65%)",
+            "radial-gradient(ellipse 80% 60% at 80% -10%, rgba(31,58,46,0.12), transparent 60%), radial-gradient(ellipse 60% 50% at 10% 100%, rgba(45,84,67,0.06), transparent 65%)",
           pointerEvents: "none",
           zIndex: 0,
         }}
@@ -201,12 +201,10 @@ export function LandingPageClient({
                 mx="auto"
                 lineHeight="1.7"
               >
-                Mit dem Abschicken der Bewerbung stimmst du unserer Datenschutzerklärung zu. Trading
-                und Investitionen sind mit erheblichen Verlustrisiken verbunden.
-                Frühere Ergebnisse sind keine Garantie für zukünftige Gewinne.
+                Mit dem Abschicken der Bewerbung stimmst du unserer Datenschutzerklärung zu.
               </Text>
               <Text fontSize="xs" color="rgba(255,255,255,0.15)" className="inter">
-                © {new Date().getFullYear()} Capital Circle Institut
+                © {new Date().getFullYear()} T&J Consulting
               </Text>
             </Stack>
           </Box>

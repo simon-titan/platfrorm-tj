@@ -19,10 +19,10 @@ export default async function AdminLiveSessionsPage() {
   return (
     <Stack gap={8} maxW="var(--adminMaxWidth, 1440px)" mx="auto">
       <Stack spacing={2}>
-        <Text as="h1" className="radley-regular" fontSize={{ base: "xl", md: "2xl" }} color="whiteAlpha.900">
+        <Text as="h1" fontFamily="var(--font-display)" fontSize={{ base: "xl", md: "2xl" }} color="whiteAlpha.900">
           Live Session Replays
         </Text>
-        <Text className="inter" fontSize="sm" color="gray.500">
+        <Text fontFamily="var(--font-sans)" fontSize="sm" color="gray.500">
           Replays vergangener Live Calls — optional mit Event aus dem Kalender verknüpfen.
         </Text>
       </Stack>

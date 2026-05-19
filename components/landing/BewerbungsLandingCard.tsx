@@ -7,23 +7,23 @@ import { useId, useState } from "react";
 
 /** Gleiches CTA-Muster wie HeroSection (Desktop) / MobileCTAFooter auf der Bewerbungs-Landingpage. */
 const landingApplyCtaSx = {
-  background: "linear-gradient(135deg, #E8C547 0%, #D4AF37 50%, #A67C00 100%)",
+  background: "var(--ink, #0E0E0C)",
   boxShadow:
-    "0 0 28px rgba(212,175,55,0.30), 0 4px 16px rgba(0,0,0,0.40), inset 0 1px 0 rgba(255,255,255,0.22)",
+    "0 4px 16px rgba(14,14,12,0.40), inset 0 1px 0 rgba(255,255,255,0.06)",
   border: "none",
   cursor: "pointer",
   transition: "all 220ms cubic-bezier(0.16, 1, 0.3, 1)",
   textDecoration: "none",
+  color: "var(--paper, #FCFCFD)",
   _hover: {
-    background: "linear-gradient(135deg, #F0DC82 0%, #E8C547 50%, #D4AF37 100%)",
-    boxShadow:
-      "0 0 44px rgba(212,175,55,0.50), 0 6px 22px rgba(0,0,0,0.40), inset 0 1px 0 rgba(255,255,255,0.28)",
+    background: "var(--forest-deep, #122620)",
+    boxShadow: "0 6px 22px rgba(18,38,32,0.35)",
     transform: "translateY(-1px)",
     textDecoration: "none",
   },
   _active: {
     transform: "translateY(0px)",
-    boxShadow: "0 0 16px rgba(212,175,55,0.20)",
+    boxShadow: "0 2px 8px rgba(14,14,12,0.30)",
   },
 };
 
@@ -40,11 +40,11 @@ export function BewerbungsLandingCard() {
       mt={10}
       borderWidth="1px"
       borderStyle="solid"
-      borderColor="rgba(212, 175, 55, 0.55)"
+      borderColor="rgba(74, 124, 92, 0.38)"
       boxShadow="
-        0 8px 40px rgba(0, 0, 0, 0.55),
-        0 0 0 1px rgba(212, 175, 55, 0.2),
-        0 0 28px rgba(212, 175, 55, 0.12),
+        0 8px 40px rgba(14, 14, 12, 0.55),
+        0 0 0 1px rgba(74, 124, 92, 0.16),
+        0 0 24px rgba(45, 84, 67, 0.10),
         inset 0 1px 0 rgba(255, 255, 255, 0.06)
       "
     >
@@ -64,7 +64,7 @@ export function BewerbungsLandingCard() {
         onClick={() => setIsOpen((v) => !v)}
         _hover={{ opacity: 0.92 }}
         _focusVisible={{
-          boxShadow: "0 0 0 2px rgba(212, 175, 55, 0.55)",
+          boxShadow: "0 0 0 2px rgba(74, 124, 92, 0.55)",
           borderRadius: "8px",
         }}
       >
@@ -81,7 +81,7 @@ export function BewerbungsLandingCard() {
         </Text>
         <Box
           as="span"
-          color="var(--color-accent-gold, #D4AF37)"
+          color="var(--leaf, #4A7C5C)"
           display="flex"
           alignItems="center"
           flexShrink={0}
@@ -103,7 +103,7 @@ export function BewerbungsLandingCard() {
           borderTop="1px solid rgba(255,255,255,0.08)"
         >
           <Text className="inter" fontSize="sm" color="rgba(240, 240, 242, 0.55)" lineHeight="1.65">
-            Bewirb dich jetzt und sichere dir deinen Platz im exklusiven Capital Circle.
+            Bewirb dich jetzt und sichere dir deinen Platz in der exklusiven T&J Consulting Community.
           </Text>
           <Box
             as={NextLink}
@@ -114,7 +114,7 @@ export function BewerbungsLandingCard() {
             fontWeight="600"
             fontSize="md"
             letterSpacing="0.02em"
-            color="#07080A"
+            color="var(--paper, #FCFCFD)"
             display="flex"
             alignItems="center"
             justifyContent="center"

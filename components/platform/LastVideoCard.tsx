@@ -19,29 +19,29 @@ function formatLessonDurationSeconds(sec: number): string {
   return `${m} Min.`;
 }
 
-/** Lektion: orange-gold wie Streak-Balken */
+/** Lektion: Forest-Leaf */
 const progressSxLesson = {
   h: "8px",
   borderRadius: "full",
-  bg: "rgba(0,0,0,0.42)",
-  border: "1px solid rgba(255, 160, 80, 0.28)",
+  bg: "rgba(14,14,12,0.08)",
+  border: "1px solid rgba(74, 124, 92, 0.18)",
   "& > div": {
     borderRadius: "full",
-    background: "linear-gradient(90deg, #ff8a3c 0%, #ffb454 45%, #e8c547 100%)",
-    boxShadow: "0 0 14px rgba(255, 150, 60, 0.5)",
+    background: "linear-gradient(90deg, #2D5443 0%, #4A7C5C 45%, #a8d4bb 100%)",
+    boxShadow: "0 0 14px rgba(74, 124, 92, 0.40)",
   },
 };
 
-/** Modul: stärker Gold */
+/** Modul: Forest */
 const progressSxModule = {
   h: "8px",
   borderRadius: "full",
-  bg: "rgba(0,0,0,0.42)",
-  border: "1px solid rgba(212, 175, 55, 0.28)",
+  bg: "rgba(14,14,12,0.08)",
+  border: "1px solid rgba(74, 124, 92, 0.22)",
   "& > div": {
     borderRadius: "full",
-    background: "linear-gradient(90deg, var(--color-accent-gold-dark) 0%, var(--color-accent-gold-light) 100%)",
-    boxShadow: "0 0 12px rgba(212, 175, 55, 0.4)",
+    background: "linear-gradient(90deg, #1F3A2E 0%, #4A7C5C 100%)",
+    boxShadow: "0 0 12px rgba(74, 124, 92, 0.35)",
   },
 };
 
@@ -57,10 +57,10 @@ function ProgressLabeled({
   return (
     <Box w="100%">
       <Flex justify="space-between" align="center" mb={1.5} gap={3}>
-        <Text className="inter-medium" fontSize="sm" color="rgba(245, 236, 210, 0.88)" noOfLines={1}>
+        <Text className="inter-medium" fontSize="sm" color="rgba(252,252,253,0.75)" noOfLines={1}>
           {label}
         </Text>
-        <Text className="jetbrains-mono" fontSize="sm" fontWeight={600} color="rgba(232, 197, 71, 0.95)" flexShrink={0}>
+        <Text className="jetbrains-mono" fontSize="sm" fontWeight={600} color="var(--leaf, #4A7C5C)" flexShrink={0}>
           {value}%
         </Text>
       </Flex>
@@ -106,9 +106,9 @@ export function LastVideoCard({ lastWatched, recommended }: LastVideoCardProps) 
             px={3}
             py={1.5}
             borderRadius="md"
-            bg="linear-gradient(135deg, #f0dc82 0%, var(--color-accent-gold) 48%, #a67c00 100%)"
-            color="#0a0a0a"
-            boxShadow="0 4px 16px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.35)"
+            bg="var(--ink, #0E0E0C)"
+            color="var(--paper, #FCFCFD)"
+            boxShadow="0 4px 16px rgba(14,14,12,0.35), inset 0 1px 0 rgba(255,255,255,0.08)"
           >
             <Text className="inter-semibold" fontSize="xs" letterSpacing="0.06em" textTransform="uppercase">
               Zuletzt angesehen
@@ -129,16 +129,16 @@ export function LastVideoCard({ lastWatched, recommended }: LastVideoCardProps) 
                   borderRadius="full"
                   alignItems="center"
                   justifyContent="center"
-                  bg="linear-gradient(145deg, rgba(255, 160, 90, 0.95) 0%, rgba(232, 197, 71, 0.92) 42%, rgba(180, 130, 20, 0.98) 100%)"
-                  border="2px solid rgba(255, 220, 190, 0.45)"
-                  boxShadow="0 0 48px rgba(255, 130, 60, 0.55), 0 8px 24px rgba(0,0,0,0.45), inset 0 2px 0 rgba(255,255,255,0.35)"
+                  bg="linear-gradient(145deg, rgba(74,124,92,0.92) 0%, rgba(31,58,46,0.95) 100%)"
+                  border="2px solid rgba(74, 124, 92, 0.55)"
+                  boxShadow="0 0 32px rgba(74,124,92,0.40), 0 8px 24px rgba(14,14,12,0.45), inset 0 2px 0 rgba(255,255,255,0.18)"
                   transition="transform 0.2s ease, box-shadow 0.2s ease"
                   _hover={{
                     transform: "scale(1.06)",
-                    boxShadow: "0 0 56px rgba(255, 170, 80, 0.65), 0 10px 28px rgba(0,0,0,0.5), inset 0 2px 0 rgba(255,255,255,0.4)",
+                    boxShadow: "0 0 44px rgba(74,124,92,0.55), 0 10px 28px rgba(14,14,12,0.50), inset 0 2px 0 rgba(255,255,255,0.22)",
                   }}
                 >
-                  <Play size={34} fill="#0a0a0a" color="#0a0a0a" strokeWidth={1.2} style={{ marginLeft: 4 }} />
+                  <Play size={34} fill="var(--paper, #FCFCFD)" color="var(--paper, #FCFCFD)" strokeWidth={1.2} style={{ marginLeft: 4 }} />
                 </Box>
               </Box>
             </InstitutMediaArea>
@@ -149,13 +149,13 @@ export function LastVideoCard({ lastWatched, recommended }: LastVideoCardProps) 
           <Text className="inter-medium" fontSize="xs" letterSpacing="0.12em" textTransform="uppercase" color="rgba(255,255,255,0.42)" mb={2}>
             Institut
           </Text>
-          <Text className="inter" fontSize="sm" color="rgba(245, 236, 210, 0.72)" lineHeight="snug" noOfLines={2} mb={2}>
+          <Text className="inter" fontSize="sm" color="rgba(252,252,253,0.65)" lineHeight="snug" noOfLines={2} mb={2}>
             {moduleLine}
           </Text>
-          <Heading as="h2" size="lg" className="inter-semibold" fontWeight={600} color="var(--color-text-primary)" lineHeight="short" mb={3}>
+          <Heading as="h2" size="lg" className="inter-semibold" fontWeight={600} color="var(--paper, #FCFCFD)" lineHeight="short" mb={3}>
             {title}
           </Heading>
-          <Flex align="center" gap={2} mb={5} color="rgba(255,255,255,0.5)">
+          <Flex align="center" gap={2} mb={5} color="rgba(252,252,253,0.50)">
             <Clock size={16} strokeWidth={2} aria-hidden />
             <Text className="inter" fontSize="sm">
               {lastVideoDurationSeconds > 0
@@ -177,10 +177,10 @@ export function LastVideoCard({ lastWatched, recommended }: LastVideoCardProps) 
             size="md"
             width={{ base: "full", sm: "auto" }}
             borderRadius="10px"
-            bg="linear-gradient(135deg, var(--color-accent-gold-light) 0%, var(--color-accent-gold) 45%, var(--color-accent-gold-dark) 100%)"
-            color="#0a0a0a"
+            bg="var(--forest-deep, #122620)"
+            color="var(--paper, #FCFCFD)"
             fontWeight={600}
-            _hover={{ boxShadow: "0 0 24px var(--color-accent-glow)" }}
+            _hover={{ bg: "var(--glow, #2D5443)", boxShadow: "0 6px 22px rgba(18,38,32,0.35)" }}
           >
             Weitermachen
           </Button>
@@ -209,9 +209,9 @@ export function LastVideoCard({ lastWatched, recommended }: LastVideoCardProps) 
             px={3}
             py={1.5}
             borderRadius="md"
-            bg="linear-gradient(135deg, #f0dc82 0%, var(--color-accent-gold) 48%, #a67c00 100%)"
-            color="#0a0a0a"
-            boxShadow="0 4px 16px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.35)"
+            bg="var(--ink, #0E0E0C)"
+            color="var(--paper, #FCFCFD)"
+            boxShadow="0 4px 16px rgba(14,14,12,0.35), inset 0 1px 0 rgba(255,255,255,0.08)"
           >
             <Text className="inter-semibold" fontSize="xs" letterSpacing="0.06em" textTransform="uppercase">
               Nächstes Video
@@ -228,16 +228,16 @@ export function LastVideoCard({ lastWatched, recommended }: LastVideoCardProps) 
                   borderRadius="full"
                   alignItems="center"
                   justifyContent="center"
-                  bg="linear-gradient(145deg, rgba(255, 160, 90, 0.95) 0%, rgba(232, 197, 71, 0.92) 42%, rgba(180, 130, 20, 0.98) 100%)"
-                  border="2px solid rgba(255, 220, 190, 0.45)"
-                  boxShadow="0 0 48px rgba(255, 130, 60, 0.55), 0 8px 24px rgba(0,0,0,0.45), inset 0 2px 0 rgba(255,255,255,0.35)"
+                  bg="linear-gradient(145deg, rgba(74,124,92,0.92) 0%, rgba(31,58,46,0.95) 100%)"
+                  border="2px solid rgba(74, 124, 92, 0.55)"
+                  boxShadow="0 0 32px rgba(74,124,92,0.40), 0 8px 24px rgba(14,14,12,0.45), inset 0 2px 0 rgba(255,255,255,0.18)"
                   transition="transform 0.2s ease, box-shadow 0.2s ease"
                   _hover={{
                     transform: "scale(1.06)",
-                    boxShadow: "0 0 56px rgba(255, 170, 80, 0.65), 0 10px 28px rgba(0,0,0,0.5), inset 0 2px 0 rgba(255,255,255,0.4)",
+                    boxShadow: "0 0 44px rgba(74,124,92,0.55), 0 10px 28px rgba(14,14,12,0.50), inset 0 2px 0 rgba(255,255,255,0.22)",
                   }}
                 >
-                  <Play size={34} fill="#0a0a0a" color="#0a0a0a" strokeWidth={1.2} style={{ marginLeft: 4 }} />
+                  <Play size={34} fill="var(--paper, #FCFCFD)" color="var(--paper, #FCFCFD)" strokeWidth={1.2} style={{ marginLeft: 4 }} />
                 </Box>
               </Box>
             </InstitutMediaArea>
@@ -248,13 +248,13 @@ export function LastVideoCard({ lastWatched, recommended }: LastVideoCardProps) 
           <Text className="inter-medium" fontSize="xs" letterSpacing="0.12em" textTransform="uppercase" color="rgba(255,255,255,0.42)" mb={2}>
             Institut
           </Text>
-          <Text className="inter" fontSize="sm" color="rgba(245, 236, 210, 0.72)" lineHeight="snug" noOfLines={2} mb={2}>
+          <Text className="inter" fontSize="sm" color="rgba(252,252,253,0.65)" lineHeight="snug" noOfLines={2} mb={2}>
             {module.courseTitle ? module.courseTitle : `Modul: ${module.title}`}
           </Text>
-          <Heading as="h2" size="lg" className="inter-semibold" fontWeight={600} color="var(--color-text-primary)" lineHeight="short" mb={3}>
+          <Heading as="h2" size="lg" className="inter-semibold" fontWeight={600} color="var(--paper, #FCFCFD)" lineHeight="short" mb={3}>
             {module.title}
           </Heading>
-          <Flex align="center" gap={2} mb={5} color="rgba(255,255,255,0.5)">
+          <Flex align="center" gap={2} mb={5} color="rgba(252,252,253,0.50)">
             <Clock size={16} strokeWidth={2} aria-hidden />
             <Text className="inter" fontSize="sm">
               {videoCount} {videoCount === 1 ? "Video" : "Videos"}
@@ -273,10 +273,10 @@ export function LastVideoCard({ lastWatched, recommended }: LastVideoCardProps) 
             size="md"
             width={{ base: "full", sm: "auto" }}
             borderRadius="10px"
-            bg="linear-gradient(135deg, var(--color-accent-gold-light) 0%, var(--color-accent-gold) 45%, var(--color-accent-gold-dark) 100%)"
-            color="#0a0a0a"
+            bg="var(--forest-deep, #122620)"
+            color="var(--paper, #FCFCFD)"
             fontWeight={600}
-            _hover={{ boxShadow: "0 0 24px var(--color-accent-glow)" }}
+            _hover={{ bg: "var(--glow, #2D5443)", boxShadow: "0 6px 22px rgba(18,38,32,0.35)" }}
           >
             Jetzt starten
           </Button>
@@ -287,13 +287,13 @@ export function LastVideoCard({ lastWatched, recommended }: LastVideoCardProps) 
 
   return (
     <GlassCard dashboard h="100%">
-      <Text className="inter-medium" fontSize="xs" letterSpacing="0.1em" textTransform="uppercase" color="rgba(255, 255, 255, 0.5)" mb={2}>
+      <Text className="inter-medium" fontSize="xs" letterSpacing="0.1em" textTransform="uppercase" color="var(--mute, #8B867E)" mb={2}>
         Institut
       </Text>
-      <Heading as="h2" size="md" className="inter-semibold" fontWeight={600} color="var(--color-text-primary)" mb={2}>
+      <Heading as="h2" size="md" className="inter-semibold" fontWeight={600} color="var(--ink, #0E0E0C)" mb={2}>
         Noch keine Inhalte
       </Heading>
-      <Text className="inter" color="var(--color-text-muted)" fontSize="sm" mb={6}>
+      <Text className="inter" color="rgba(14, 14, 12, 0.55)" fontSize="sm" mb={6}>
         Derzeit sind keine Module verfügbar. Schau später wieder vorbei.
       </Text>
       <Button
@@ -302,10 +302,10 @@ export function LastVideoCard({ lastWatched, recommended }: LastVideoCardProps) 
         size="md"
         width={{ base: "full", sm: "auto" }}
         borderRadius="10px"
-        bg="linear-gradient(135deg, var(--color-accent-gold-light) 0%, var(--color-accent-gold) 45%, var(--color-accent-gold-dark) 100%)"
-        color="#0a0a0a"
+        bg="var(--ink, #0E0E0C)"
+        color="var(--paper, #FCFCFD)"
         fontWeight={600}
-        _hover={{ boxShadow: "0 0 24px var(--color-accent-glow)" }}
+        _hover={{ bg: "var(--forest-deep, #122620)", boxShadow: "0 6px 22px rgba(18,38,32,0.35)" }}
       >
         Zum Institut
       </Button>

@@ -17,14 +17,14 @@ export default async function AdminStep2ApplicationsPage() {
         <Stack spacing={1}>
           <Heading
             as="h1"
-            className="radley-regular"
+            fontFamily="var(--font-display)"
             fontWeight={400}
             fontSize={{ base: "2xl", md: "3xl" }}
-            color="whiteAlpha.950"
+            color="var(--paper)"
           >
             Step-2 Bewerbungen
           </Heading>
-          <Text fontSize="sm" color="var(--color-text-secondary)" className="inter">
+          <Text fontSize="sm" color="var(--mute)" fontFamily="var(--font-sans)">
             Erweiterte Bewerbungen (11 Fragen) von approved Free-Nutzern. Prüfe die Antworten und entscheide über die nächste Stufe.
           </Text>
         </Stack>

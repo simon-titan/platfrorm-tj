@@ -4,7 +4,7 @@ import Image from "next/image";
 export type LogoVariant = "onDark" | "onLight";
 
 const SRC: Record<LogoVariant, string> = {
-  onDark: "/logo/logo-white.png",
+  onDark: "/logo/logo-white-trans.png",
   onLight: "/logo/logo-black.png",
 };
 
@@ -42,7 +42,7 @@ export function Logo({
   return (
     <Image
       src={SRC[variant]}
-      alt="Capital Circle"
+      alt="T&J Consulting"
       width={width}
       height={height}
       priority={priority}

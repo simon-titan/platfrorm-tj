@@ -227,20 +227,20 @@ export function HTApplicationsManager() {
       {error && (
         <Alert status="error" variant="subtle" bg="rgba(229,72,77,0.10)" borderRadius="12px">
           <AlertIcon />
-          <Text fontSize="sm" className="inter">{error}</Text>
+          <Text fontSize="sm" fontFamily="var(--font-sans)">{error}</Text>
         </Alert>
       )}
 
       {loading ? (
         <HStack py={12} justify="center">
-          <Spinner color="var(--color-accent-gold)" />
+          <Spinner color="var(--leaf)" />
         </HStack>
       ) : sortedItems.length === 0 ? (
         <Box
           py={12}
           textAlign="center"
-          color="var(--color-text-secondary)"
-          className="inter"
+          color="var(--mute)"
+          fontFamily="var(--font-sans)"
           fontSize="sm"
           border="1px dashed rgba(255,255,255,0.08)"
           borderRadius="12px"
@@ -295,7 +295,7 @@ function FilterBar(props: {
   return (
     <Stack spacing={3}>
       <Stack spacing={2}>
-        <Text fontSize="xs" letterSpacing="0.18em" textTransform="uppercase" className="inter-semibold" color="var(--color-text-secondary)">
+        <Text fontSize="xs" letterSpacing="0.18em" textTransform="uppercase" fontFamily="var(--font-sans)" fontWeight={600} color="var(--mute)">
           Budget
         </Text>
         <HStack spacing={2} flexWrap="wrap">
@@ -312,7 +312,7 @@ function FilterBar(props: {
       </Stack>
 
       <Stack spacing={2}>
-        <Text fontSize="xs" letterSpacing="0.18em" textTransform="uppercase" className="inter-semibold" color="var(--color-text-secondary)">
+        <Text fontSize="xs" letterSpacing="0.18em" textTransform="uppercase" fontFamily="var(--font-sans)" fontWeight={600} color="var(--mute)">
           Outcome
         </Text>
         <HStack spacing={2} flexWrap="wrap">
@@ -343,20 +343,20 @@ function FilterPill(props: {
       size="sm"
       variant="outline"
       onClick={onClick}
-      bg={active ? "rgba(212,175,55,0.14)" : "transparent"}
-      borderColor={active ? "rgba(212,175,55,0.55)" : "rgba(255,255,255,0.12)"}
-      color={active ? "var(--color-accent-gold-light)" : "var(--color-text-secondary)"}
+      bg={active ? "rgba(74,124,92,0.14)" : "transparent"}
+      borderColor={active ? "rgba(74,124,92,0.40)" : "rgba(255,255,255,0.12)"}
+      color={active ? "var(--leaf)" : "var(--mute)"}
       _hover={{
         bg: "rgba(255,255,255,0.06)",
-        borderColor: "rgba(212,175,55,0.45)",
+        borderColor: "rgba(74,124,92,0.35)",
       }}
-      className="inter"
+      fontFamily="var(--font-sans)"
     >
       {label}
       <Badge
         ml={2}
-        bg={active ? "rgba(212,175,55,0.22)" : "rgba(255,255,255,0.06)"}
-        color={active ? "var(--color-accent-gold-light)" : "var(--color-text-secondary)"}
+        bg={active ? "rgba(74,124,92,0.16)" : "rgba(255,255,255,0.06)"}
+        color={active ? "var(--leaf)" : "var(--mute)"}
         borderRadius="full"
         px={2}
       >
@@ -407,13 +407,13 @@ function HTApplicationCard(props: {
     <Box
       borderRadius="14px"
       border="1px solid"
-      borderColor={isPriority ? "rgba(212,175,55,0.45)" : "rgba(255,255,255,0.09)"}
-      bg={isPriority ? "rgba(212,175,55,0.04)" : "rgba(255,255,255,0.04)"}
+      borderColor={isPriority ? "rgba(74,124,92,0.35)" : "rgba(255,255,255,0.09)"}
+      bg={isPriority ? "rgba(74,124,92,0.18)" : "rgba(255,255,255,0.04)"}
       overflow="hidden"
       transition="border-color .2s ease, background .2s ease"
-      boxShadow={isPriority ? "0 0 0 1px rgba(212,175,55,0.25), 0 8px 24px rgba(212,175,55,0.10)" : undefined}
+      boxShadow={isPriority ? "0 0 0 1px rgba(74,124,92,0.18), 0 8px 24px rgba(74,124,92,0.10)" : undefined}
       _hover={{
-        borderColor: isPriority ? "rgba(212,175,55,0.65)" : "rgba(212,175,55,0.30)",
+        borderColor: isPriority ? "rgba(74,124,92,0.50)" : "rgba(74,124,92,0.18)",
       }}
     >
       <HStack
@@ -429,7 +429,7 @@ function HTApplicationCard(props: {
       >
         <HStack spacing={3} align="center" flex="1" minW={0}>
           {isPriority ? (
-            <Box color="var(--color-accent-gold)" flexShrink={0}>
+            <Box color="var(--leaf)" flexShrink={0}>
               <Flame size={18} />
             </Box>
           ) : (
@@ -437,14 +437,14 @@ function HTApplicationCard(props: {
           )}
           <Stack spacing={0} flex="1" minW={0}>
             <HStack spacing={2}>
-              <Text className="inter-semibold" color="var(--color-text-primary)" noOfLines={1}>
+              <Text fontFamily="var(--font-sans)" fontWeight={600} color="var(--paper)" noOfLines={1}>
                 {row.name || "(Kein Name)"}
               </Text>
-              <Text fontSize="xs" className="inter" color="var(--color-text-secondary)">
+              <Text fontSize="xs" fontFamily="var(--font-sans)" color="var(--mute)">
                 · {relativeTime(row.createdAt)}
               </Text>
             </HStack>
-            <Text fontSize="xs" className="inter" color="var(--color-text-secondary)" noOfLines={1}>
+            <Text fontSize="xs" fontFamily="var(--font-sans)" color="var(--mute)" noOfLines={1}>
               {row.email}
             </Text>
           </Stack>
@@ -453,7 +453,7 @@ function HTApplicationCard(props: {
         <HStack spacing={2}>
           <BudgetBadge tier={row.budgetTier} />
           <OutcomeBadge outcome={row.outcome} />
-          <Box color="var(--color-text-secondary)">
+          <Box color="var(--mute)">
             {isOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
           </Box>
         </HStack>
@@ -477,12 +477,12 @@ function HTApplicationCard(props: {
                   bg="rgba(37,211,102,0.08)"
                   _hover={{ bg: "rgba(37,211,102,0.18)" }}
                   leftIcon={<MessageCircle size={14} />}
-                  className="inter"
+                  fontFamily="var(--font-sans)"
                 >
                   WhatsApp: {row.whatsappNumber}
                 </Button>
               ) : null}
-              <Text fontSize="xs" color="var(--color-text-secondary)" className="inter">
+              <Text fontSize="xs" color="var(--mute)" fontFamily="var(--font-sans)">
                 Eingegangen: {formatDate(row.createdAt)}
               </Text>
             </HStack>
@@ -514,8 +514,8 @@ function HTApplicationCard(props: {
                     fontSize="xs"
                     letterSpacing="0.14em"
                     textTransform="uppercase"
-                    color="var(--color-accent-gold)"
-                    className="inter-semibold"
+                    color="var(--leaf)"
+                    fontFamily="var(--font-sans)" fontWeight={600}
                   >
                     Outcome
                   </Text>
@@ -527,19 +527,19 @@ function HTApplicationCard(props: {
                     isDisabled={busy}
                     bg="rgba(255,255,255,0.04)"
                     borderColor="rgba(255,255,255,0.12)"
-                    color="var(--color-text-primary)"
+                    color="var(--paper)"
                     sx={{
                       "& > option": {
                         background: "#15161B",
-                        color: "var(--color-text-primary)",
+                        color: "var(--paper)",
                       },
                     }}
-                    _hover={{ borderColor: "rgba(212,175,55,0.45)" }}
+                    _hover={{ borderColor: "rgba(74,124,92,0.35)" }}
                     _focus={{
-                      borderColor: "rgba(212,175,55,0.65)",
-                      boxShadow: "0 0 0 1px rgba(212,175,55,0.45)",
+                      borderColor: "rgba(74,124,92,0.50)",
+                      boxShadow: "0 0 0 1px rgba(74,124,92,0.35)",
                     }}
-                    className="inter"
+                    fontFamily="var(--font-sans)"
                   >
                     <option value="pending">Pending</option>
                     <option value="closed_won">Closed Won</option>
@@ -552,11 +552,11 @@ function HTApplicationCard(props: {
                       size="sm"
                       onClick={() => void onActivateAccess()}
                       isDisabled={busy || !row.userId}
-                      bg="linear-gradient(135deg, #D4AF37 0%, #A67C00 100%)"
+                      bg="linear-gradient(135deg, #4A7C5C 0%, #2D5443 100%)"
                       color="#0a0a0a"
                       _hover={{ filter: "brightness(1.06)" }}
                       leftIcon={<Check size={14} />}
-                      className="inter-semibold"
+                      fontFamily="var(--font-sans)" fontWeight={600}
                       title={
                         row.userId
                           ? "Setzt membership_tier='ht_1on1' + is_paid=true (idempotent)."
@@ -574,13 +574,13 @@ function HTApplicationCard(props: {
                       fontSize="xs"
                       letterSpacing="0.14em"
                       textTransform="uppercase"
-                      color="var(--color-accent-gold)"
-                      className="inter-semibold"
+                      color="var(--leaf)"
+                      fontFamily="var(--font-sans)" fontWeight={600}
                     >
                       Interne Notizen
                     </Text>
                     {savedFlash ? (
-                      <Text fontSize="xs" color="#34D399" className="inter">
+                      <Text fontSize="xs" color="#34D399" fontFamily="var(--font-sans)">
                         ✓ gespeichert
                       </Text>
                     ) : null}
@@ -593,17 +593,17 @@ function HTApplicationCard(props: {
                     minH="80px"
                     bg="rgba(255,255,255,0.04)"
                     borderColor="rgba(255,255,255,0.12)"
-                    color="var(--color-text-primary)"
+                    color="var(--paper)"
                     _placeholder={{ color: "rgba(255,255,255,0.32)" }}
                     _focus={{
-                      borderColor: "rgba(212,175,55,0.65)",
-                      boxShadow: "0 0 0 1px rgba(212,175,55,0.45)",
+                      borderColor: "rgba(74,124,92,0.50)",
+                      boxShadow: "0 0 0 1px rgba(74,124,92,0.35)",
                     }}
                     isDisabled={savingNotes || busy}
-                    className="inter"
+                    fontFamily="var(--font-sans)"
                     fontSize="sm"
                   />
-                  <Text fontSize="xs" color="var(--color-text-secondary)" className="inter">
+                  <Text fontSize="xs" color="var(--mute)" fontFamily="var(--font-sans)">
                     Speichern beim Verlassen des Felds.
                   </Text>
                 </Stack>
@@ -623,15 +623,15 @@ function AnswerBlock({ label, value }: { label: string; value: string }) {
         fontSize="xs"
         letterSpacing="0.10em"
         textTransform="uppercase"
-        color="var(--color-text-secondary)"
-        className="inter-semibold"
+        color="var(--mute)"
+        fontFamily="var(--font-sans)" fontWeight={600}
       >
         {label}
       </Text>
       <Text
         fontSize="sm"
-        color="var(--color-text-primary)"
-        className="inter"
+        color="var(--paper)"
+        fontFamily="var(--font-sans)"
         whiteSpace="pre-wrap"
         lineHeight="1.6"
       >
@@ -645,15 +645,15 @@ function BudgetBadge({ tier }: { tier: BudgetTier }) {
   if (tier === "over_2000") {
     return (
       <Badge
-        bg="rgba(212,175,55,0.14)"
-        color="var(--color-accent-gold)"
-        border="1px solid rgba(212,175,55,0.45)"
+        bg="rgba(74,124,92,0.14)"
+        color="var(--leaf)"
+        border="1px solid rgba(74,124,92,0.35)"
         borderRadius="full"
         px={2}
         py={0.5}
         textTransform="none"
         fontWeight={500}
-        className="inter"
+        fontFamily="var(--font-sans)"
       >
         🔥 {BUDGET_LABELS.over_2000}
       </Badge>
@@ -662,14 +662,14 @@ function BudgetBadge({ tier }: { tier: BudgetTier }) {
   return (
     <Badge
       bg="rgba(255,255,255,0.06)"
-      color="var(--color-text-secondary)"
+      color="var(--mute)"
       border="1px solid rgba(255,255,255,0.12)"
       borderRadius="full"
       px={2}
       py={0.5}
       textTransform="none"
       fontWeight={500}
-      className="inter"
+      fontFamily="var(--font-sans)"
     >
       {BUDGET_LABELS.under_2000}
     </Badge>
@@ -710,7 +710,7 @@ function OutcomeBadge({ outcome }: { outcome: Outcome }) {
       py={0.5}
       textTransform="none"
       fontWeight={500}
-      className="inter"
+      fontFamily="var(--font-sans)"
     >
       {OUTCOME_LABELS[outcome]}
     </Badge>

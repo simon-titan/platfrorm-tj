@@ -83,28 +83,28 @@ export function UnassignedModulesManager({
         spacing={4}
         p={{ base: 4, md: 6 }}
         borderRadius="16px"
-        border="1px solid rgba(212,175,55,0.25)"
-        bg="rgba(212,175,55,0.04)"
-        boxShadow="0 0 0 1px rgba(212,175,55,0.08)"
+        border="1px solid rgba(74,124,92,0.18)"
+        bg="rgba(74,124,92,0.18)"
+        boxShadow="0 0 0 1px rgba(74,124,92,0.18)"
       >
         <HStack spacing={3} align="center">
           <Box
             w="32px"
             h="32px"
             borderRadius="8px"
-            bg="rgba(212,175,55,0.12)"
+            bg="rgba(74,124,92,0.12)"
             display="flex"
             alignItems="center"
             justifyContent="center"
             flexShrink={0}
           >
-            <FolderOpen size={16} color="rgba(212,175,55,0.9)" aria-hidden />
+            <FolderOpen size={16} color="rgba(74,124,92,0.18)" aria-hidden />
           </Box>
           <Stack spacing={0}>
-            <Text className="inter-semibold" fontSize="sm" color="gray.100">
+            <Text fontFamily="var(--font-sans)" fontWeight={600} fontSize="sm" color="gray.100">
               Nicht zugeordnete Module
             </Text>
-            <Text className="inter" fontSize="xs" color="gray.500">
+            <Text fontFamily="var(--font-sans)" fontSize="xs" color="gray.500">
               Diese Module wurden beim Bucket-Scan gefunden, aber noch keinem Kurs zugewiesen.
             </Text>
           </Stack>
@@ -114,10 +114,10 @@ export function UnassignedModulesManager({
               px={2}
               py={0.5}
               borderRadius="full"
-              bg="rgba(212,175,55,0.15)"
-              color="rgba(212,175,55,0.9)"
+              bg="rgba(74,124,92,0.18)"
+              color="rgba(74,124,92,0.18)"
               fontSize="xs"
-              className="inter"
+              fontFamily="var(--font-sans)"
               flexShrink={0}
             >
               {modules.length}
@@ -126,7 +126,7 @@ export function UnassignedModulesManager({
         </HStack>
 
         {modules.length === 0 ? (
-          <Text className="inter" fontSize="sm" color="gray.500" pl={1}>
+          <Text fontFamily="var(--font-sans)" fontSize="sm" color="gray.500" pl={1}>
             Alle Module sind einem Kurs zugeordnet.
           </Text>
         ) : (
@@ -145,11 +145,11 @@ export function UnassignedModulesManager({
                 _hover={{ bg: "rgba(255,255,255,0.06)" }}
               >
                 <Stack flex={1} spacing={0.5} minW={0}>
-                  <Text className="inter" fontSize="sm" fontWeight={500} color="gray.100" noOfLines={1}>
+                  <Text fontFamily="var(--font-sans)" fontSize="sm" fontWeight={500} color="gray.100" noOfLines={1}>
                     {mod.title}
                   </Text>
                   {mod.storage_folder_key && (
-                    <Text className="jetbrains-mono" fontSize="10px" color="gray.600" noOfLines={1}>
+                    <Text fontFamily="var(--font-mono)" fontSize="10px" color="gray.600" noOfLines={1}>
                       {mod.storage_folder_key}
                     </Text>
                   )}
@@ -157,11 +157,11 @@ export function UnassignedModulesManager({
                 <Button
                   size="sm"
                   variant="outline"
-                  borderColor="rgba(212,175,55,0.4)"
-                  color="rgba(212,175,55,0.9)"
+                  borderColor="rgba(74,124,92,0.35)"
+                  color="rgba(74,124,92,0.18)"
                   leftIcon={<ArrowRightLeft size={13} />}
                   flexShrink={0}
-                  _hover={{ bg: "rgba(212,175,55,0.08)", borderColor: "rgba(212,175,55,0.7)" }}
+                  _hover={{ bg: "rgba(74,124,92,0.18)", borderColor: "rgba(74,124,92,0.18)" }}
                   onClick={() => openAssign(mod)}
                   isDisabled={courses.length === 0}
                 >
@@ -173,7 +173,7 @@ export function UnassignedModulesManager({
         )}
 
         {courses.length === 0 && modules.length > 0 && (
-          <Text className="inter" fontSize="xs" color="orange.400">
+          <Text fontFamily="var(--font-sans)" fontSize="xs" color="orange.400">
             Keine Kurse vorhanden. Bitte zuerst einen Kurs anlegen.
           </Text>
         )}
@@ -187,13 +187,13 @@ export function UnassignedModulesManager({
           borderRadius="20px"
           mx={4}
         >
-          <ModalHeader className="radley-regular" fontWeight={400} color="gray.100">
+          <ModalHeader fontFamily="var(--font-display)" fontWeight={400} color="gray.100">
             Modul einem Kurs zuordnen
           </ModalHeader>
           <ModalCloseButton isDisabled={loading} />
           <ModalBody>
             <Stack spacing={4}>
-              <Text className="inter" fontSize="sm" color="gray.400">
+              <Text fontFamily="var(--font-sans)" fontSize="sm" color="gray.400">
                 Modul{" "}
                 <Text as="span" fontWeight={600} color="gray.200">
                   „{activeModule?.title}"
@@ -201,7 +201,7 @@ export function UnassignedModulesManager({
                 wird dem gewählten Kurs zugewiesen und dort ans Ende der Modulliste gesetzt.
               </Text>
               <FormControl>
-                <FormLabel className="inter" fontSize="xs" color="gray.500">
+                <FormLabel fontFamily="var(--font-sans)" fontSize="xs" color="gray.500">
                   Ziel-Kurs
                 </FormLabel>
                 <Select
@@ -209,7 +209,7 @@ export function UnassignedModulesManager({
                   onChange={(e) => setTargetCourseId(e.target.value)}
                   borderColor="whiteAlpha.200"
                   isDisabled={loading}
-                  className="inter"
+                  fontFamily="var(--font-sans)"
                 >
                   {courses.map((c) => (
                     <option key={c.id} value={c.id}>
@@ -219,7 +219,7 @@ export function UnassignedModulesManager({
                 </Select>
               </FormControl>
               {assignError && (
-                <Text className="inter" fontSize="sm" color="red.300">
+                <Text fontFamily="var(--font-sans)" fontSize="sm" color="red.300">
                   {assignError}
                 </Text>
               )}
@@ -230,7 +230,7 @@ export function UnassignedModulesManager({
               Abbrechen
             </Button>
             <Button
-              bg="rgba(212,175,55,0.9)"
+              bg="rgba(74,124,92,0.18)"
               color="black"
               _hover={{ bg: "rgba(212,175,55,1)" }}
               onClick={() => void confirmAssign()}

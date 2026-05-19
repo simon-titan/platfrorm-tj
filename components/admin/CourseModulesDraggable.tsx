@@ -113,7 +113,7 @@ export function CourseModulesDraggable({
 
   if (items.length === 0) {
     return (
-      <Text className="inter" fontSize="sm" color="gray.400">
+      <Text fontFamily="var(--font-sans)" fontSize="sm" color="gray.400">
         Noch keine Module — oben auf „+ Neues Modul" klicken.
       </Text>
     );
@@ -141,7 +141,7 @@ export function CourseModulesDraggable({
         >
           {handle}
           <Stack flex={1} spacing={0.5} minW={0}>
-            <Text className="inter" fontSize="sm" fontWeight={500} color="gray.100" noOfLines={1}>
+            <Text fontFamily="var(--font-sans)" fontSize="sm" fontWeight={500} color="gray.100" noOfLines={1}>
               {item.title}
             </Text>
           </Stack>
@@ -152,7 +152,7 @@ export function CourseModulesDraggable({
             variant="subtle"
             colorScheme="blue"
             fontSize="xs"
-            className="inter"
+            fontFamily="var(--font-sans)"
             flexShrink={0}
           >
             #{item.order_index}
@@ -187,13 +187,13 @@ export function CourseModulesDraggable({
     <Modal isOpen={moveOpen} onClose={() => !moveLoading && setMoveOpen(false)} isCentered size="md">
       <ModalOverlay bg="rgba(7, 8, 10, 0.75)" backdropFilter="blur(8px)" />
       <ModalContent bg="gray.900" borderWidth="1px" borderColor="whiteAlpha.200">
-        <ModalHeader className="inter-semibold" fontWeight={600} color="gray.100">
+        <ModalHeader fontFamily="var(--font-sans)" fontWeight={600} color="var(--paper)">
           Modul verschieben
         </ModalHeader>
         <ModalCloseButton isDisabled={moveLoading} />
         <ModalBody>
           <Stack spacing={4}>
-            <Text className="inter" fontSize="sm" color="gray.400">
+            <Text fontFamily="var(--font-sans)" fontSize="sm" color="gray.400">
               {moveModule ? (
                 <>
                   „<Text as="span" fontWeight={600} color="gray.200">{moveModule.title}</Text>“ in einen anderen Kurs legen.
@@ -202,7 +202,7 @@ export function CourseModulesDraggable({
               ) : null}
             </Text>
             <FormControl>
-              <FormLabel className="inter" fontSize="xs" color="gray.500">
+              <FormLabel fontFamily="var(--font-sans)" fontSize="xs" color="gray.500">
                 Ziel-Kurs
               </FormLabel>
               <Select
@@ -219,7 +219,7 @@ export function CourseModulesDraggable({
               </Select>
             </FormControl>
             {moveError ? (
-              <Text className="inter" fontSize="sm" color="red.300">
+              <Text fontFamily="var(--font-sans)" fontSize="sm" color="red.300">
                 {moveError}
               </Text>
             ) : null}

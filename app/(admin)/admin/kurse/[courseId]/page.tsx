@@ -30,12 +30,12 @@ export default async function CoursePage({ params }: PageProps) {
   return (
     <Stack gap={8} maxW="var(--adminMaxWidth, 1440px)" mx="auto" px={{ base: 4, md: 6 }} py={{ base: 6, md: 8 }}>
       <Stack spacing={2}>
-        <Text as="h1" className="radley-regular" fontSize={{ base: "xl", md: "2xl" }} color="whiteAlpha.900">
+        <Text as="h1" fontFamily="var(--font-display)" fontSize={{ base: "xl", md: "2xl" }} color="whiteAlpha.900">
           {course?.title ?? "Kurs"}
         </Text>
-        <Text className="inter" fontSize="sm" color="gray.500">
+        <Text fontFamily="var(--font-sans)" fontSize="sm" color="gray.500">
           Module per Drag & Drop sortieren. Slug:{" "}
-          <Box as="span" className="jetbrains-mono" color="gray.400">
+          <Box as="span" fontFamily="var(--font-mono)" color="var(--mute)">
             {course?.slug}
           </Box>
         </Text>

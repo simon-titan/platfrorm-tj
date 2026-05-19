@@ -30,10 +30,10 @@ export default async function AdminQuizPage({ params }: PageProps) {
   return (
     <Stack gap={6}>
       <Stack spacing={1}>
-        <Link href="/admin/quiz" className="inter" style={{ color: "var(--color-accent-gold-light)", fontSize: "0.875rem" }}>
+        <Link href="/admin/quiz" style={{ color: "var(--leaf)", fontSize: "0.875rem", fontFamily: "var(--font-sans)" }}>
           ← Zur Quiz-Übersicht
         </Link>
-        <Heading size="md" className="radley-regular" fontWeight={400}>
+        <Heading size="md" fontFamily="var(--font-display)" fontWeight={400}>
           Quiz / {module?.title ?? moduleId}
         </Heading>
       </Stack>

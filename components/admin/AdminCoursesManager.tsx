@@ -109,12 +109,12 @@ function IconPicker({
               display="flex"
               alignItems="center"
               justifyContent="center"
-              bg={selected ? "rgba(212,175,55,0.18)" : "rgba(255,255,255,0.04)"}
+              bg={selected ? "rgba(74,124,92,0.18)" : "rgba(255,255,255,0.04)"}
               borderWidth="1px"
-              borderColor={selected ? "rgba(212,175,55,0.7)" : "rgba(255,255,255,0.1)"}
-              color={selected ? "var(--color-accent-gold)" : "rgba(240,240,242,0.55)"}
+              borderColor={selected ? "rgba(74,124,92,0.60)" : "rgba(255,255,255,0.1)"}
+              color={selected ? "var(--leaf)" : "rgba(240,240,242,0.55)"}
               transition="all 0.15s ease"
-              _hover={{ bg: "rgba(212,175,55,0.1)", borderColor: "rgba(212,175,55,0.4)", color: "var(--color-accent-gold)" }}
+              _hover={{ bg: "rgba(74,124,92,0.10)", borderColor: "rgba(74,124,92,0.35)", color: "var(--leaf)" }}
               onClick={() => onChange(selected ? null : name)}
             >
               <Icon size={16} aria-hidden />
@@ -299,11 +299,11 @@ export function AdminCoursesManager({ initialCourses }: { initialCourses: Course
         bg="rgba(255,255,255,0.04)"
         boxShadow="var(--shadow-card, 0 4px 16px rgba(0,0,0,0.6))"
       >
-        <Text className="radley-regular" fontSize="2xl" color="whiteAlpha.900">
+        <Text fontFamily="var(--font-display)" fontSize="2xl" color="whiteAlpha.900">
           Neuen Kurs anlegen
         </Text>
         <FormControl>
-          <FormLabel className="inter" fontSize="xs" textTransform="uppercase" letterSpacing="0.08em" color="gray.500">
+          <FormLabel fontFamily="var(--font-sans)" fontSize="xs" textTransform="uppercase" letterSpacing="0.08em" color="gray.500">
             Titel
           </FormLabel>
           <Input
@@ -315,7 +315,7 @@ export function AdminCoursesManager({ initialCourses }: { initialCourses: Course
           />
         </FormControl>
         <FormControl>
-          <FormLabel className="inter" fontSize="xs" textTransform="uppercase" letterSpacing="0.08em" color="gray.500">
+          <FormLabel fontFamily="var(--font-sans)" fontSize="xs" textTransform="uppercase" letterSpacing="0.08em" color="gray.500">
             Slug
           </FormLabel>
           <Input
@@ -326,7 +326,7 @@ export function AdminCoursesManager({ initialCourses }: { initialCourses: Course
           />
         </FormControl>
         <FormControl>
-          <FormLabel className="inter" fontSize="xs" textTransform="uppercase" letterSpacing="0.08em" color="gray.500">
+          <FormLabel fontFamily="var(--font-sans)" fontSize="xs" textTransform="uppercase" letterSpacing="0.08em" color="gray.500">
             Beschreibung
           </FormLabel>
           <Textarea
@@ -337,25 +337,25 @@ export function AdminCoursesManager({ initialCourses }: { initialCourses: Course
           />
         </FormControl>
         <FormControl>
-          <FormLabel className="inter" fontSize="xs" textTransform="uppercase" letterSpacing="0.08em" color="gray.500">
+          <FormLabel fontFamily="var(--font-sans)" fontSize="xs" textTransform="uppercase" letterSpacing="0.08em" color="gray.500">
             Icon
           </FormLabel>
           <IconPicker value={icon} onChange={setIcon} />
         </FormControl>
         <FormControl>
-          <FormLabel className="inter" fontSize="xs" textTransform="uppercase" letterSpacing="0.08em" color="gray.500">
+          <FormLabel fontFamily="var(--font-sans)" fontSize="xs" textTransform="uppercase" letterSpacing="0.08em" color="gray.500">
             Akzentfarbe
           </FormLabel>
           <ColorPicker value={accentColor} onChange={setAccentColor} />
         </FormControl>
         <FormControl display="flex" alignItems="center">
-          <FormLabel mb={0} className="inter" fontSize="sm" color="gray.300">
+          <FormLabel mb={0} fontFamily="var(--font-sans)" fontSize="sm" color="gray.300">
             Kostenlos
           </FormLabel>
           <Switch ml={3} isChecked={isFree} onChange={(e) => setIsFree(e.target.checked)} colorScheme="blue" />
         </FormControl>
         <FormControl>
-          <FormLabel className="inter" fontSize="xs" textTransform="uppercase" letterSpacing="0.08em" color="gray.500">
+          <FormLabel fontFamily="var(--font-sans)" fontSize="xs" textTransform="uppercase" letterSpacing="0.08em" color="gray.500">
             Reihenfolge (sort_order)
           </FormLabel>
           <Input
@@ -365,12 +365,12 @@ export function AdminCoursesManager({ initialCourses }: { initialCourses: Course
             borderColor="whiteAlpha.200"
             maxW="120px"
           />
-          <Text fontSize="xs" className="inter" color="gray.600" mt={1}>
+          <Text fontSize="xs" fontFamily="var(--font-sans)" color="gray.600" mt={1}>
             Kleinere Zahl = früher in der Akademie-Kette. Bestimmt die sequenzielle Kursfreischaltung.
           </Text>
         </FormControl>
         <FormControl display="flex" alignItems="center">
-          <FormLabel mb={0} className="inter" fontSize="sm" color="gray.300">
+          <FormLabel mb={0} fontFamily="var(--font-sans)" fontSize="sm" color="gray.300">
             Von Kurs-Reihenfolge ausnehmen
           </FormLabel>
           <Switch
@@ -390,14 +390,14 @@ export function AdminCoursesManager({ initialCourses }: { initialCourses: Course
           Kurs erstellen
         </Button>
         {status ? (
-          <Text fontSize="sm" className="inter" color="gray.400">
+          <Text fontSize="sm" fontFamily="var(--font-sans)" color="gray.400">
             {status}
           </Text>
         ) : null}
       </Stack>
 
       <Box>
-        <Text className="radley-regular" fontSize="xl" mb={4} color="whiteAlpha.900">
+        <Text fontFamily="var(--font-display)" fontSize="xl" mb={4} color="whiteAlpha.900">
           Vorhandene Kurse
         </Text>
         <Box
@@ -414,16 +414,16 @@ export function AdminCoursesManager({ initialCourses }: { initialCourses: Course
             spacing={4}
             display={{ base: "none", md: "flex" }}
           >
-            <Text flex={1} fontSize="11px" className="inter" fontWeight={500} letterSpacing="0.08em" textTransform="uppercase" color="gray.600">
+            <Text flex={1} fontSize="11px" fontFamily="var(--font-sans)" fontWeight={500} letterSpacing="0.08em" textTransform="uppercase" color="gray.600">
               Titel
             </Text>
-            <Text w="56px" fontSize="11px" className="inter" fontWeight={500} letterSpacing="0.08em" textTransform="uppercase" color="gray.600">
+            <Text w="56px" fontSize="11px" fontFamily="var(--font-sans)" fontWeight={500} letterSpacing="0.08em" textTransform="uppercase" color="gray.600">
               #
             </Text>
-            <Text w="140px" fontSize="11px" className="inter" fontWeight={500} letterSpacing="0.08em" textTransform="uppercase" color="gray.600">
+            <Text w="140px" fontSize="11px" fontFamily="var(--font-sans)" fontWeight={500} letterSpacing="0.08em" textTransform="uppercase" color="gray.600">
               Slug
             </Text>
-            <Text w="120px" textAlign="right" fontSize="11px" className="inter" fontWeight={500} letterSpacing="0.08em" textTransform="uppercase" color="gray.600">
+            <Text w="120px" textAlign="right" fontSize="11px" fontFamily="var(--font-sans)" fontWeight={500} letterSpacing="0.08em" textTransform="uppercase" color="gray.600">
               Aktionen
             </Text>
           </HStack>
@@ -461,30 +461,30 @@ export function AdminCoursesManager({ initialCourses }: { initialCourses: Course
                     {accentPreview && (
                       <Box w="10px" h="10px" borderRadius="full" bg={accentPreview} flexShrink={0} />
                     )}
-                    <Text className="inter" fontSize="sm" fontWeight={500} color="gray.100">
+                    <Text fontFamily="var(--font-sans)" fontSize="sm" fontWeight={500} color="gray.100">
                       {course.title}
                     </Text>
                     {course.is_free && (
-                      <Badge colorScheme="green" variant="subtle" fontSize="10px" className="inter">
+                      <Badge colorScheme="green" variant="subtle" fontSize="10px" fontFamily="var(--font-sans)">
                         Kostenlos
                       </Badge>
                     )}
                     {course.is_sequential_exempt && (
-                      <Badge colorScheme="purple" variant="subtle" fontSize="10px" className="inter">
+                      <Badge colorScheme="purple" variant="subtle" fontSize="10px" fontFamily="var(--font-sans)">
                         Keine Ketten-Sperre
                       </Badge>
                     )}
                   </HStack>
                   {course.description ? (
-                    <Text fontSize="xs" className="inter" color="gray.500" noOfLines={1}>
+                    <Text fontSize="xs" fontFamily="var(--font-sans)" color="gray.500" noOfLines={1}>
                       {course.description}
                     </Text>
                   ) : null}
-                  <Text fontSize="xs" className="jetbrains-mono" color="gray.600">
+                  <Text fontSize="xs" fontFamily="var(--font-mono)" color="gray.600">
                     /{course.slug}
                   </Text>
                 </Stack>
-                <Text w="56px" fontSize="xs" className="jetbrains-mono" color="gray.500" flexShrink={0}>
+                <Text w="56px" fontSize="xs" fontFamily="var(--font-mono)" color="gray.500" flexShrink={0}>
                   {typeof course.sort_order === "number" ? course.sort_order : 0}
                 </Text>
                 <HStack
@@ -538,49 +538,49 @@ export function AdminCoursesManager({ initialCourses }: { initialCourses: Course
           borderRadius="24px"
           mx={4}
         >
-          <ModalHeader className="radley-regular" fontWeight={400}>
+          <ModalHeader fontFamily="var(--font-display)" fontWeight={400}>
             Kurs bearbeiten
           </ModalHeader>
           <ModalBody>
             <Stack spacing={4}>
               <FormControl>
-                <FormLabel fontSize="xs" className="inter" color="gray.500">
+                <FormLabel fontSize="xs" fontFamily="var(--font-sans)" color="gray.500">
                   Titel
                 </FormLabel>
                 <Input value={editTitle} onChange={(e) => setEditTitle(e.target.value)} borderColor="whiteAlpha.200" />
               </FormControl>
               <FormControl>
-                <FormLabel fontSize="xs" className="inter" color="gray.500">
+                <FormLabel fontSize="xs" fontFamily="var(--font-sans)" color="gray.500">
                   Slug
                 </FormLabel>
                 <Input value={editSlug} onChange={(e) => setEditSlug(e.target.value)} borderColor="whiteAlpha.200" />
               </FormControl>
               <FormControl>
-                <FormLabel fontSize="xs" className="inter" color="gray.500">
+                <FormLabel fontSize="xs" fontFamily="var(--font-sans)" color="gray.500">
                   Beschreibung
                 </FormLabel>
                 <Textarea value={editDescription} onChange={(e) => setEditDescription(e.target.value)} borderColor="whiteAlpha.200" />
               </FormControl>
               <FormControl>
-                <FormLabel fontSize="xs" className="inter" color="gray.500">
+                <FormLabel fontSize="xs" fontFamily="var(--font-sans)" color="gray.500">
                   Icon
                 </FormLabel>
                 <IconPicker value={editIcon} onChange={setEditIcon} />
               </FormControl>
               <FormControl>
-                <FormLabel fontSize="xs" className="inter" color="gray.500">
+                <FormLabel fontSize="xs" fontFamily="var(--font-sans)" color="gray.500">
                   Akzentfarbe
                 </FormLabel>
                 <ColorPicker value={editAccentColor} onChange={setEditAccentColor} />
               </FormControl>
               <FormControl display="flex" alignItems="center">
-                <FormLabel mb={0} className="inter" fontSize="sm">
+                <FormLabel mb={0} fontFamily="var(--font-sans)" fontSize="sm">
                   Kostenlos
                 </FormLabel>
                 <Switch ml={3} isChecked={editFree} onChange={(e) => setEditFree(e.target.checked)} colorScheme="blue" />
               </FormControl>
               <FormControl>
-                <FormLabel fontSize="xs" className="inter" color="gray.500">
+                <FormLabel fontSize="xs" fontFamily="var(--font-sans)" color="gray.500">
                   Reihenfolge (sort_order)
                 </FormLabel>
                 <Input
@@ -592,7 +592,7 @@ export function AdminCoursesManager({ initialCourses }: { initialCourses: Course
                 />
               </FormControl>
               <FormControl display="flex" alignItems="center">
-                <FormLabel mb={0} className="inter" fontSize="sm">
+                <FormLabel mb={0} fontFamily="var(--font-sans)" fontSize="sm">
                   Von Kurs-Reihenfolge ausnehmen
                 </FormLabel>
                 <Switch

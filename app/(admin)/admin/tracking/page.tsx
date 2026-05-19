@@ -15,14 +15,14 @@ export default async function AdminTrackingPage() {
         <Stack spacing={1}>
           <Heading
             as="h1"
-            className="radley-regular"
+            fontFamily="var(--font-display)"
             fontWeight={400}
             fontSize={{ base: "2xl", md: "3xl" }}
-            color="whiteAlpha.950"
+            color="var(--paper)"
           >
             Insight Tracking Links
           </Heading>
-          <Text fontSize="sm" color="var(--color-text-secondary)" className="inter">
+          <Text fontSize="sm" color="var(--mute)" fontFamily="var(--font-sans)">
             Erstelle individuelle Tracking-Links für die /insight Seite und messe, welche Kanäle
             die meisten Besucher und Bewerbungen bringen.
           </Text>

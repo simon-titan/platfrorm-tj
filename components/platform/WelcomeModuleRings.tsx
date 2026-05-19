@@ -30,9 +30,9 @@ function GoldDonut({
         <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} aria-hidden>
           <defs>
             <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#f0dc82" />
-              <stop offset="45%" stopColor="#e8c547" />
-              <stop offset="100%" stopColor="#8a7218" />
+              <stop offset="0%" stopColor="#a8d4bb" />
+              <stop offset="45%" stopColor="#4A7C5C" />
+              <stop offset="100%" stopColor="#1F3A2E" />
             </linearGradient>
           </defs>
           <circle cx={cx} cy={cy} r={r} fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth={stroke} />
@@ -58,7 +58,7 @@ function GoldDonut({
           transform="translate(-50%, -50%)"
           fontSize="lg"
           fontWeight={700}
-          color="var(--color-accent-gold-light)"
+          color="var(--leaf, #4A7C5C)"
           lineHeight={1}
         >
           {p}%
@@ -67,7 +67,7 @@ function GoldDonut({
       <Text className="inter-medium" fontSize="10px" letterSpacing="0.06em" textTransform="uppercase" color="rgba(255,255,255,0.45)" mt={3} mb={0.5}>
         {label}
       </Text>
-      <Text className="inter" fontSize="xs" color="rgba(245, 236, 210, 0.82)" noOfLines={2}>
+      <Text className="inter" fontSize="xs" color="rgba(252, 252, 253, 0.75)" noOfLines={2}>
         {subline}
       </Text>
     </Box>
@@ -84,8 +84,8 @@ export function WelcomeModuleRings({ metrics }: { metrics: WelcomeDashboardMetri
       w="100%"
       minW={0}
       borderRadius="14px"
-      border="1px solid rgba(212, 175, 55, 0.38)"
-      bg="linear-gradient(165deg, rgba(212, 175, 55, 0.1) 0%, rgba(8, 8, 8, 0.55) 55%)"
+      border="1px solid rgba(74, 124, 92, 0.32)"
+      bg="linear-gradient(165deg, rgba(74, 124, 92, 0.08) 0%, rgba(14, 14, 12, 0.55) 55%)"
       px={{ base: 3, md: 4 }}
       py={{ base: 2, md: 3 }}
       h="100%"

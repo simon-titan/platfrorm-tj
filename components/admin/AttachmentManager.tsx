@@ -141,7 +141,7 @@ export function AttachmentManager({ courseId, moduleId, videoId }: AttachmentMan
 
   if (loading) {
     return (
-      <Text fontSize="sm" color="gray.400" className="inter">
+      <Text fontSize="sm" color="gray.400" fontFamily="var(--font-sans)">
         Anhänge werden geladen…
       </Text>
     );
@@ -168,7 +168,7 @@ export function AttachmentManager({ courseId, moduleId, videoId }: AttachmentMan
           <FormLabel
             m={0}
             mb={1}
-            className="inter"
+            fontFamily="var(--font-sans)"
             fontSize="xs"
             textTransform="uppercase"
             letterSpacing="0.06em"
@@ -176,7 +176,7 @@ export function AttachmentManager({ courseId, moduleId, videoId }: AttachmentMan
           >
             Anhänge für Lernende
           </FormLabel>
-          <Text fontSize="sm" className="inter" color="gray.400">
+          <Text fontSize="sm" fontFamily="var(--font-sans)" color="gray.400">
             PDFs und andere Dateien zum Download neben dem Video.
           </Text>
         </Box>
@@ -202,15 +202,15 @@ export function AttachmentManager({ courseId, moduleId, videoId }: AttachmentMan
           bg="rgba(30, 58, 138, 0.15)"
         >
           <HStack justify="space-between" mb={1} flexWrap="wrap" gap={1}>
-            <Text fontSize="sm" className="inter-semibold" color="blue.200" noOfLines={1} maxW="75%">
+            <Text fontSize="sm" fontFamily="var(--font-sans)" fontWeight={600} color="blue.200" noOfLines={1} maxW="75%">
               {fileName ?? "Datei…"}
             </Text>
-            <Text fontSize="sm" className="jetbrains-mono" color="blue.300" flexShrink={0}>
+            <Text fontSize="sm" fontFamily="var(--font-mono)" color="blue.300" flexShrink={0}>
               {progress}%
             </Text>
           </HStack>
           {fileSize ? (
-            <Text fontSize="xs" color="gray.400" className="inter" mb={2}>
+            <Text fontSize="xs" color="gray.400" fontFamily="var(--font-sans)" mb={2}>
               {(fileSize / 1024 / 1024).toFixed(2)} MB
               {progress > 0 && progress < 100
                 ? ` — ${((fileSize / 1024 / 1024) * (progress / 100)).toFixed(2)} MB übertragen`
@@ -227,13 +227,13 @@ export function AttachmentManager({ courseId, moduleId, videoId }: AttachmentMan
             isAnimated={progress < 100}
           />
           {status ? (
-            <Text fontSize="xs" color="blue.300" className="inter" mt={2}>{status}</Text>
+            <Text fontSize="xs" color="blue.300" fontFamily="var(--font-sans)" mt={2}>{status}</Text>
           ) : null}
         </Box>
       ) : null}
 
       {items.length === 0 ? (
-        <Text fontSize="sm" color="gray.500" className="inter">
+        <Text fontSize="sm" color="gray.500" fontFamily="var(--font-sans)">
           Noch keine Dateien — oben auf &bdquo;Datei hinzufügen&ldquo; klicken.
         </Text>
       ) : (
@@ -255,11 +255,11 @@ export function AttachmentManager({ courseId, moduleId, videoId }: AttachmentMan
                   <FileDown size={18} />
                 </Box>
                 <Box minW={0}>
-                  <Text className="inter" fontSize="sm" noOfLines={2} color="gray.100">
+                  <Text fontFamily="var(--font-sans)" fontSize="sm" noOfLines={2} color="gray.100">
                     {a.filename}
                   </Text>
                   {a.size_bytes ? (
-                    <Text fontSize="xs" color="gray.500" className="inter">
+                    <Text fontSize="xs" color="gray.500" fontFamily="var(--font-sans)">
                       {(a.size_bytes / 1024 / 1024).toFixed(2)} MB
                     </Text>
                   ) : null}
@@ -276,8 +276,8 @@ export function AttachmentManager({ courseId, moduleId, videoId }: AttachmentMan
                   />
                   <Text
                     fontSize="xs"
-                    className="inter-semibold"
-                    color={a.is_free ? "var(--color-accent-gold)" : "gray.500"}
+                    fontFamily="var(--font-sans)" fontWeight={600}
+                    color={a.is_free ? "var(--leaf)" : "gray.500"}
                     textTransform="uppercase"
                     letterSpacing="0.06em"
                   >
@@ -302,7 +302,7 @@ export function AttachmentManager({ courseId, moduleId, videoId }: AttachmentMan
       )}
 
       {!busy && status ? (
-        <Text fontSize="sm" color={isError ? "red.300" : "green.300"} className="inter">
+        <Text fontSize="sm" color={isError ? "red.300" : "green.300"} fontFamily="var(--font-sans)">
           {status}
         </Text>
       ) : null}
