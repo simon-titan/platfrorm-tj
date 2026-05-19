@@ -1,5 +1,6 @@
 import { Grid, GridItem } from "@chakra-ui/react";
 import { redirect } from "next/navigation";
+import { BookingSuccessToast } from "@/components/platform/BookingSuccessToast";
 import { DiscordBanner } from "@/components/platform/DiscordBanner";
 import { DashboardAppointmentCard, type Step2AppointmentData } from "@/components/platform/DashboardAppointmentCard";
 import { InsightBanner } from "@/components/platform/InsightBanner";
@@ -33,7 +34,15 @@ import {
 import { createClient } from "@/lib/supabase/server";
 import { calculateStreak, maxPlausibleStreakDays, sanitizeStreakValue } from "@/lib/streak";
 
-export default async function DashboardPage() {
+export const dynamic = "force-dynamic";
+
+export default async function DashboardPage({
+  searchParams,
+}: {
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
+}) {
+  const params = await searchParams;
+  const showBookingSuccess = params.booking_success === "1";
   const { user, profile } = await getCurrentUserAndProfile();
   if (!user || !profile) {
     redirect("/einsteig");
@@ -42,7 +51,7 @@ export default async function DashboardPage() {
   const userId = user.id;
   const profileAny = profile as Record<string, unknown>;
   const showInsightBanner =
-    profileAny.application_status === "approved" &&
+    String(profileAny.application_status) === "approved" &&
     (profileAny.membership_tier === "free" || !profileAny.is_paid) &&
     profileAny.step2_application_status == null;
 
@@ -155,6 +164,8 @@ export default async function DashboardPage() {
 
   return (
     <Grid gap={{ base: 6, md: 8 }} templateColumns={{ base: "1fr", lg: "1fr 1fr" }}>
+      {showBookingSuccess && <BookingSuccessToast />}
+
       <GridItem colSpan={{ base: 1, lg: 2 }}>
         <WelcomeCard
           displayName={displayName}
